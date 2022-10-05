@@ -1,4 +1,4 @@
-import { EditorContent, useEditor } from "@tiptap/react";
+import { EditorContent, useEditor, BubbleMenu } from "@tiptap/react";
 import StarterKit from "@tiptap/starter-kit";
 import "./styles.scss";
 import MenuBar from "./components/MenuBar";
@@ -11,7 +11,11 @@ const TipTap = () => {
 
   return (
     <div>
-      <MenuBar editor={editor} />
+      {editor && (
+        <BubbleMenu editor={editor} tippyOptions={{ duration: 100 }}>
+          <MenuBar editor={editor} />
+        </BubbleMenu>
+      )}
       <EditorContent editor={editor} />
     </div>
   );

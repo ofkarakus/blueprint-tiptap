@@ -8,7 +8,7 @@ const MenuBar = ({ editor }: { editor: Editor | null }) => {
   }
 
   return (
-    <div>
+    <>
       {toolArr.map((tool) => (
         <Button
           onClick={getProp(editor)[tool.name].onClick}
@@ -18,7 +18,7 @@ const MenuBar = ({ editor }: { editor: Editor | null }) => {
           {<tool.icon />}
         </Button>
       ))}
-    </div>
+    </>
   );
 };
 

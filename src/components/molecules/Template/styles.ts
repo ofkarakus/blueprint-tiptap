@@ -6,5 +6,4 @@ export const Wrapper = styled.div`
   border: 1px solid;
   border-color: lightgray;
   background-color: white;
-  resize: both;
 `;
