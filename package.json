@@ -32,7 +32,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "svgr": "npx @svgr/cli --out-dir ./src/components/icons --ignore-existing --jsx-runtime automatic --typescript --icon 20px -- ./public/svg-icons"
+    "svgr": "npx @svgr/cli --out-dir ./src/icons --ignore-existing --jsx-runtime automatic --typescript --icon 20px -- ./public/svg-icons"
   },
   "eslintConfig": {
     "extends": [

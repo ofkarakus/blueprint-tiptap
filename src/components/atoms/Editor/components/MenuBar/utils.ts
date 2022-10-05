@@ -20,7 +20,7 @@ import {
   TextNewLine,
   TextStrikethrough,
   Undo,
-} from "../../../../icons";
+} from "../../../../../icons";
 
 export const getProp = (
   editor: Editor

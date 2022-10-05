@@ -11,7 +11,7 @@ import {
   Square,
   StickyNote,
   TextAlignJustifyBold,
-} from "../../icons";
+} from "../../../icons";
 
 export const toolbarArr = [
   <LetterATextVariant />,
