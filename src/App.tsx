@@ -1,7 +1,7 @@
 import * as e from "./App.styles";
 import Toolbar from "./components/molecules/Toolbar";
 import Body from "./components/organisms/Body";
-import { GlobalStateProvider } from "./components/atoms/Store/components/Global";
+import { GlobalStateProvider } from "./components/atoms/Store/Global";
 
 function App() {
   return (
