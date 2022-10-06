@@ -1,8 +1,8 @@
 import * as e from "./styles";
-import * as types from "./types";
+import { DivProps } from "../../../../../utils/types";
 
-const Button = ({ children }: types.Props) => {
-  return <e.Wrapper>{children}</e.Wrapper>;
+const Button = (props: DivProps) => {
+  return <e.Wrapper {...props}></e.Wrapper>;
 };
 
 export default Button;
