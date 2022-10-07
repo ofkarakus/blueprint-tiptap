@@ -1,8 +1,9 @@
 import styled from "styled-components";
+import { templateHeight, templateWidth } from "../../../utils/constants";
 
-export const Wrapper = styled.div`
-  height: 842pt;
-  width: 595pt;
+export const Wrapper = styled.svg`
+  height: ${templateHeight}px;
+  width: ${templateWidth}px;
   border: 1px solid;
   border-color: lightgray;
   background-color: white;
