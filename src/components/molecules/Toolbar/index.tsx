@@ -3,18 +3,23 @@ import { toolbarArr } from "./utils";
 import * as d3 from "d3";
 
 import Button from "./components/Button";
-
-const data = [{ x: 120, width: 100, height: 100 }];
+import { textBlockSizes } from "../../../utils/constants";
 
 const Toolbar = () => {
   const onClickLetterA = () => {
     const textBlock = d3
       .select("#editor-template")
       .append("rect")
-      .data(data)
+      .data(textBlockSizes)
       .attr("x", (d) => d.x)
+      .attr("y", (d) => d.y)
       .attr("width", (d) => d.width)
-      .attr("height", (d) => d.height);
+      .attr("height", (d) => d.height)
+      .attr("stroke", "darkgray")
+      .attr("stroke-width", 1)
+      .attr("stroke-dasharray", "3,3")
+      .attr("fill", "transparent")
+      .attr("pointer-events", "none");
   };
 
   return (
