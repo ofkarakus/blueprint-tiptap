@@ -3,18 +3,18 @@ import { toolbarArr } from "./utils";
 import * as d3 from "d3";
 
 import Button from "./components/Button";
-import { useTrackedState } from "../../atoms/Store/Global";
+
+const data = [{ x: 120, width: 100, height: 100 }];
 
 const Toolbar = () => {
-  const state = useTrackedState();
-
   const onClickLetterA = () => {
     const textBlock = d3
-      .select(state.templateDiv)
-      .append("svg")
-      .attr("width", 300)
-      .attr("height", 200)
-      .style("border", "1px dashed darkgray");
+      .select("#editor-template")
+      .append("rect")
+      .data(data)
+      .attr("x", (d) => d.x)
+      .attr("width", (d) => d.width)
+      .attr("height", (d) => d.height);
   };
 
   return (
