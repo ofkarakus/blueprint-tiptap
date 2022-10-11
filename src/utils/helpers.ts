@@ -1,7 +1,7 @@
 import * as d3 from "d3";
 import { D3Selection, Size } from "./types";
 
-export const createGroup = (template: Size, className: string) =>
+export const createGroup = (template: Size, id?: string, className?: string) =>
   d3
     .select("#editor-template")
     .append("g")
@@ -9,9 +9,15 @@ export const createGroup = (template: Size, className: string) =>
       "transform",
       `translate(${template.width / 2}, ${template.height / 2})`
     )
-    .attr("class", className);
+    .attr("id", id ? id : null)
+    .attr("class", className ? className : null);
 
-export const createBlock = (group: D3Selection, block: Size) =>
+export const createBlock = (
+  group: D3Selection,
+  block: Size,
+  id?: string,
+  className?: string
+) =>
   group
     .append("rect")
     .attr("width", block.width)
@@ -21,7 +27,9 @@ export const createBlock = (group: D3Selection, block: Size) =>
     .attr("stroke", "darkgray")
     .attr("stroke-width", 1)
     .attr("stroke-dasharray", "3,3")
-    .attr("fill", "transparent");
+    .attr("fill", "transparent")
+    .attr("id", id ? id : null)
+    .attr("class", className ? className : null);
 
 export const addHandler = (group: D3Selection, block: Size) =>
   group
