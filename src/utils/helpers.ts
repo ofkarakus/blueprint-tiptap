@@ -31,49 +31,60 @@ export const addHandler = (group: D3Selection, block: Size) =>
     .append("circle")
     .attr("cx", (d) => d.x)
     .attr("cy", (d) => d.y)
-    .attr("pos", (d) => d.pos)
+    .attr("id", (d) => d.id)
+    .attr("class", (d) => d.class)
     .attr("r", 3)
     .attr("fill", "blue");
+
+export const removeHandler = () => d3.selectAll(".handler").remove();
 
 export const getHandlerPositionArr = (block: Size) => {
   return [
     {
-      pos: "top-left",
+      id: "top-left-handler",
+      class: "handler",
       x: -block.width / 2,
       y: -block.height / 2,
     },
     {
-      pos: "top-middle",
+      id: "top-middle-handler",
+      class: "handler",
       x: 0,
       y: -block.height / 2,
     },
     {
-      pos: "top-right",
+      id: "top-right-handler",
+      class: "handler",
       x: block.width / 2,
       y: -block.height / 2,
     },
     {
-      pos: "middle-right",
+      id: "middle-right-handler",
+      class: "handler",
       x: block.width / 2,
       y: 0,
     },
     {
-      pos: "bottom-right",
+      id: "bottom-right-handler",
+      class: "handler",
       x: block.width / 2,
       y: block.height / 2,
     },
     {
-      pos: "bottom-middle",
+      id: "bottom-middle-handler",
+      class: "handler",
       x: 0,
       y: block.height / 2,
     },
     {
-      pos: "bottom-left",
+      id: "bottom-left-handler",
+      class: "handler",
       x: -block.width / 2,
       y: block.height / 2,
     },
     {
-      pos: "middle-left",
+      id: "middle-left-handler",
+      class: "handler",
       x: -block.width / 2,
       y: 0,
     },
