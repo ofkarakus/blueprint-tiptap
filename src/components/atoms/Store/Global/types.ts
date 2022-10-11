@@ -1,3 +1,3 @@
 export type InitialState = {
-  templateDiv: HTMLDivElement | null;
+  groupArr: Array<{}>;
 };
