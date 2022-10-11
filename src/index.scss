@@ -1,0 +1,28 @@
+body {
+  margin: 0;
+}
+
+#template > svg {
+  background-color: aliceblue;
+}
+
+#top-left-handler,
+#bottom-right-handler {
+  cursor: nwse-resize;
+}
+#top-middle-handler,
+#bottom-middle-handler {
+  cursor: row-resize;
+}
+#top-right-handler,
+#bottom-left-handler {
+  cursor: nesw-resize;
+}
+#middle-right-handler,
+#middle-left-handler {
+  cursor: col-resize;
+}
+
+rect {
+  cursor: move;
+}
