@@ -2458,6 +2458,13 @@
   dependencies:
     "@types/react" "*"
 
+"@types/react-rnd@^8.0.0":
+  version "8.0.0"
+  resolved "https://registry.yarnpkg.com/@types/react-rnd/-/react-rnd-8.0.0.tgz#aec90d5398c83b1c809a5b61a228ae47ac150136"
+  integrity sha512-k/exWCXCY3CDqyJUJeny2SgsfWslWh6XU32/S0YJH6p4E8q2FK89WAPzdG0AECA2k95UC75YKErDRQ/IyvDz6g==
+  dependencies:
+    react-rnd "*"
+
 "@types/react@*", "@types/react@^18.0.21":
   version "18.0.21"
   resolved "https://registry.yarnpkg.com/@types/react/-/react-18.0.21.tgz#b8209e9626bb00a34c76f55482697edd2b43cc67"
@@ -8176,7 +8183,7 @@ react-refresh@^0.11.0:
   resolved "https://registry.yarnpkg.com/react-refresh/-/react-refresh-0.11.0.tgz#77198b944733f0f1f1a90e791de4541f9f074046"
   integrity sha512-F27qZr8uUqwhWZboondsPx8tnC3Ct3SxZA3V5WyEvujRyyNv0VYPhoBg1gZ8/MV5tubQp76Trw8lTv9hzRBa+A==
 
-react-rnd@^10.3.7:
+react-rnd@*, react-rnd@^10.3.7:
   version "10.3.7"
   resolved "https://registry.yarnpkg.com/react-rnd/-/react-rnd-10.3.7.tgz#037ce277e6c5e682989b51278e44a6ba299990af"
   integrity sha512-fYifqMI6xWzzajoRbxNNH2xpKagJT5o1zAY3a4eh4gKk+Eyy/9LGoBKA3eVX0yNOeD7JB+wznps4YmnU38v6Yw==
