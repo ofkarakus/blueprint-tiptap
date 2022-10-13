@@ -1,5 +1,10 @@
 /* Basic editor styles */
 .ProseMirror {
+  &:focus-visible {
+    outline: none;
+  }
+
+  cursor: text;
   > * + * {
     margin-top: 0.75em;
   }

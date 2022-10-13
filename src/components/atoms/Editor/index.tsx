@@ -6,7 +6,7 @@ import MenuBar from "./components/MenuBar";
 const TipTap = () => {
   const editor = useEditor({
     extensions: [StarterKit],
-    content: ``,
+    content: `Text Block`,
   });
 
   return (
@@ -16,7 +16,7 @@ const TipTap = () => {
           <MenuBar editor={editor} />
         </BubbleMenu>
       )}
-      <EditorContent editor={editor} />
+      <EditorContent editor={editor} onMouseDown={(e) => e.stopPropagation()} />
     </div>
   );
 };

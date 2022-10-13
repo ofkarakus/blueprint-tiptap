@@ -4,6 +4,7 @@ import { toolbarArr } from "./utils";
 import Button from "./components/Button";
 import { useUpdate } from "../../atoms/Store/Global";
 import Resizable from "../../atoms/Resizable";
+import TipTap from "../../atoms/Editor";
 
 const Toolbar = () => {
   const setState = useUpdate();
@@ -11,7 +12,11 @@ const Toolbar = () => {
   const addTextBlock = () =>
     setState((prev) => ({
       ...prev,
-      textBlocks: prev.textBlocks.concat(<Resizable type="text"><span>merhaba</span></Resizable>),
+      textBlocks: prev.textBlocks.concat(
+        <Resizable type="text">
+          <TipTap />
+        </Resizable>
+      ),
     }));
 
   return (
