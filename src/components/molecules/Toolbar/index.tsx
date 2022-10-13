@@ -11,7 +11,7 @@ const Toolbar = () => {
   const addTextBlock = () =>
     setState((prev) => ({
       ...prev,
-      textBlocks: prev.textBlocks.concat(<Resizable type="text" />),
+      textBlocks: prev.textBlocks.concat(<Resizable type="text"><span>merhaba</span></Resizable>),
     }));
 
   return (

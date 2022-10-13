@@ -1,3 +1,5 @@
+import { template, textBlock } from "../../../utils/constants";
+
 export const textBlockStyle = {
   display: "flex",
   alignItems: "center",
@@ -7,8 +9,8 @@ export const textBlockStyle = {
 };
 
 export const textBlockDefault = {
-  x: 0,
-  y: 0,
-  width: 300,
-  height: 200,
+  x: template.width / 2 - textBlock.width / 2,
+  y: template.height / 2 - textBlock.height / 2,
+  width: textBlock.width,
+  height: textBlock.height,
 };
