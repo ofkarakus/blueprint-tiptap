@@ -8,4 +8,5 @@ export const {
   Provider: GlobalStateProvider,
   useTracked: useGlobalState,
   useTrackedState,
+  useUpdate,
 } = createContainer(useMyState);

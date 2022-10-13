@@ -2,21 +2,17 @@ import * as e from "./styles";
 import { toolbarArr } from "./utils";
 
 import Button from "./components/Button";
-import {
-  createGroup,
-  createBlock,
-  addHandler,
-  removeHandler,
-} from "../../../utils/helpers";
-import { template, textBlock as size } from "../../../utils/constants";
+import { useUpdate } from "../../atoms/Store/Global";
+import Resizable from "../../atoms/Resizable";
 
 const Toolbar = () => {
-  const addTextBlock = () => {
-    const shapesGroup = createGroup(template, "shapes");
-    const handlersGroup = createGroup(template, "handlers");
-    createBlock(shapesGroup, size);
-    addHandler(shapesGroup, size);
-  };
+  const setState = useUpdate();
+
+  const addTextBlock = () =>
+    setState((prev) => ({
+      ...prev,
+      textBlocks: prev.textBlocks.concat(<Resizable type="text" />),
+    }));
 
   return (
     <e.Wrapper>
@@ -26,13 +22,7 @@ const Toolbar = () => {
             switch (tool.name) {
               case "letterA":
                 return (
-                  <Button key={tool.name} onClick={addTextBlock}>
-                    {<tool.icon />}
-                  </Button>
-                );
-              case "square":
-                return (
-                  <Button key={tool.name} onClick={() => removeHandler()}>
+                  <Button key={tool.name} onClick={() => addTextBlock()}>
                     {<tool.icon />}
                   </Button>
                 );
