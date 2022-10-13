@@ -29,7 +29,11 @@ export const createBlock = (
     .attr("stroke-dasharray", "3,3")
     .attr("fill", "transparent")
     .attr("id", id ? id : null)
-    .attr("class", className ? className : null);
+    .attr("class", className ? className : null)
+    .on("click", (e) => {
+      addHandler(d3.select("#handlers"), block);
+      e.stopPropagation();
+    });
 
 export const addHandler = (group: D3Selection, block: Size) =>
   group
