@@ -6,7 +6,8 @@ export type InitialState = {
     isVisible: boolean;
     points: Points;
   };
-  counter: number;
+  blockIdCounter: number;
+  selectedBlockId: number;
 };
 
 export type Points = {
@@ -18,6 +19,6 @@ export type Block = { id: number; block: ReactNode };
 
 export type Action =
   | { type: "ADD_BLOCK"; payload: ReactNode }
-  | { type: "REMOVE_BLOCK" }
-  | { type: "OPEN_CONTEXT_MENU"; payload: Points }
+  | { type: "REMOVE_BLOCK"; payload: number }
+  | { type: "OPEN_CONTEXT_MENU"; payload: { points: Points; blockId: number } }
   | { type: "CLOSE_CONTEXT_MENU" };

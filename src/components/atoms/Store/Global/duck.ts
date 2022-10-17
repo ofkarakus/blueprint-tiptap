@@ -10,14 +10,17 @@ export const initialState: types.InitialState = {
       y: 0,
     },
   },
-  counter: 1,
+  blockIdCounter: 1,
+  selectedBlockId: 0,
 };
 
 export const actions = (dispatch: React.Dispatch<types.Action>) => ({
   addTextBlock: (textBlock: React.ReactNode) =>
     dispatch({ type: "ADD_BLOCK", payload: textBlock }),
-  openContextMenu: (points: types.Points) =>
-    dispatch({ type: "OPEN_CONTEXT_MENU", payload: points }),
+  removeBlock: (blockId: number) =>
+    dispatch({ type: "REMOVE_BLOCK", payload: blockId }),
+  openContextMenu: (points: types.Points, blockId: number) =>
+    dispatch({ type: "OPEN_CONTEXT_MENU", payload: { points, blockId } }),
   closeContextMenu: () => dispatch({ type: "CLOSE_CONTEXT_MENU" }),
 });
 
@@ -31,14 +34,14 @@ export function reducer(
         ...state,
         textBlocks: [
           ...state.textBlocks,
-          { id: state.counter, block: action.payload },
+          { id: state.blockIdCounter, block: action.payload },
         ],
-        counter: state.counter + 1,
+        blockIdCounter: state.blockIdCounter + 1,
       };
     case "REMOVE_BLOCK":
       return {
         ...state,
-        textBlocks: [...state.textBlocks],
+        textBlocks: state.textBlocks.filter((el) => el.id !== action.payload),
       };
     case "OPEN_CONTEXT_MENU":
       return {
@@ -46,10 +49,11 @@ export function reducer(
         contextMenu: {
           isVisible: true,
           points: {
-            x: action.payload.x,
-            y: action.payload.y,
+            x: action.payload.points.x,
+            y: action.payload.points.y,
           },
         },
+        selectedBlockId: action.payload.blockId,
       };
     case "CLOSE_CONTEXT_MENU":
       return {

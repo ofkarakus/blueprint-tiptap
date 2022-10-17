@@ -4,10 +4,11 @@ import { toolbarArr } from "./utils";
 import Button from "./components/Button";
 import Resizable from "../../atoms/Resizable";
 import TipTap from "../../atoms/Editor";
-import { useActions } from "../../../utils/hooks";
+import { useActions, useStore } from "../../../utils/hooks";
 
 const Toolbar = () => {
   const { addTextBlock, openContextMenu } = useActions();
+  const { blockIdCounter } = useStore()
 
   const onLetterAClick = () =>
     addTextBlock(
@@ -15,9 +16,10 @@ const Toolbar = () => {
         type="text"
         onContextMenu={(e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
           e.preventDefault();
-          openContextMenu({ x: e.pageX, y: e.pageY });
+          openContextMenu({ x: e.pageX, y: e.pageY }, blockIdCounter);
           return false;
         }}
+        key={blockIdCounter}
       >
         <TipTap />
       </Resizable>
