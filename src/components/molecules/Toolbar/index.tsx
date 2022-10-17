@@ -9,15 +9,32 @@ import TipTap from "../../atoms/Editor";
 const Toolbar = () => {
   const setState = useUpdate();
 
-  const addTextBlock = () =>
+  const addTextBlock = () => {
     setState((prev) => ({
       ...prev,
       textBlocks: prev.textBlocks.concat(
-        <Resizable type="text">
+        <Resizable
+          type="text"
+          onContextMenu={(e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+            e.preventDefault();
+            setState((prev) => ({
+              ...prev,
+              contextMenu: {
+                isVisible: true,
+                points: {
+                  x: e.pageX,
+                  y: e.pageY,
+                },
+              },
+            }));
+            return false;
+          }}
+        >
           <TipTap />
         </Resizable>
       ),
     }));
+  };
 
   return (
     <e.Wrapper>
@@ -26,6 +43,19 @@ const Toolbar = () => {
           toolbarArr.map((tool, index) => {
             switch (tool.name) {
               case "letterA":
+                return (
+                  <Button
+                    key={tool.name}
+                    onClick={() => addTextBlock()}
+                    onContextMenu={(e) => {
+                      e.preventDefault();
+                      return false;
+                    }}
+                  >
+                    {<tool.icon />}
+                  </Button>
+                );
+              case "image":
                 return (
                   <Button key={tool.name} onClick={() => addTextBlock()}>
                     {<tool.icon />}
