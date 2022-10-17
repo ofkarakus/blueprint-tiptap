@@ -10,6 +10,7 @@ export const initialState: types.InitialState = {
       y: 0,
     },
   },
+  counter: 1,
 };
 
 export const actions = (dispatch: React.Dispatch<types.Action>) => ({
@@ -28,7 +29,16 @@ export function reducer(
     case "ADD_BLOCK":
       return {
         ...state,
-        textBlocks: [...state.textBlocks, action.payload],
+        textBlocks: [
+          ...state.textBlocks,
+          { id: state.counter, block: action.payload },
+        ],
+        counter: state.counter + 1,
+      };
+    case "REMOVE_BLOCK":
+      return {
+        ...state,
+        textBlocks: [...state.textBlocks],
       };
     case "OPEN_CONTEXT_MENU":
       return {

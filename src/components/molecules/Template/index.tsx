@@ -8,11 +8,11 @@ const Template = () => {
   return (
     <e.Background>
       <e.Template id="editor-template">
-        {textBlocks}
-        {contextMenu.isVisible && (
-          <ContextMenu top={contextMenu.points.y} left={contextMenu.points.x} />
-        )}
+        {textBlocks.map((el) => el.block)}
       </e.Template>
+      {contextMenu.isVisible && (
+        <ContextMenu top={contextMenu.points.y} left={contextMenu.points.x} />
+      )}
     </e.Background>
   );
 };
