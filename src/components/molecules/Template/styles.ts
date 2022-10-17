@@ -7,6 +7,7 @@ export const Template = styled.div`
   border: 1px solid;
   border-color: lightgray;
   background-color: white;
+  position: relative;
 `;
 
 export const Background = styled.div`
