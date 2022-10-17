@@ -2,12 +2,11 @@ import styled, { css } from "styled-components";
 import { ContextMenuProps } from "./types";
 
 export const Wrapper = styled.div<ContextMenuProps>`
-  border-radius: 4px;
   box-sizing: border-box;
   position: absolute;
-  width: 200px;
-  background-color: blueviolet;
-  box-shadow: 0px 1px 8px 0px rgba(0, 0, 0, 0.1);
+  width: 150px;
+  background-color: white;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.25);
   ${({ top, left }) => css`
     top: ${top}px;
     left: ${left}px;
@@ -16,14 +15,18 @@ export const Wrapper = styled.div<ContextMenuProps>`
     list-style-type: none;
     box-sizing: border-box;
     margin: 0;
-    padding: 10px;
+    padding: 0px;
   }
   ul li {
-    padding: 18px 12px;
-    border-radius: 4px;
+    padding: 5px 5px 5px 8px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    font-size: 13px;
+  }
+  ul li:last-of-type {
+    border-bottom: 0px;
   }
   ul li:hover {
     cursor: pointer;
-    background-color: #4b4b4b;
+    background-color: rgba(0, 0, 0, 0.05);
   }
 `;
