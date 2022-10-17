@@ -1,10 +1,20 @@
+import ContextMenu from "../../atoms/ContextMenu";
 import { useTrackedState } from "../../atoms/Store/Global";
 import * as e from "./styles";
 
 const Template = () => {
-  const state = useTrackedState();
+  const { contextMenu, textBlocks } = useTrackedState();
 
-  return <e.Wrapper id="editor-template">{state.textBlocks}</e.Wrapper>;
+  return (
+    <e.Background>
+      <e.Template id="editor-template">
+        {textBlocks}
+        {contextMenu.isVisible && (
+          <ContextMenu top={contextMenu.points.y} left={contextMenu.points.x} />
+        )}
+      </e.Template>
+    </e.Background>
+  );
 };
 
 export default Template;

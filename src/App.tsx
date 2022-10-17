@@ -1,15 +1,10 @@
-import * as e from "./App.styles";
-import Toolbar from "./components/molecules/Toolbar";
-import Body from "./components/organisms/Body";
 import { GlobalStateProvider } from "./components/atoms/Store/Global";
+import Body from "./components/organisms/Body";
 
 function App() {
   return (
     <GlobalStateProvider>
-      <e.Wrapper>
-        <Toolbar />
-        <Body />
-      </e.Wrapper>
+      <Body />
     </GlobalStateProvider>
   );
 }
