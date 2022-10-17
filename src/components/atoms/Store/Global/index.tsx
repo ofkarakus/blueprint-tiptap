@@ -1,12 +1,6 @@
 import * as duck from "./duck";
-import { useState } from "react";
+import { useReducer } from "react";
 import { createContainer } from "react-tracked";
 
-const useMyState = () => useState(duck.initialState);
-
-export const {
-  Provider: GlobalStateProvider,
-  useTracked: useGlobalState,
-  useTrackedState,
-  useUpdate,
-} = createContainer(useMyState);
+export const { Provider: GlobalStateProvider, useTracked: useGlobalState } =
+  createContainer(() => useReducer(duck.reducer, duck.initialState));

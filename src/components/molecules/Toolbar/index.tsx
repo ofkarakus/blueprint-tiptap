@@ -2,39 +2,26 @@ import * as e from "./styles";
 import { toolbarArr } from "./utils";
 
 import Button from "./components/Button";
-import { useUpdate } from "../../atoms/Store/Global";
 import Resizable from "../../atoms/Resizable";
 import TipTap from "../../atoms/Editor";
+import { useActions } from "../../../utils/hooks";
 
 const Toolbar = () => {
-  const setState = useUpdate();
+  const { addTextBlock, openContextMenu } = useActions();
 
-  const addTextBlock = () => {
-    setState((prev) => ({
-      ...prev,
-      textBlocks: prev.textBlocks.concat(
-        <Resizable
-          type="text"
-          onContextMenu={(e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
-            e.preventDefault();
-            setState((prev) => ({
-              ...prev,
-              contextMenu: {
-                isVisible: true,
-                points: {
-                  x: e.pageX,
-                  y: e.pageY,
-                },
-              },
-            }));
-            return false;
-          }}
-        >
-          <TipTap />
-        </Resizable>
-      ),
-    }));
-  };
+  const onLetterAClick = () =>
+    addTextBlock(
+      <Resizable
+        type="text"
+        onContextMenu={(e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+          e.preventDefault();
+          openContextMenu({ x: e.pageX, y: e.pageY });
+          return false;
+        }}
+      >
+        <TipTap />
+      </Resizable>
+    );
 
   return (
     <e.Wrapper>
@@ -46,7 +33,7 @@ const Toolbar = () => {
                 return (
                   <Button
                     key={tool.name}
-                    onClick={() => addTextBlock()}
+                    onClick={onLetterAClick}
                     onContextMenu={(e) => {
                       e.preventDefault();
                       return false;
@@ -56,11 +43,7 @@ const Toolbar = () => {
                   </Button>
                 );
               case "image":
-                return (
-                  <Button key={tool.name} onClick={() => addTextBlock()}>
-                    {<tool.icon />}
-                  </Button>
-                );
+                return <Button key={tool.name}>{<tool.icon />}</Button>;
               default:
                 return <Button key={tool.name}>{<tool.icon />}</Button>;
             }

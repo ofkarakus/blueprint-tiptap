@@ -1,9 +1,9 @@
+import { useStore } from "../../../utils/hooks";
 import ContextMenu from "../../atoms/ContextMenu";
-import { useTrackedState } from "../../atoms/Store/Global";
 import * as e from "./styles";
 
 const Template = () => {
-  const { contextMenu, textBlocks } = useTrackedState();
+  const { contextMenu, textBlocks } = useStore();
 
   return (
     <e.Background>
