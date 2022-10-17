@@ -17,6 +17,7 @@ export const actions = (dispatch: React.Dispatch<types.Action>) => ({
     dispatch({ type: "ADD_BLOCK", payload: textBlock }),
   openContextMenu: (points: types.Points) =>
     dispatch({ type: "OPEN_CONTEXT_MENU", payload: points }),
+  closeContextMenu: () => dispatch({ type: "CLOSE_CONTEXT_MENU" }),
 });
 
 export function reducer(
@@ -38,6 +39,14 @@ export function reducer(
             x: action.payload.x,
             y: action.payload.y,
           },
+        },
+      };
+    case "CLOSE_CONTEXT_MENU":
+      return {
+        ...state,
+        contextMenu: {
+          ...state.contextMenu,
+          isVisible: false,
         },
       };
     default:

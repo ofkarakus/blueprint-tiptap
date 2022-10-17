@@ -15,4 +15,5 @@ export type Points = {
 
 export type Action =
   | { type: "ADD_BLOCK"; payload: ReactNode }
-  | { type: "OPEN_CONTEXT_MENU"; payload: Points };
+  | { type: "OPEN_CONTEXT_MENU"; payload: Points }
+  | { type: "CLOSE_CONTEXT_MENU" };
