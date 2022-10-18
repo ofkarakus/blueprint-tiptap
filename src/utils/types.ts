@@ -8,3 +8,5 @@ export interface DivProps extends React.HTMLAttributes<HTMLDivElement> {
 export type D3Selection = d3.Selection<d3.BaseType, unknown, HTMLElement, any>;
 
 export type Size = { width: number; height: number };
+
+export type DivMouseEvent = React.MouseEvent<HTMLDivElement, MouseEvent>;

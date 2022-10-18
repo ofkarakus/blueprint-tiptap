@@ -12,16 +12,25 @@ export const initialState: types.InitialState = {
   },
   blockIdCounter: 1,
   selectedBlockId: 0,
+  focusedBlockId: 0,
 };
 
 export const actions = (dispatch: React.Dispatch<types.Action>) => ({
-  addTextBlock: (textBlock: React.ReactNode) =>
-    dispatch({ type: "ADD_BLOCK", payload: textBlock }),
-  removeBlock: (blockId: number) =>
-    dispatch({ type: "REMOVE_BLOCK", payload: blockId }),
-  openContextMenu: (points: types.Points, blockId: number) =>
-    dispatch({ type: "OPEN_CONTEXT_MENU", payload: { points, blockId } }),
-  closeContextMenu: () => dispatch({ type: "CLOSE_CONTEXT_MENU" }),
+  addTextBlock: (textBlock: React.ReactNode) => {
+    dispatch({ type: "ADD_BLOCK", payload: textBlock });
+  },
+  removeBlock: (blockId: number) => {
+    dispatch({ type: "REMOVE_BLOCK", payload: blockId });
+  },
+  openContextMenu: (points: types.Points, blockId: number) => {
+    dispatch({ type: "OPEN_CONTEXT_MENU", payload: { points, blockId } });
+  },
+  closeContextMenu: () => {
+    dispatch({ type: "CLOSE_CONTEXT_MENU" });
+  },
+  setFocusedBlockId: (blockId: number) => {
+    dispatch({ type: "SET_FOCUSED_BLOCK_ID", payload: blockId });
+  },
 });
 
 export function reducer(
@@ -62,6 +71,11 @@ export function reducer(
           ...state.contextMenu,
           isVisible: false,
         },
+      };
+    case "SET_FOCUSED_BLOCK_ID":
+      return {
+        ...state,
+        focusedBlockId: action.payload,
       };
     default:
       return state;
