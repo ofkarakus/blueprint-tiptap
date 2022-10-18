@@ -1,4 +1,4 @@
-import { template, textBlock } from "../../../utils/constants";
+import { template, textBlock } from "utils/constants";
 
 export const textBlockStyle = {
   display: "flex",

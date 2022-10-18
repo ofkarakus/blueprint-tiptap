@@ -1,4 +1,4 @@
-import { useActions, useStore } from "../../../utils/hooks";
+import { useActions, useStore } from "utils/hooks";
 import * as e from "./styles";
 import { ContextMenuProps } from "./types";
 

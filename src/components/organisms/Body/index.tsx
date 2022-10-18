@@ -1,7 +1,7 @@
 import * as e from "./styles";
-import Toolbar from "../../molecules/Toolbar";
-import Template from "../../molecules/Template";
-import { useActions } from "../../../utils/hooks";
+import Toolbar from "components/molecules/Toolbar";
+import Template from "components/molecules/Template";
+import { useActions } from "utils/hooks";
 import { useEffect } from "react";
 
 const Body = () => {

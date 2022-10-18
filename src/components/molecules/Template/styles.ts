@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { template } from "../../../utils/constants";
+import { template } from "utils/constants";
 
 export const Template = styled.div`
   height: ${template.height}px;

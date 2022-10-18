@@ -1,5 +1,5 @@
-import { useStore } from "../../../utils/hooks";
-import ContextMenu from "../../atoms/ContextMenu";
+import { useStore } from "utils/hooks";
+import ContextMenu from "components/atoms/ContextMenu";
 import * as e from "./styles";
 
 const Template = () => {
