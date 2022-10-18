@@ -1,15 +1,15 @@
-import { Rnd } from "react-rnd";
 import { Props } from "react-rnd";
 import { textBlockStyle, textBlockDefault } from "./utils";
+import * as e from "./styles";
 
 const Resizable = (props: Props & { type?: string }) => {
   switch (props.type) {
     case "text":
       return (
-        <Rnd default={textBlockDefault} style={textBlockStyle} {...props}></Rnd>
+        <e.StyledRnd default={textBlockDefault} style={textBlockStyle} {...props}></e.StyledRnd>
       );
     default:
-      return <Rnd {...props}></Rnd>;
+      return <e.StyledRnd {...props}></e.StyledRnd>;
   }
 };
 
