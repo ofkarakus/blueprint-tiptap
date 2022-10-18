@@ -5,20 +5,22 @@ import Button from "./components/Button";
 import Resizable from "components/atoms/Resizable";
 import TipTap from "components/atoms/Editor";
 import { useActions, useStore } from "utils/hooks";
+import { DivMouseEvent } from "utils/types";
 
 const Toolbar = () => {
-  const { addTextBlock, openContextMenu } = useActions();
+  const { addTextBlock, openContextMenu, setFocusedBlockId } = useActions();
   const { blockIdCounter } = useStore()
 
   const onLetterAClick = () =>
     addTextBlock(
       <Resizable
         type="text"
-        onContextMenu={(e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+        onContextMenu={(e: DivMouseEvent) => {
           e.preventDefault();
           openContextMenu({ x: e.pageX, y: e.pageY }, blockIdCounter);
           return false;
         }}
+        onClick={() => setFocusedBlockId(blockIdCounter)}
         key={blockIdCounter}
       >
         <TipTap />
