@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { Rnd } from "react-rnd";
+import handler from "assets/images/handler.png";
 
 export const StyledRnd = styled(Rnd)`
   & > div:last-child {
@@ -15,7 +16,8 @@ export const StyledRnd = styled(Rnd)`
       align-items: center;
       justify-content: center;
       &::before {
-        content: "*";
+        content: url(${handler});
+        height: 17px;
       }
     }
   }
