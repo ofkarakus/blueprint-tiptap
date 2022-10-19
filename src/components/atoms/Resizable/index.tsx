@@ -9,10 +9,10 @@ const Resizable = (props: Props & { type?: string, id?: number }) => {
   switch (props.type) {
     case "text":
       return (
-        <e.StyledRnd default={textBlockDefault} style={textBlockStyle} isFocused={props.id === focusedBlockId} {...props}></e.StyledRnd>
+        <e.StyledRnd default={textBlockDefault} style={textBlockStyle} $isFocused={props.id === focusedBlockId} {...props} />
       );
     default:
-      return <e.StyledRnd {...props}></e.StyledRnd>;
+      return <e.StyledRnd {...props} />
   }
 };
 

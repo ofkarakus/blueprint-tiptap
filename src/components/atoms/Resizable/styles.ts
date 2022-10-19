@@ -4,8 +4,8 @@ import handler from "assets/images/handler.png";
 import { StyledRndProps } from "./types";
 
 export const StyledRnd = styled(Rnd)<StyledRndProps>`
-  ${({ isFocused }) =>
-    isFocused &&
+  ${({ $isFocused }) =>
+    $isFocused &&
     css`
       & > div:last-child {
         & > div:nth-child(1),
