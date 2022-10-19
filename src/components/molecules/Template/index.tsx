@@ -1,14 +1,15 @@
-import { useStore } from "utils/hooks";
+import { useActions, useStore } from "utils/hooks";
 import ContextMenu from "components/atoms/ContextMenu";
 import * as e from "./styles";
 import React from "react";
 
 const Template = () => {
   const { contextMenu, textBlocks } = useStore();
+  const { setFocusedBlockId } = useActions()
 
   return (
     <e.Background>
-      <e.Template id="editor-template">
+      <e.Template onClick={() => setFocusedBlockId(0)} id="editor-template">
         {textBlocks.map((el) => React.cloneElement(el.block, { id: el.id }))}
       </e.Template>
       {contextMenu.isVisible && (

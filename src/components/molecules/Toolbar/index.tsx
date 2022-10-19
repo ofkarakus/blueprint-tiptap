@@ -23,7 +23,7 @@ const Toolbar = () => {
           openContextMenu({ x: e.pageX, y: e.pageY }, blockIdCounter);
           return false;
         }}
-        onClick={focusOnBlock}
+        onClick={(e: DivMouseEvent) => { e.stopPropagation(); focusOnBlock() }}
         onDragStart={focusOnBlock}
         onResizeStart={focusOnBlock}
       >
