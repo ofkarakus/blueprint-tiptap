@@ -7,6 +7,7 @@ import TipTap from 'components/atoms/Editor';
 import { useActions, useStore } from 'utils/hooks';
 import { DivMouseEvent } from 'utils/types';
 import { BlockType } from './types';
+import StaticImage from 'components/atoms/StaticImage';
 
 const Toolbar = () => {
     const { addBlock, openContextMenu, setFocusedBlockId } = useActions();
@@ -54,7 +55,7 @@ const Toolbar = () => {
                                 return (
                                     <Button
                                         key={tool.name}
-                                        onClick={() => onAddBlockBtn('image')}
+                                        onClick={() => onAddBlockBtn('image', <StaticImage />)}
                                     >
                                         {<tool.icon />}
                                     </Button>
