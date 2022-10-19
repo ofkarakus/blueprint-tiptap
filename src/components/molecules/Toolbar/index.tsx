@@ -17,7 +17,7 @@ const Toolbar = () => {
         addBlock(
             <Resizable
                 key={blockIdCounter}
-                type="text"
+                type={type}
                 onContextMenu={(e: DivMouseEvent) => {
                     e.preventDefault();
                     openContextMenu({ x: e.pageX, y: e.pageY }, blockIdCounter);
@@ -45,6 +45,15 @@ const Toolbar = () => {
                                     <Button
                                         key={tool.name}
                                         onClick={() => onAddBlockBtn('text')}
+                                    >
+                                        {<tool.icon />}
+                                    </Button>
+                                );
+                            case 'image':
+                                return (
+                                    <Button
+                                        key={tool.name}
+                                        onClick={() => onAddBlockBtn('image')}
                                     >
                                         {<tool.icon />}
                                     </Button>
