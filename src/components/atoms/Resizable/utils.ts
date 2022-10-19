@@ -12,8 +12,8 @@ export const imageBlockStyle = {
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
-    border: 'dashed 1px black',
-    background: 'gray',
+    border: 'dashed 1px gray',
+    background: '#ededed',
 };
 
 export const textBlockDefault = {
