@@ -2,7 +2,7 @@ export type AnyObject = Record<string, unknown>;
 export type EmptyObject = Record<string, never>;
 
 export interface DivProps extends React.HTMLAttributes<HTMLDivElement> {
-  callback?: Function;
+    callback?: Function;
 }
 
 export type D3Selection = d3.Selection<d3.BaseType, unknown, HTMLElement, any>;

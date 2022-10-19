@@ -1,14 +1,14 @@
 export const template = {
-  width: 793,
-  height: 1123,
+    width: 793,
+    height: 1123,
 };
 
 export const textBlock = {
-  width: 300,
-  height: 200,
+    width: 300,
+    height: 200,
 };
 
 export const imageBlock = {
-  width: 400,
-  height: 270,
+    width: 400,
+    height: 270,
 };

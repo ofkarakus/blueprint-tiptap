@@ -1,7 +1,7 @@
-import { Props } from "react-rnd";
+import { Props } from 'react-rnd';
 
 export type StyledRndProps = {
-  $isFocused: boolean;
+    $isFocused: boolean;
 };
 
 export type ResizableProps = Props & { type?: string; id?: number };

@@ -1,23 +1,23 @@
 body {
-  margin: 0;
+    margin: 0;
 }
 
 @media print {
-  body * {
-    visibility: hidden;
-  }
-  #editor-template,
-  #editor-template * {
-    visibility: visible;
-  }
-  #editor-template {
-    position: absolute;
-    top: 0;
-    left: 0;
-  }
+    body * {
+        visibility: hidden;
+    }
+    #editor-template,
+    #editor-template * {
+        visibility: visible;
+    }
+    #editor-template {
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
 }
 
 @page {
-  size: A4;
-  margin: 0;
+    size: A4;
+    margin: 0;
 }

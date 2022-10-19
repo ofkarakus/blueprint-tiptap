@@ -1,4 +1,4 @@
 export type ContextMenuProps = {
-  top: number;
-  left: number;
+    top: number;
+    left: number;
 };
