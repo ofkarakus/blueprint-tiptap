@@ -1,7 +1,7 @@
 import { ReactElement } from "react";
 
 export type InitialState = {
-  textBlocks: Block[];
+  blocks: Block[];
   contextMenu: {
     isVisible: boolean;
     points: Points;

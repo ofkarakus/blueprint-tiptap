@@ -2,7 +2,7 @@ import React from "react";
 import * as types from "./types";
 
 export const initialState: types.InitialState = {
-  textBlocks: [],
+  blocks: [],
   contextMenu: {
     isVisible: false,
     points: {
@@ -16,8 +16,8 @@ export const initialState: types.InitialState = {
 };
 
 export const actions = (dispatch: React.Dispatch<types.Action>) => ({
-  addTextBlock: (textBlock: React.ReactElement) => {
-    dispatch({ type: "ADD_BLOCK", payload: textBlock });
+  addBlock: (block: React.ReactElement) => {
+    dispatch({ type: "ADD_BLOCK", payload: block });
   },
   removeBlock: (blockId: number) => {
     dispatch({ type: "REMOVE_BLOCK", payload: blockId });
@@ -41,8 +41,8 @@ export function reducer(
     case "ADD_BLOCK":
       return {
         ...state,
-        textBlocks: [
-          ...state.textBlocks,
+        blocks: [
+          ...state.blocks,
           { id: state.blockIdCounter, block: action.payload },
         ],
         blockIdCounter: state.blockIdCounter + 1,
@@ -50,7 +50,7 @@ export function reducer(
     case "REMOVE_BLOCK":
       return {
         ...state,
-        textBlocks: state.textBlocks.filter((el) => el.id !== action.payload),
+        blocks: state.blocks.filter((el) => el.id !== action.payload),
       };
     case "OPEN_CONTEXT_MENU":
       return {

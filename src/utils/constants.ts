@@ -7,3 +7,8 @@ export const textBlock = {
   width: 300,
   height: 200,
 };
+
+export const imageBlock = {
+  width: 400,
+  height: 270,
+};

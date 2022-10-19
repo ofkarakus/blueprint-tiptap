@@ -8,13 +8,13 @@ import { useActions, useStore } from "utils/hooks";
 import { DivMouseEvent } from "utils/types";
 
 const Toolbar = () => {
-  const { addTextBlock, openContextMenu, setFocusedBlockId } = useActions();
+  const { addBlock, openContextMenu, setFocusedBlockId } = useActions();
   const { blockIdCounter } = useStore()
 
   const focusOnBlock = () => setFocusedBlockId(blockIdCounter)
 
-  const onLetterAClick = () =>
-    addTextBlock(
+  const onAddBlockBtn = (type: 'text' | "image") =>
+    addBlock(
       <Resizable
         key={blockIdCounter}
         type="text"
@@ -39,16 +39,7 @@ const Toolbar = () => {
             switch (tool.name) {
               case "letterA":
                 return (
-                  <Button
-                    key={tool.name}
-                    onClick={onLetterAClick}
-                    onContextMenu={(e) => {
-                      e.preventDefault();
-                      return false;
-                    }}
-                  >
-                    {<tool.icon />}
-                  </Button>
+                  <Button key={tool.name} onClick={() => onAddBlockBtn('text')}>{<tool.icon />}</Button>
                 );
               case "print":
                 return <Button key={tool.name} onClick={() => window.print()}>{<tool.icon />}</Button>;

@@ -4,13 +4,13 @@ import * as e from "./styles";
 import React from "react";
 
 const Template = () => {
-  const { contextMenu, textBlocks } = useStore();
+  const { contextMenu, blocks } = useStore();
   const { setFocusedBlockId } = useActions()
 
   return (
     <e.Background>
       <e.Template onClick={() => setFocusedBlockId(0)} id="editor-template">
-        {textBlocks.map((el) => React.cloneElement(el.block, { id: el.id }))}
+        {blocks.map((el) => React.cloneElement(el.block, { id: el.id }))}
       </e.Template>
       {contextMenu.isVisible && (
         <ContextMenu top={contextMenu.points.y} left={contextMenu.points.x} />
