@@ -1,4 +1,4 @@
-import { ReactNode } from "react";
+import { ReactElement } from "react";
 
 export type InitialState = {
   textBlocks: Block[];
@@ -16,10 +16,10 @@ export type Points = {
   y: number;
 };
 
-export type Block = { id: number; block: ReactNode };
+export type Block = { id: number; block: ReactElement };
 
 export type Action =
-  | { type: "ADD_BLOCK"; payload: ReactNode }
+  | { type: "ADD_BLOCK"; payload: ReactElement }
   | { type: "REMOVE_BLOCK"; payload: number }
   | { type: "OPEN_CONTEXT_MENU"; payload: { points: Points; blockId: number } }
   | { type: "CLOSE_CONTEXT_MENU" }

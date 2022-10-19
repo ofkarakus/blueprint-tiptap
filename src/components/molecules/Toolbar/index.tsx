@@ -11,17 +11,21 @@ const Toolbar = () => {
   const { addTextBlock, openContextMenu, setFocusedBlockId } = useActions();
   const { blockIdCounter } = useStore()
 
+  const focusOnBlock = () => setFocusedBlockId(blockIdCounter)
+
   const onLetterAClick = () =>
     addTextBlock(
       <Resizable
+        key={blockIdCounter}
         type="text"
         onContextMenu={(e: DivMouseEvent) => {
           e.preventDefault();
           openContextMenu({ x: e.pageX, y: e.pageY }, blockIdCounter);
           return false;
         }}
-        onClick={() => setFocusedBlockId(blockIdCounter)}
-        key={blockIdCounter}
+        onClick={focusOnBlock}
+        onDragStart={focusOnBlock}
+        onResizeStart={focusOnBlock}
       >
         <TipTap />
       </Resizable>

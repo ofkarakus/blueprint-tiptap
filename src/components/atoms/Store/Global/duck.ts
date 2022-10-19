@@ -16,7 +16,7 @@ export const initialState: types.InitialState = {
 };
 
 export const actions = (dispatch: React.Dispatch<types.Action>) => ({
-  addTextBlock: (textBlock: React.ReactNode) => {
+  addTextBlock: (textBlock: React.ReactElement) => {
     dispatch({ type: "ADD_BLOCK", payload: textBlock });
   },
   removeBlock: (blockId: number) => {
