@@ -9,9 +9,7 @@ const ContextMenu = ({ top, left }: ContextMenuProps) => {
     return (
         <e.Wrapper top={top} left={left}>
             <ul>
-                <li onClick={() => removeBlock(selectedBlockId)}>
-                    Remove Item
-                </li>
+                <li onClick={() => removeBlock(selectedBlockId)}>Remove Item</li>
                 <li>Bring Forwards</li>
                 <li>Send Backwards</li>
                 <li>Bring To Front</li>

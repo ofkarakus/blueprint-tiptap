@@ -16,10 +16,7 @@ const TipTap = () => {
                     <MenuBar editor={editor} />
                 </BubbleMenu>
             )}
-            <EditorContent
-                editor={editor}
-                onMouseDown={(e) => e.stopPropagation()}
-            />
+            <EditorContent editor={editor} onMouseDown={(e) => e.stopPropagation()} />
         </div>
     );
 };

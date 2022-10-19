@@ -33,18 +33,12 @@ export const actions = (dispatch: React.Dispatch<types.Action>) => ({
     },
 });
 
-export function reducer(
-    state: types.InitialState,
-    action: types.Action,
-): types.InitialState {
+export function reducer(state: types.InitialState, action: types.Action): types.InitialState {
     switch (action.type) {
         case 'ADD_BLOCK':
             return {
                 ...state,
-                blocks: [
-                    ...state.blocks,
-                    { id: state.blockIdCounter, block: action.payload },
-                ],
+                blocks: [...state.blocks, { id: state.blockIdCounter, block: action.payload }],
                 blockIdCounter: state.blockIdCounter + 1,
             };
         case 'REMOVE_BLOCK':

@@ -5,19 +5,11 @@ export const createGroup = (template: Size, id?: string, className?: string) =>
     d3
         .select('#editor-template')
         .append('g')
-        .attr(
-            'transform',
-            `translate(${template.width / 2}, ${template.height / 2})`,
-        )
+        .attr('transform', `translate(${template.width / 2}, ${template.height / 2})`)
         .attr('id', id ? id : null)
         .attr('class', className ? className : null);
 
-export const createBlock = (
-    group: D3Selection,
-    block: Size,
-    id?: string,
-    className?: string,
-) =>
+export const createBlock = (group: D3Selection, block: Size, id?: string, className?: string) =>
     group
         .append('rect')
         .attr('width', block.width)

@@ -62,19 +62,12 @@ const Toolbar = () => {
                                 );
                             case 'print':
                                 return (
-                                    <Button
-                                        key={tool.name}
-                                        onClick={() => window.print()}
-                                    >
+                                    <Button key={tool.name} onClick={() => window.print()}>
                                         {<tool.icon />}
                                     </Button>
                                 );
                             default:
-                                return (
-                                    <Button key={tool.name}>
-                                        {<tool.icon />}
-                                    </Button>
-                                );
+                                return <Button key={tool.name}>{<tool.icon />}</Button>;
                         }
                     }))()}
             </>

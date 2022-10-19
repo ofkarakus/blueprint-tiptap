@@ -9,19 +9,11 @@ const Template = () => {
 
     return (
         <e.Background>
-            <e.Template
-                onClick={() => setFocusedBlockId(0)}
-                id="editor-template"
-            >
-                {blocks.map((el) =>
-                    React.cloneElement(el.block, { id: el.id }),
-                )}
+            <e.Template onClick={() => setFocusedBlockId(0)} id="editor-template">
+                {blocks.map((el) => React.cloneElement(el.block, { id: el.id }))}
             </e.Template>
             {contextMenu.isVisible && (
-                <ContextMenu
-                    top={contextMenu.points.y}
-                    left={contextMenu.points.x}
-                />
+                <ContextMenu top={contextMenu.points.y} left={contextMenu.points.x} />
             )}
         </e.Background>
     );

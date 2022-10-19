@@ -64,46 +64,28 @@ export const getProp = (
             className: editor.isActive('paragraph') ? 'is-active' : '',
         },
         h1: {
-            onClick: () =>
-                editor.chain().focus().toggleHeading({ level: 1 }).run(),
-            className: editor.isActive('heading', { level: 1 })
-                ? 'is-active'
-                : '',
+            onClick: () => editor.chain().focus().toggleHeading({ level: 1 }).run(),
+            className: editor.isActive('heading', { level: 1 }) ? 'is-active' : '',
         },
         h2: {
-            onClick: () =>
-                editor.chain().focus().toggleHeading({ level: 2 }).run(),
-            className: editor.isActive('heading', { level: 2 })
-                ? 'is-active'
-                : '',
+            onClick: () => editor.chain().focus().toggleHeading({ level: 2 }).run(),
+            className: editor.isActive('heading', { level: 2 }) ? 'is-active' : '',
         },
         h3: {
-            onClick: () =>
-                editor.chain().focus().toggleHeading({ level: 3 }).run(),
-            className: editor.isActive('heading', { level: 3 })
-                ? 'is-active'
-                : '',
+            onClick: () => editor.chain().focus().toggleHeading({ level: 3 }).run(),
+            className: editor.isActive('heading', { level: 3 }) ? 'is-active' : '',
         },
         h4: {
-            onClick: () =>
-                editor.chain().focus().toggleHeading({ level: 4 }).run(),
-            className: editor.isActive('heading', { level: 4 })
-                ? 'is-active'
-                : '',
+            onClick: () => editor.chain().focus().toggleHeading({ level: 4 }).run(),
+            className: editor.isActive('heading', { level: 4 }) ? 'is-active' : '',
         },
         h5: {
-            onClick: () =>
-                editor.chain().focus().toggleHeading({ level: 5 }).run(),
-            className: editor.isActive('heading', { level: 5 })
-                ? 'is-active'
-                : '',
+            onClick: () => editor.chain().focus().toggleHeading({ level: 5 }).run(),
+            className: editor.isActive('heading', { level: 5 }) ? 'is-active' : '',
         },
         h6: {
-            onClick: () =>
-                editor.chain().focus().toggleHeading({ level: 6 }).run(),
-            className: editor.isActive('heading', { level: 6 })
-                ? 'is-active'
-                : '',
+            onClick: () => editor.chain().focus().toggleHeading({ level: 6 }).run(),
+            className: editor.isActive('heading', { level: 6 }) ? 'is-active' : '',
         },
         bulletList: {
             onClick: () => editor.chain().focus().toggleBulletList().run(),
