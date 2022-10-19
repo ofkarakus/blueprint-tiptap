@@ -35,7 +35,7 @@ const Toolbar = () => {
     <e.Wrapper>
       <>
         {(() =>
-          toolbarArr.map((tool, index) => {
+          toolbarArr.map((tool) => {
             switch (tool.name) {
               case "letterA":
                 return (
@@ -50,8 +50,8 @@ const Toolbar = () => {
                     {<tool.icon />}
                   </Button>
                 );
-              case "image":
-                return <Button key={tool.name}>{<tool.icon />}</Button>;
+              case "print":
+                return <Button key={tool.name} onClick={() => window.print()}>{<tool.icon />}</Button>;
               default:
                 return <Button key={tool.name}>{<tool.icon />}</Button>;
             }
