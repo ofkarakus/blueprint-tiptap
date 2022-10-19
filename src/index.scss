@@ -2,27 +2,22 @@ body {
   margin: 0;
 }
 
-#template > svg {
-  background-color: aliceblue;
+@media print {
+  body * {
+    visibility: hidden;
+  }
+  #editor-template,
+  #editor-template * {
+    visibility: visible;
+  }
+  #editor-template {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
 }
 
-#top-left-handler,
-#bottom-right-handler {
-  cursor: nwse-resize;
-}
-#top-middle-handler,
-#bottom-middle-handler {
-  cursor: row-resize;
-}
-#top-right-handler,
-#bottom-left-handler {
-  cursor: nesw-resize;
-}
-#middle-right-handler,
-#middle-left-handler {
-  cursor: col-resize;
-}
-
-rect {
-  cursor: move;
+@page {
+  size: A4;
+  margin: 0;
 }
