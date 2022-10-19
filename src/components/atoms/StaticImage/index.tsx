@@ -16,6 +16,7 @@ const StaticImage = () => {
                         setImgUrl(URL.createObjectURL(e.target.files![0]!));
                         setIsImgUploaded(true);
                     }}
+                    accept=".png, .jpg, .jpeg"
                 />
             )}
         </>
