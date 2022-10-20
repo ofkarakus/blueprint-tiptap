@@ -1,10 +1,10 @@
-import { Props } from "./types";
+import { Props } from './types';
 import * as e from './styles';
-import { useRef } from "react";
+import { useRef } from 'react';
 
 const ImageUploader = (props: Props) => {
-    const { setImgUrl, setIsImgUploaded, ...rest } = props
-    const hiddenFileInput = useRef<HTMLInputElement>(null)
+    const { setImgUrl, setIsImgUploaded, ...rest } = props;
+    const hiddenFileInput = useRef<HTMLInputElement>(null);
 
     const handleClick = () => {
         hiddenFileInput?.current?.click();
@@ -12,7 +12,10 @@ const ImageUploader = (props: Props) => {
 
     return (
         <>
-
+            <e.ImgUpload
+                onClick={handleClick}
+                onMouseDown={(e) => e.stopPropagation()}
+            />
             <e.Input
                 type={'file'}
                 onChange={(e) => {
@@ -24,7 +27,7 @@ const ImageUploader = (props: Props) => {
                 {...rest}
             />
         </>
-    )
-}
+    );
+};
 
-export default ImageUploader
+export default ImageUploader;
