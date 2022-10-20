@@ -14,6 +14,7 @@ export { default as HeadingH4 } from './HeadingH4';
 export { default as HeadingH5 } from './HeadingH5';
 export { default as HeadingH6 } from './HeadingH6';
 export { default as HorizontalRule } from './HorizontalRule';
+export { default as ImageUpload } from './ImageUpload';
 export { default as Image } from './Image';
 export { default as Italic } from './Italic';
 export { default as LetterATextVariant } from './LetterATextVariant';
