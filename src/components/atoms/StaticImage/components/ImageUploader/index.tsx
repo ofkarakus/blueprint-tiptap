@@ -2,7 +2,7 @@ import { Props } from "./types";
 import * as e from './styles';
 import { useRef } from "react";
 
-const FileUploader = (props: Props) => {
+const ImageUploader = (props: Props) => {
     const { setImgUrl, setIsImgUploaded, ...rest } = props
     const hiddenFileInput = useRef<HTMLInputElement>(null)
 
@@ -27,4 +27,4 @@ const FileUploader = (props: Props) => {
     )
 }
 
-export default FileUploader
+export default ImageUploader

@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import FileUploader from './components/FileUploader';
+import ImageUploader from './components/ImageUploader';
 import Image from './components/Image';
 
 const StaticImage = () => {
@@ -11,7 +11,7 @@ const StaticImage = () => {
             {isImgUploaded ? (
                 <Image src={imgUrl} alt={'StaticImage'} onMouseDown={(e) => e.preventDefault()} />
             ) : (
-                <FileUploader setIsImgUploaded={setIsImgUploaded} setImgUrl={setImgUrl} />
+                <ImageUploader setIsImgUploaded={setIsImgUploaded} setImgUrl={setImgUrl} />
             )}
         </>
     );
