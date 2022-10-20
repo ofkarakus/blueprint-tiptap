@@ -1,1 +1,1 @@
-export type BlockType = 'text' | 'image';
+export type BlockType = 'text' | 'image' | 'background';

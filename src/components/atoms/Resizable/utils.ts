@@ -1,19 +1,25 @@
 import { template, textBlock, imageBlock } from 'utils/constants';
 
-export const textBlockStyle = {
+export const sharedStyle = {
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
+};
+
+export const textBlockStyle = {
+    ...sharedStyle,
     border: 'dashed 1px black',
     background: 'transparent',
 };
 
 export const imageBlockStyle = {
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
+    ...sharedStyle,
     border: 'dashed 1px gray',
     background: '#ededed',
+};
+
+export const backgroundBlockStyle = {
+    background: 'darkgray',
 };
 
 export const textBlockDefault = {
@@ -28,4 +34,11 @@ export const imageBlockDefault = {
     y: template.height / 2 - imageBlock.height / 2,
     width: imageBlock.width,
     height: imageBlock.height,
+};
+
+export const backgroundBlockDefault = {
+    x: 0,
+    y: 0,
+    width: template.width + 1,
+    height: template.height + 1,
 };

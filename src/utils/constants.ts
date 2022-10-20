@@ -1,5 +1,5 @@
 export const template = {
-    width: 793,
+    width: 794,
     height: 1123,
 };
 

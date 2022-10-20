@@ -1,4 +1,4 @@
-import { textBlockStyle, textBlockDefault, imageBlockDefault, imageBlockStyle } from './utils';
+import { textBlockStyle, textBlockDefault, imageBlockDefault, imageBlockStyle, backgroundBlockDefault, backgroundBlockStyle } from './utils';
 import * as e from './styles';
 import { useStore } from 'utils/hooks';
 import { ResizableProps } from './types';
@@ -13,6 +13,15 @@ const Resizable = (props: ResizableProps) => {
                     default={textBlockDefault}
                     style={textBlockStyle}
                     $isFocused={props.id === focusedBlockId}
+                    {...props}
+                />
+            );
+        case 'background':
+            return (
+                <e.StyledRnd
+                    default={backgroundBlockDefault}
+                    style={backgroundBlockStyle}
+                    disableDragging
                     {...props}
                 />
             );

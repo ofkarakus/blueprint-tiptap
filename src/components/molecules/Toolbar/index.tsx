@@ -51,6 +51,15 @@ const Toolbar = () => {
                                         {<tool.icon />}
                                     </Button>
                                 );
+                            case 'square':
+                                return (
+                                    <Button
+                                        key={tool.name}
+                                        onClick={() => onAddBlockBtn('background')}
+                                    >
+                                        {<tool.icon />}
+                                    </Button>
+                                );
                             case 'image':
                                 return (
                                     <Button

@@ -26,4 +26,4 @@ export const toolbarArr = [
     { name: 'paste', icon: Paste },
     { name: 'externalLink', icon: ExternalLinkSquareAlt },
     { name: 'print', icon: Print },
-];
+] as const;
