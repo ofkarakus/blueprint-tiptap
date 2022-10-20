@@ -1,4 +1,5 @@
 import React from 'react';
+import { move } from 'utils/helpers';
 import * as types from './types';
 
 export const initialState: types.InitialState = {
@@ -30,6 +31,9 @@ export const actions = (dispatch: React.Dispatch<types.Action>) => ({
     },
     setFocusedBlockId: (blockId: number) => {
         dispatch({ type: 'SET_FOCUSED_BLOCK_ID', payload: blockId });
+    },
+    bringToFront: (blockId: number) => {
+        dispatch({ type: 'BRING_TO_FRONT', payload: blockId });
     },
 });
 
@@ -70,6 +74,12 @@ export function reducer(state: types.InitialState, action: types.Action): types.
             return {
                 ...state,
                 focusedBlockId: action.payload,
+            };
+        case 'BRING_TO_FRONT':
+            const from = state.blocks.findIndex((el) => el.id === action.payload);
+            return {
+                ...state,
+                blocks: move(state.blocks, from, state.blocks.length - 1),
             };
         default:
             return state;

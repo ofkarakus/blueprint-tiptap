@@ -94,3 +94,12 @@ export const getHandlerPositionArr = (block: Size) => {
         },
     ];
 };
+
+export const move = (arr: any[], from: number, to: number) => {
+    const newArr = [...arr];
+
+    const item = newArr.splice(from, 1)[0];
+    newArr.splice(to, 0, item);
+
+    return newArr;
+};

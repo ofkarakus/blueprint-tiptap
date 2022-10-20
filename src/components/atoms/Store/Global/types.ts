@@ -26,4 +26,5 @@ export type Action =
           payload: { points: Points; blockId: number };
       }
     | { type: 'CLOSE_CONTEXT_MENU' }
-    | { type: 'SET_FOCUSED_BLOCK_ID'; payload: number };
+    | { type: 'SET_FOCUSED_BLOCK_ID'; payload: number }
+    | { type: 'BRING_TO_FRONT'; payload: number };
