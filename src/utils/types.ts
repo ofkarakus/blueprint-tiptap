@@ -1,13 +1,9 @@
 export type AnyObject = Record<string, unknown>;
 export type EmptyObject = Record<string, never>;
 
-export interface DivProps extends React.HTMLAttributes<HTMLDivElement> {
-    callback?: Function;
-}
-
-export interface ImgProps extends React.ImgHTMLAttributes<HTMLImageElement> {
-    callback?: Function;
-}
+export type DivProps = React.HTMLAttributes<HTMLDivElement>;
+export type ImgProps = React.ImgHTMLAttributes<HTMLImageElement>;
+export type InputProps = React.InputHTMLAttributes<HTMLInputElement>;
 
 export type D3Selection = d3.Selection<d3.BaseType, unknown, HTMLElement, any>;
 

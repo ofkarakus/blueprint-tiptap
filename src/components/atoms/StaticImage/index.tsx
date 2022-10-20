@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import FileUploader from './components/FileUploader';
 import Image from './components/Image';
 
 const StaticImage = () => {
@@ -10,14 +11,7 @@ const StaticImage = () => {
             {isImgUploaded ? (
                 <Image src={imgUrl} alt={'StaticImage'} onMouseDown={(e) => e.preventDefault()} />
             ) : (
-                <input
-                    type={'file'}
-                    onChange={(e) => {
-                        setImgUrl(URL.createObjectURL(e.target.files![0]!));
-                        setIsImgUploaded(true);
-                    }}
-                    accept=".png, .jpg, .jpeg"
-                />
+                <FileUploader setIsImgUploaded={setIsImgUploaded} setImgUrl={setImgUrl} />
             )}
         </>
     );
