@@ -10,4 +10,5 @@ export const Wrapper = styled.div`
     &:nth-of-type(odd) {
         border-right: 1px solid #e3e3e3;
     }
+    cursor: pointer;
 `;
