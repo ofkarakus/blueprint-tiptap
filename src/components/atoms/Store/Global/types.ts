@@ -27,4 +27,7 @@ export type Action =
       }
     | { type: 'CLOSE_CONTEXT_MENU' }
     | { type: 'SET_FOCUSED_BLOCK_ID'; payload: number }
-    | { type: 'BRING_TO_FRONT'; payload: number };
+    | { type: 'BRING_FORWARDS'; payload: number }
+    | { type: 'SEND_BACKWARDS'; payload: number }
+    | { type: 'BRING_TO_FRONT'; payload: number }
+    | { type: 'SEND_TO_BACK'; payload: number };

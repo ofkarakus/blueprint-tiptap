@@ -32,12 +32,22 @@ export const actions = (dispatch: React.Dispatch<types.Action>) => ({
     setFocusedBlockId: (blockId: number) => {
         dispatch({ type: 'SET_FOCUSED_BLOCK_ID', payload: blockId });
     },
+    bringForwards: (blockId: number) => {
+        dispatch({ type: 'BRING_FORWARDS', payload: blockId });
+    },
+    sendBackwards: (blockId: number) => {
+        dispatch({ type: 'SEND_BACKWARDS', payload: blockId });
+    },
     bringToFront: (blockId: number) => {
         dispatch({ type: 'BRING_TO_FRONT', payload: blockId });
+    },
+    sendToBack: (blockId: number) => {
+        dispatch({ type: 'SEND_TO_BACK', payload: blockId });
     },
 });
 
 export function reducer(state: types.InitialState, action: types.Action): types.InitialState {
+    let from;
     switch (action.type) {
         case 'ADD_BLOCK':
             return {
@@ -75,11 +85,29 @@ export function reducer(state: types.InitialState, action: types.Action): types.
                 ...state,
                 focusedBlockId: action.payload,
             };
+        case 'BRING_FORWARDS':
+            from = state.blocks.findIndex((el) => el.id === action.payload);
+            return {
+                ...state,
+                blocks: move(state.blocks, from, from + 1),
+            };
+        case 'SEND_BACKWARDS':
+            from = state.blocks.findIndex((el) => el.id === action.payload);
+            return {
+                ...state,
+                blocks: move(state.blocks, from, from - 1),
+            };
         case 'BRING_TO_FRONT':
-            const from = state.blocks.findIndex((el) => el.id === action.payload);
+            from = state.blocks.findIndex((el) => el.id === action.payload);
             return {
                 ...state,
                 blocks: move(state.blocks, from, state.blocks.length - 1),
+            };
+        case 'SEND_TO_BACK':
+            from = state.blocks.findIndex((el) => el.id === action.payload);
+            return {
+                ...state,
+                blocks: move(state.blocks, from, 0),
             };
         default:
             return state;
