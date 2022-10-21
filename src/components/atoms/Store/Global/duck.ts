@@ -17,8 +17,8 @@ export const initialState: types.InitialState = {
 };
 
 export const actions = (dispatch: React.Dispatch<types.Action>) => ({
-    addBlock: (block: React.ReactElement) => {
-        dispatch({ type: 'ADD_BLOCK', payload: block });
+    addBlock: (block: React.ReactElement, isBackground?: boolean) => {
+        dispatch({ type: 'ADD_BLOCK', payload: { block, isBackground } });
     },
     removeBlock: (blockId: number) => {
         dispatch({ type: 'REMOVE_BLOCK', payload: blockId });
@@ -52,7 +52,9 @@ export function reducer(state: types.InitialState, action: types.Action): types.
         case 'ADD_BLOCK':
             return {
                 ...state,
-                blocks: [...state.blocks, { id: state.blockIdCounter, block: action.payload }],
+                blocks: action.payload.isBackground
+                    ? [{ id: state.blockIdCounter, block: action.payload.block }, ...state.blocks]
+                    : [...state.blocks, { id: state.blockIdCounter, block: action.payload.block }],
                 blockIdCounter: state.blockIdCounter + 1,
             };
         case 'REMOVE_BLOCK':

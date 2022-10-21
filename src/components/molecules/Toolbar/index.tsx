@@ -33,7 +33,7 @@ const Toolbar = () => {
                 onResizeStart={focusOnBlock}
             >
                 {children}
-            </Resizable>,
+            </Resizable>, type === 'background'
         );
 
     return (

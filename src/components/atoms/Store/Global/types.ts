@@ -19,7 +19,7 @@ export type Points = {
 export type Block = { id: number; block: ReactElement };
 
 export type Action =
-    | { type: 'ADD_BLOCK'; payload: ReactElement }
+    | { type: 'ADD_BLOCK'; payload: { block: ReactElement; isBackground?: boolean } }
     | { type: 'REMOVE_BLOCK'; payload: number }
     | {
           type: 'OPEN_CONTEXT_MENU';
