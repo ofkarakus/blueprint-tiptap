@@ -10,7 +10,7 @@ import { BlockType } from './types';
 import StaticImage from 'components/atoms/StaticImage';
 
 const Toolbar = () => {
-    const { addBlock, openContextMenu, setFocusedBlockId } = useActions();
+    const { addBlock, openContextMenu, setFocusedBlockId, closeContextMenu } = useActions();
     const { blockIdCounter } = useStore();
 
     const focusOnBlock = () => setFocusedBlockId(blockIdCounter);
@@ -28,6 +28,7 @@ const Toolbar = () => {
                 onClick={(e: DivMouseEvent) => {
                     e.stopPropagation();
                     focusOnBlock();
+                    closeContextMenu()
                 }}
                 onDragStart={focusOnBlock}
                 onResizeStart={focusOnBlock}
