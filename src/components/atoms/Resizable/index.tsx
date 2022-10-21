@@ -1,4 +1,11 @@
-import { textBlockStyle, textBlockDefault, imageBlockDefault, imageBlockStyle, backgroundBlockDefault, backgroundBlockStyle } from './utils';
+import {
+    textBlockStyle,
+    textBlockDefault,
+    imageBlockDefault,
+    imageBlockStyle,
+    backgroundBlockDefault,
+    backgroundBlockStyle,
+} from './utils';
 import * as e from './styles';
 import { useStore } from 'utils/hooks';
 import { ResizableProps } from './types';

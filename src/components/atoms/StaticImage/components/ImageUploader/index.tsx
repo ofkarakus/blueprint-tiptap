@@ -12,10 +12,7 @@ const ImageUploader = (props: Props) => {
 
     return (
         <>
-            <e.ImgUpload
-                onClick={handleClick}
-                onMouseDown={(e) => e.stopPropagation()}
-            />
+            <e.ImgUpload onClick={handleClick} onMouseDown={(e) => e.stopPropagation()} />
             <e.Input
                 type={'file'}
                 onChange={(e) => {
