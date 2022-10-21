@@ -22,6 +22,7 @@ const Toolbar = () => {
                 type={type}
                 onContextMenu={(e: DivMouseEvent) => {
                     e.preventDefault();
+                    focusOnBlock();
                     openContextMenu({ x: e.pageX, y: e.pageY }, blockIdCounter);
                     return false;
                 }}
