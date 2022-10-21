@@ -33,6 +33,7 @@ const Toolbar = () => {
                 }}
                 onDragStart={focusOnBlock}
                 onResizeStart={focusOnBlock}
+                bounds={'parent'}
             >
                 {children}
             </Resizable>, type === 'background'
