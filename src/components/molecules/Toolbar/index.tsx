@@ -62,36 +62,35 @@ const Toolbar = () => {
                                     <Button
                                         key={tool.name}
                                         onClick={() => onAddBlockBtn('text', <TipTap />)}
-                                    >
-                                        {<tool.icon />}
-                                    </Button>
+                                        icon={tool.icon}
+                                    />
                                 );
                             case 'square':
                                 return (
                                     <Button
                                         key={tool.name}
                                         onClick={() => onAddBlockBtn('background')}
-                                    >
-                                        {<tool.icon />}
-                                    </Button>
+                                        icon={tool.icon}
+                                    />
                                 );
                             case 'image':
                                 return (
                                     <Button
                                         key={tool.name}
                                         onClick={() => onAddBlockBtn('image', <StaticImage />)}
-                                    >
-                                        {<tool.icon />}
-                                    </Button>
+                                        icon={tool.icon}
+                                    />
                                 );
                             case 'print':
                                 return (
-                                    <Button key={tool.name} onClick={() => window.print()}>
-                                        {<tool.icon />}
-                                    </Button>
+                                    <Button
+                                        key={tool.name}
+                                        onClick={() => window.print()}
+                                        icon={tool.icon}
+                                    />
                                 );
                             default:
-                                return <Button key={tool.name}>{<tool.icon />}</Button>;
+                                return <Button key={tool.name} icon={tool.icon} />;
                         }
                     }))()}
             </>
