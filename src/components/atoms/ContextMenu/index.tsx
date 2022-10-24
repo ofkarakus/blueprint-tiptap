@@ -24,6 +24,12 @@ const ContextMenu = ({ top, left }: ContextMenuProps) => {
               });
     };
 
+    const normalise = () => {
+        const selectedBlock = blocks.find((el) => el.id === selectedBlockId);
+        const currentWidth = selectedBlock?.ref.current?.getSelfElement()?.offsetWidth!;
+        selectedBlock?.ref.current?.updateSize({ width: currentWidth, height: currentWidth });
+    };
+
     return (
         <e.Wrapper top={top} left={left}>
             <ul>
@@ -34,6 +40,7 @@ const ContextMenu = ({ top, left }: ContextMenuProps) => {
                 <li onClick={() => sendToBack(selectedBlockId)}>Send To Back</li>
                 <li onClick={() => centre('horizontally')}>Centre Horizontally</li>
                 <li onClick={() => centre('vertically')}>Centre Vertically</li>
+                <li onClick={() => normalise()}>Normalise Aspect Ratio</li>
             </ul>
         </e.Wrapper>
     );
