@@ -9,8 +9,10 @@ import {
 import * as e from './styles';
 import { useStore } from 'utils/hooks';
 import { ResizableProps } from './types';
+import { forwardRef, Ref } from 'react';
+import { Rnd } from 'react-rnd';
 
-const Resizable = (props: ResizableProps) => {
+const Resizable = forwardRef((props: ResizableProps, ref: Ref<Rnd>) => {
     const { focusedBlockId } = useStore();
 
     switch (props.type) {
@@ -20,6 +22,7 @@ const Resizable = (props: ResizableProps) => {
                     default={textBlockDefault}
                     style={textBlockStyle}
                     $isFocused={props.id === focusedBlockId}
+                    ref={ref}
                     {...props}
                 />
             );
@@ -29,6 +32,7 @@ const Resizable = (props: ResizableProps) => {
                     default={backgroundBlockDefault}
                     style={backgroundBlockStyle}
                     disableDragging
+                    ref={ref}
                     {...props}
                 />
             );
@@ -38,12 +42,11 @@ const Resizable = (props: ResizableProps) => {
                     default={imageBlockDefault}
                     style={imageBlockStyle}
                     $isFocused={props.id === focusedBlockId}
+                    ref={ref}
                     {...props}
                 />
             );
-        default:
-            return <e.StyledRnd {...props} />;
     }
-};
+});
 
 export default Resizable;

@@ -1,6 +1,6 @@
 import * as e from './styles';
 import { toolbarArr } from './utils';
-import { ReactElement } from 'react';
+import { createRef, ReactElement } from 'react';
 import Button from './components/Button';
 import Resizable from 'components/atoms/Resizable';
 import TipTap from 'components/atoms/Editor';
@@ -8,6 +8,7 @@ import { useActions, useStore } from 'utils/hooks';
 import { DivMouseEvent } from 'utils/types';
 import { BlockType } from './types';
 import StaticImage from 'components/atoms/StaticImage';
+import { Rnd } from 'react-rnd';
 
 const Toolbar = () => {
     const { addBlock, openContextMenu, setFocusedBlockId, closeContextMenu } = useActions();
@@ -15,7 +16,8 @@ const Toolbar = () => {
 
     const focusOnBlock = () => setFocusedBlockId(blockIdCounter);
 
-    const onAddBlockBtn = (type: BlockType, children?: ReactElement) =>
+    const onAddBlockBtn = (type: BlockType, children?: ReactElement) => {
+        const ref = createRef<Rnd>();
         addBlock(
             <Resizable
                 key={blockIdCounter}
@@ -29,15 +31,19 @@ const Toolbar = () => {
                 onClick={(e: DivMouseEvent) => {
                     e.stopPropagation();
                     focusOnBlock();
-                    closeContextMenu()
+                    closeContextMenu();
                 }}
                 onDragStart={focusOnBlock}
                 onResizeStart={focusOnBlock}
                 bounds={'parent'}
+                ref={ref}
             >
                 {children}
-            </Resizable>, type === 'background'
+            </Resizable>,
+            ref,
+            type === 'background',
         );
+    };
 
     return (
         <e.Wrapper>

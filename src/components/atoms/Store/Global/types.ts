@@ -1,4 +1,5 @@
-import { ReactElement } from 'react';
+import { ReactElement, RefObject } from 'react';
+import { Rnd } from 'react-rnd';
 
 export type InitialState = {
     blocks: Block[];
@@ -16,10 +17,13 @@ export type Points = {
     y: number;
 };
 
-export type Block = { id: number; block: ReactElement };
+export type Block = { id: number; block: ReactElement; ref: RefObject<Rnd> };
 
 export type Action =
-    | { type: 'ADD_BLOCK'; payload: { block: ReactElement; isBackground?: boolean } }
+    | {
+          type: 'ADD_BLOCK';
+          payload: { block: ReactElement; isBackground?: boolean; ref: RefObject<Rnd> };
+      }
     | { type: 'REMOVE_BLOCK'; payload: number }
     | {
           type: 'OPEN_CONTEXT_MENU';
