@@ -27,7 +27,9 @@ const ContextMenu = ({ top, left }: ContextMenuProps) => {
     const normalise = () => {
         const selectedBlock = blocks.find((el) => el.id === selectedBlockId);
         const currentWidth = selectedBlock?.ref.current?.getSelfElement()?.offsetWidth!;
-        selectedBlock?.ref.current?.updateSize({ width: currentWidth, height: currentWidth });
+        const currentHeight = selectedBlock?.ref.current?.getSelfElement()?.offsetHeight!;
+        const normal = currentWidth <= currentHeight ? currentWidth : currentHeight;
+        selectedBlock?.ref.current?.updateSize({ width: normal, height: normal });
     };
 
     return (
