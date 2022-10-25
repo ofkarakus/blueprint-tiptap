@@ -29,7 +29,7 @@ export const Wrapper = styled.div<WrapperProps>`
         white-space: nowrap;
         height: 40px;
         line-height: 40px;
-        z-index: 1001;
+        z-index: 1002;
         color: black;
         visibility: ${({ $isTooltipVisible }) => ($isTooltipVisible ? 'visible' : 'hidden')};
         transition: all 0.25s;
@@ -52,6 +52,6 @@ export const Wrapper = styled.div<WrapperProps>`
         top: 0;
         bottom: 0;
         visibility: ${({ $isTooltipVisible }) => ($isTooltipVisible ? 'visible' : 'hidden')};
-        z-index: 1000;
+        z-index: 1001;
     }
 `;
