@@ -55,42 +55,42 @@ const Toolbar = () => {
         <e.Wrapper>
             <>
                 {(() =>
-                    toolbarArr.map((tool) => {
+                    toolbarArr.map((tool, index) => {
                         switch (tool.name) {
                             case 'letterA':
                                 return (
                                     <Button
-                                        key={tool.name}
+                                        key={index}
                                         onClick={() => onAddBlockBtn('text', <TipTap />)}
-                                        icon={tool.icon}
+                                        tool={tool}
                                     />
                                 );
                             case 'square':
                                 return (
                                     <Button
-                                        key={tool.name}
+                                        key={index}
                                         onClick={() => onAddBlockBtn('background')}
-                                        icon={tool.icon}
+                                        tool={tool}
                                     />
                                 );
                             case 'image':
                                 return (
                                     <Button
-                                        key={tool.name}
+                                        key={index}
                                         onClick={() => onAddBlockBtn('image', <StaticImage />)}
-                                        icon={tool.icon}
+                                        tool={tool}
                                     />
                                 );
                             case 'print':
                                 return (
                                     <Button
-                                        key={tool.name}
+                                        key={index}
                                         onClick={() => window.print()}
-                                        icon={tool.icon}
+                                        tool={tool}
                                     />
                                 );
                             default:
-                                return <Button key={tool.name} icon={tool.icon} />;
+                                return <Button key={index} tool={tool} />;
                         }
                     }))()}
             </>
