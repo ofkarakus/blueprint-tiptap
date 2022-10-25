@@ -4,10 +4,10 @@ import arrow from 'assets/images/arrow.png';
 export const Wrapper = styled.div`
     position: fixed;
     top: 0;
-    left: 132px;
+    left: 133px;
     width: 200px;
     z-index: 1000;
-    box-shadow: 0 0 40px rgba(0, 0, 0, 0.25);
+    box-shadow: 3px 3px 45px -5px rgba(0, 0, 0, 0.25);
     transition: top 0.55s, left 0.75s, box-shadow 0.25s;
 `;
 
