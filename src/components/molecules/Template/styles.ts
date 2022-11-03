@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { template } from 'utils/constants';
+import { template, toolbar } from 'utils/constants';
 
 export const Template = styled.div`
     height: ${template.height}px;
@@ -12,9 +12,13 @@ export const Template = styled.div`
 
 export const Background = styled.div`
     height: 100vh;
-    width: calc(100vw - 130px);
+    width: calc(100vw - ${toolbar.width}px);
     background-color: #f0f0f0;
     display: flex;
     align-items: center;
     justify-content: center;
+    position: fixed;
+    top: 0;
+    left: ${toolbar.width}px;
+    z-index: 0;
 `;

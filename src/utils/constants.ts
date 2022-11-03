@@ -12,3 +12,7 @@ export const imageBlock = {
     width: 400,
     height: 270,
 };
+
+export const toolbar = {
+    width: 132,
+};

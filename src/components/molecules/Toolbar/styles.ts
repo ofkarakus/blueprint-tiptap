@@ -1,10 +1,16 @@
 import styled from 'styled-components';
+import { toolbar } from 'utils/constants';
 
 export const Wrapper = styled.div`
     height: 100vh;
-    width: 132px;
-    min-width: 132px;
+    width: ${toolbar.width}px;
+    min-width: ${toolbar.width}px;
     display: flex;
     flex-flow: row wrap;
     align-content: flex-start;
+    background-color: white;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1001;
 `;
