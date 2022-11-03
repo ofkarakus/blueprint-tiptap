@@ -1,5 +1,5 @@
 import * as e from './styles';
-import Toolbar from 'components/molecules/Toolbar';
+import MainToolbar from 'components/molecules/MainToolbar';
 import Template from 'components/molecules/Template';
 import { useActions } from 'utils/hooks';
 import { useEffect } from 'react';
@@ -15,7 +15,7 @@ const Body = () => {
 
     return (
         <e.Wrapper>
-            <Toolbar />
+            <MainToolbar />
             <AdditionalToolbar />
             <Template />
         </e.Wrapper>

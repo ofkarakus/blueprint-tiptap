@@ -10,7 +10,7 @@ import { BlockType } from './types';
 import StaticImage from 'components/atoms/StaticImage';
 import { Rnd } from 'react-rnd';
 
-const Toolbar = () => {
+const MainToolbar = () => {
     const { addBlock, openContextMenu, setFocusedBlockId, closeContextMenu } = useActions();
     const { blockIdCounter } = useStore();
 
@@ -98,4 +98,4 @@ const Toolbar = () => {
     );
 };
 
-export default Toolbar;
+export default MainToolbar;
