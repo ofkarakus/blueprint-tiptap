@@ -52,6 +52,5 @@ export const Wrapper = styled.div<WrapperProps>`
         top: 0;
         bottom: 0;
         visibility: ${({ $isTooltipVisible }) => ($isTooltipVisible ? 'visible' : 'hidden')};
-        z-index: 1001;
     }
 `;
