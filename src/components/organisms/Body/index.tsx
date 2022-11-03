@@ -4,6 +4,7 @@ import Template from 'components/molecules/Template';
 import { useActions } from 'utils/hooks';
 import { useEffect } from 'react';
 import AdditionalToolbar from 'components/molecules/AdditionalToolbar';
+import SubToolbar from 'components/molecules/SubToolbar';
 
 const Body = () => {
     const { closeContextMenu } = useActions();
@@ -17,6 +18,7 @@ const Body = () => {
         <e.Wrapper>
             <MainToolbar />
             <AdditionalToolbar />
+            <SubToolbar />
             <Template />
         </e.Wrapper>
     );

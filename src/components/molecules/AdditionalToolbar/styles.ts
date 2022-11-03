@@ -1,13 +1,13 @@
 import styled, { css } from 'styled-components';
 import arrow from 'assets/images/arrow.png';
-import { toolbar } from 'utils/constants';
+import { toolbar, addtoolbar } from 'utils/constants';
 
 export const Wrapper = styled.div`
     position: fixed;
     top: 0;
     left: ${toolbar.width + 1}px;
-    width: 200px;
-    z-index: 1000;
+    width: ${addtoolbar.width}px;
+    z-index: 999;
     box-shadow: 0 0 40px rgba(0, 0, 0, 0.25);
     transition: top 0.55s, left 0.75s, box-shadow 0.25s;
 `;

@@ -8,7 +8,7 @@ export const Wrapper = styled.div`
     display: flex;
     flex-flow: row wrap;
     align-content: flex-start;
-    background-color: white;
+    background: #fefefe;
     position: fixed;
     top: 0;
     left: 0;

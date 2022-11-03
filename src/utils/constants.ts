@@ -16,3 +16,11 @@ export const imageBlock = {
 export const toolbar = {
     width: 132,
 };
+
+export const subtoolbar = {
+    width: 250,
+};
+
+export const addtoolbar = {
+    width: 200,
+};
