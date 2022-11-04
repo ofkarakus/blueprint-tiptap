@@ -8,6 +8,9 @@ export const Table = styled.table`
         border-right: 1px solid rgba(0, 0, 0, 0.2);
         padding: 10px;
     }
+    & > tr > td:last-of-type {
+        border-right: 0;
+    }
     & > tr {
         border-bottom: 1px solid rgba(0, 0, 0, 0.2);
     }
