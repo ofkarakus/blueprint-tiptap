@@ -9,6 +9,7 @@ import { DivMouseEvent } from 'utils/types';
 import { BlockType } from './types';
 import StaticImage from 'components/atoms/StaticImage';
 import { Rnd } from 'react-rnd';
+import { toolbar } from 'utils/constants';
 
 const MainToolbar = () => {
     const { addBlock, openContextMenu, setFocusedBlockId, closeContextMenu } = useActions();
@@ -27,7 +28,10 @@ const MainToolbar = () => {
                     focusOnBlock();
                     openContextMenu(
                         {
-                            x: window.innerWidth - e.pageX > 175 ? e.pageX : e.pageX - 150,
+                            x:
+                                window.innerWidth - e.pageX > 175
+                                    ? e.pageX - toolbar.width
+                                    : e.pageX - 150 - toolbar.width,
                             y: window.innerHeight - e.pageY > 225 ? e.pageY : e.pageY - 200,
                         },
                         blockIdCounter,
