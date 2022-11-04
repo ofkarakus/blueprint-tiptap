@@ -57,47 +57,41 @@ const MainToolbar = () => {
 
     return (
         <e.Wrapper>
-            <>
-                {(() =>
-                    toolbarArr.map((tool, index) => {
-                        switch (tool.name) {
-                            case 'letterA':
-                                return (
-                                    <Button
-                                        key={index}
-                                        onClick={() => onAddBlockBtn('text', <TipTap />)}
-                                        tool={tool}
-                                    />
-                                );
-                            case 'square':
-                                return (
-                                    <Button
-                                        key={index}
-                                        onClick={() => onAddBlockBtn('background')}
-                                        tool={tool}
-                                    />
-                                );
-                            case 'image':
-                                return (
-                                    <Button
-                                        key={index}
-                                        onClick={() => onAddBlockBtn('image', <StaticImage />)}
-                                        tool={tool}
-                                    />
-                                );
-                            case 'print':
-                                return (
-                                    <Button
-                                        key={index}
-                                        onClick={() => window.print()}
-                                        tool={tool}
-                                    />
-                                );
-                            default:
-                                return <Button key={index} tool={tool} />;
-                        }
-                    }))()}
-            </>
+            {(() =>
+                toolbarArr.map((tool, index) => {
+                    switch (tool.name) {
+                        case 'letterA':
+                            return (
+                                <Button
+                                    key={index}
+                                    onClick={() => onAddBlockBtn('text', <TipTap />)}
+                                    tool={tool}
+                                />
+                            );
+                        case 'square':
+                            return (
+                                <Button
+                                    key={index}
+                                    onClick={() => onAddBlockBtn('background')}
+                                    tool={tool}
+                                />
+                            );
+                        case 'image':
+                            return (
+                                <Button
+                                    key={index}
+                                    onClick={() => onAddBlockBtn('image', <StaticImage />)}
+                                    tool={tool}
+                                />
+                            );
+                        case 'print':
+                            return (
+                                <Button key={index} onClick={() => window.print()} tool={tool} />
+                            );
+                        default:
+                            return <Button key={index} tool={tool} />;
+                    }
+                }))()}
         </e.Wrapper>
     );
 };
