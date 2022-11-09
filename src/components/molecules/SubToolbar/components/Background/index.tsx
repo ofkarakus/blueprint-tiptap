@@ -1,5 +1,6 @@
 import * as e from '../../styles';
 import LabelSizeCoords from '../LabelSizeCoords';
+import UploadImage from '../UploadImage';
 
 const Background = () => {
     return (
@@ -15,12 +16,7 @@ const Background = () => {
                 <td>1</td>
                 <td>2</td>
             </e.SpecificRow2>
-            <tr>
-                <td colSpan={3}>1</td>
-            </tr>
-            <e.SpecificRow3>
-                <td>1</td>
-            </e.SpecificRow3>
+            <UploadImage />
         </e.Table>
     );
 };
