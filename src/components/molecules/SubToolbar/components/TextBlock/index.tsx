@@ -1,4 +1,4 @@
-import * as e from './styles';
+import * as e from '../../styles';
 
 const TextBlock = () => {
     return (
@@ -17,29 +17,29 @@ const TextBlock = () => {
                 <td>2</td>
                 <td>3</td>
             </tr>
-            <e.ColorRow>
+            <e.SpecificRow1>
                 <td>1</td>
                 <td>2</td>
-            </e.ColorRow>
-            <e.ColorRow>
+            </e.SpecificRow1>
+            <e.SpecificRow1>
                 <td>1</td>
                 <td>2</td>
-            </e.ColorRow>
+            </e.SpecificRow1>
             <tr>
                 <td>1</td>
                 <td colSpan={2}>2</td>
             </tr>
-            <e.ColorRow>
+            <e.SpecificRow1>
                 <td>1</td>
                 <td>2</td>
-            </e.ColorRow>
+            </e.SpecificRow1>
             <tr>
                 <td colSpan={3}>1</td>
             </tr>
-            <e.ColorRow>
+            <e.SpecificRow1>
                 <td>1</td>
                 <td>2</td>
-            </e.ColorRow>
+            </e.SpecificRow1>
             <tr>
                 <td>1</td>
                 <td colSpan={2}>2</td>
