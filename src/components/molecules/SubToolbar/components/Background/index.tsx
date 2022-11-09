@@ -1,22 +1,10 @@
 import * as e from '../../styles';
+import LabelSizeCoords from '../LabelSizeCoords';
 
 const Background = () => {
     return (
         <e.Table>
-            <tr>
-                <td>1</td>
-                <td colSpan={2}>2</td>
-            </tr>
-            <tr>
-                <td>1</td>
-                <td>2</td>
-                <td>3</td>
-            </tr>
-            <tr>
-                <td>1</td>
-                <td>2</td>
-                <td>3</td>
-            </tr>
+            <LabelSizeCoords />
             <tr>
                 <td colSpan={3}>1</td>
             </tr>
