@@ -9,7 +9,7 @@ import { useHotkeys } from 'react-hotkeys-hook';
 
 const Body = () => {
     const { closeContextMenu, showToolbars, hideToolbars } = useActions();
-    const { areToolbarsVisible } = useStore();
+    const { areToolbarsVisible, focusedBlockId } = useStore();
 
     useEffect(() => {
         window.addEventListener('click', closeContextMenu);
@@ -23,7 +23,7 @@ const Body = () => {
         <e.Wrapper>
             <MainToolbar />
             <AdditionalToolbar />
-            <SubToolbar />
+            {focusedBlockId && <SubToolbar focusedBlockId={focusedBlockId} />}
             <Template />
         </e.Wrapper>
     );

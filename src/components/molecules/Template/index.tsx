@@ -8,7 +8,7 @@ const Template = () => {
     const { setFocusedBlockId } = useActions();
 
     return (
-        <e.Background $areToolbarsVisible={areToolbarsVisible}>
+        <e.Background onClick={() => setFocusedBlockId(0)} $areToolbarsVisible={areToolbarsVisible}>
             <e.Template onClick={() => setFocusedBlockId(0)} id="editor-template">
                 {blocks.map((el) => React.cloneElement(el.block, { id: el.id }))}
             </e.Template>

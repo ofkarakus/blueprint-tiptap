@@ -5,24 +5,26 @@ import StaticImage from './components/StaticImage';
 import TextBlock from './components/TextBlock';
 import * as e from './styles';
 import { useStore } from 'utils/hooks';
+import * as types from './types';
 
-const SubToolbar = () => {
-    const { areToolbarsVisible } = useStore();
+const SubToolbar = ({ focusedBlockId }: types.Props) => {
+    const { areToolbarsVisible, blocks } = useStore();
+    const blockType = blocks.find((el) => el.id === focusedBlockId)?.type!;
 
     return (
         <e.Wrapper $isVisible={areToolbarsVisible}>
             {(() => {
-                switch (true) {
-                    case true:
+                switch (blockType) {
+                    case 'text':
                         return <TextBlock />;
-                    case true:
+                    case 'image':
                         return <StaticImage />;
-                    case true:
-                        return <DynamicImage />;
-                    case true:
+                    // case true:
+                    //     return <DynamicImage />;
+                    case 'background':
                         return <Background />;
-                    case true:
-                        return <ListBoundary />;
+                    // case true:
+                    //     return <ListBoundary />;
                 }
             })()}
         </e.Wrapper>

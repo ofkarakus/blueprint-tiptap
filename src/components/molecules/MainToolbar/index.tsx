@@ -51,7 +51,7 @@ const MainToolbar = () => {
                 {children}
             </Resizable>,
             ref,
-            type === 'background',
+            type,
         );
     };
 
