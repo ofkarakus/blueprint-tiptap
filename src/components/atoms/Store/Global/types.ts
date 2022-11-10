@@ -1,3 +1,4 @@
+import { BlockType } from 'components/molecules/MainToolbar/types';
 import { ReactElement, RefObject } from 'react';
 import { Rnd } from 'react-rnd';
 
@@ -18,12 +19,12 @@ export type Points = {
     y: number;
 };
 
-export type Block = { id: number; block: ReactElement; ref: RefObject<Rnd> };
+export type Block = { id: number; block: ReactElement; ref: RefObject<Rnd>; type: BlockType };
 
 export type Action =
     | {
           type: 'ADD_BLOCK';
-          payload: { block: ReactElement; isBackground?: boolean; ref: RefObject<Rnd> };
+          payload: { block: ReactElement; ref: RefObject<Rnd>; type: BlockType };
       }
     | { type: 'REMOVE_BLOCK'; payload: number }
     | {

@@ -2,6 +2,7 @@ import React, { RefObject } from 'react';
 import { move } from 'utils/helpers';
 import * as types from './types';
 import { Rnd } from 'react-rnd';
+import { BlockType } from 'components/molecules/MainToolbar/types';
 
 export const initialState: types.InitialState = {
     blocks: [],
@@ -19,8 +20,8 @@ export const initialState: types.InitialState = {
 };
 
 export const actions = (dispatch: React.Dispatch<types.Action>) => ({
-    addBlock: (block: React.ReactElement, ref: RefObject<Rnd>, isBackground?: boolean) => {
-        dispatch({ type: 'ADD_BLOCK', payload: { block, ref, isBackground } });
+    addBlock: (block: React.ReactElement, ref: RefObject<Rnd>, type: BlockType) => {
+        dispatch({ type: 'ADD_BLOCK', payload: { block, ref, type } });
     },
     removeBlock: (blockId: number) => {
         dispatch({ type: 'REMOVE_BLOCK', payload: blockId });
@@ -56,23 +57,26 @@ export function reducer(state: types.InitialState, action: types.Action): types.
         case 'ADD_BLOCK':
             return {
                 ...state,
-                blocks: action.payload.isBackground
-                    ? [
-                          {
-                              id: state.blockIdCounter,
-                              block: action.payload.block,
-                              ref: action.payload.ref,
-                          },
-                          ...state.blocks,
-                      ]
-                    : [
-                          ...state.blocks,
-                          {
-                              id: state.blockIdCounter,
-                              block: action.payload.block,
-                              ref: action.payload.ref,
-                          },
-                      ],
+                blocks:
+                    action.payload.type === 'background'
+                        ? [
+                              {
+                                  id: state.blockIdCounter,
+                                  block: action.payload.block,
+                                  ref: action.payload.ref,
+                                  type: action.payload.type,
+                              },
+                              ...state.blocks,
+                          ]
+                        : [
+                              ...state.blocks,
+                              {
+                                  id: state.blockIdCounter,
+                                  block: action.payload.block,
+                                  ref: action.payload.ref,
+                                  type: action.payload.type,
+                              },
+                          ],
                 blockIdCounter: state.blockIdCounter + 1,
             };
         case 'REMOVE_BLOCK':
