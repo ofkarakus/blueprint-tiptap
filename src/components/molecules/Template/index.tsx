@@ -10,7 +10,7 @@ const Template = () => {
     return (
         <e.Background
             onClick={() => setFocusedBlockId(0)}
-            $areToolbarsVisible={areToolbarsVisible}
+            $isMTbarVisible={areToolbarsVisible}
             $focusedBlockId={focusedBlockId}
         >
             <e.Template onClick={() => setFocusedBlockId(0)} id="editor-template">
