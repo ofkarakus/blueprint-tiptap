@@ -1,10 +1,10 @@
 import styled from 'styled-components';
 import { toolbar, subtoolbar } from 'utils/constants';
 
-export const Wrapper = styled.div`
+export const Wrapper = styled.div<{ $isVisible: boolean }>`
     position: fixed;
     top: 0;
-    left: ${toolbar.width + 1}px;
+    left: ${({ $isVisible }) => ($isVisible ? toolbar.width + 1 : -subtoolbar.width - 10)}px;
     width: ${subtoolbar.width}px;
     height: 100vh;
     font-family: Lato, Arial, Helvetica, sans-serif;
