@@ -1,18 +1,23 @@
 import * as e from './styles';
 import MainToolbar from 'components/molecules/MainToolbar';
 import Template from 'components/molecules/Template';
-import { useActions } from 'utils/hooks';
+import { useActions, useStore } from 'utils/hooks';
 import { useEffect } from 'react';
 import AdditionalToolbar from 'components/molecules/AdditionalToolbar';
 import SubToolbar from 'components/molecules/SubToolbar';
+import { useHotkeys } from 'react-hotkeys-hook';
 
 const Body = () => {
-    const { closeContextMenu } = useActions();
+    const { closeContextMenu, showToolbars, hideToolbars } = useActions();
+    const { areToolbarsVisible } = useStore();
 
     useEffect(() => {
         window.addEventListener('click', closeContextMenu);
         return () => window.removeEventListener('click', closeContextMenu);
     }, [closeContextMenu]);
+
+    useHotkeys('q', hideToolbars, [areToolbarsVisible], { keydown: true });
+    useHotkeys('q', showToolbars, [areToolbarsVisible], { keyup: true });
 
     return (
         <e.Wrapper>

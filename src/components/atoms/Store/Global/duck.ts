@@ -15,6 +15,7 @@ export const initialState: types.InitialState = {
     blockIdCounter: 1,
     selectedBlockId: 0,
     focusedBlockId: 0,
+    areToolbarsVisible: true,
 };
 
 export const actions = (dispatch: React.Dispatch<types.Action>) => ({
@@ -45,6 +46,8 @@ export const actions = (dispatch: React.Dispatch<types.Action>) => ({
     sendToBack: (blockId: number) => {
         dispatch({ type: 'SEND_TO_BACK', payload: blockId });
     },
+    showToolbars: () => dispatch({ type: 'SHOW_TOOLBARS' }),
+    hideToolbars: () => dispatch({ type: 'HIDE_TOOLBARS' }),
 });
 
 export function reducer(state: types.InitialState, action: types.Action): types.InitialState {
@@ -125,6 +128,16 @@ export function reducer(state: types.InitialState, action: types.Action): types.
             return {
                 ...state,
                 blocks: move(state.blocks, from, 0),
+            };
+        case 'SHOW_TOOLBARS':
+            return {
+                ...state,
+                areToolbarsVisible: true,
+            };
+        case 'HIDE_TOOLBARS':
+            return {
+                ...state,
+                areToolbarsVisible: false,
             };
         default:
             return state;

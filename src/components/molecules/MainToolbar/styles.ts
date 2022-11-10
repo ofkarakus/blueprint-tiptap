@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { toolbar } from 'utils/constants';
 
-export const Wrapper = styled.div`
+export const Wrapper = styled.div<{ $isVisible: boolean }>`
     height: 100vh;
     width: ${toolbar.width}px;
     min-width: ${toolbar.width}px;
@@ -11,6 +11,6 @@ export const Wrapper = styled.div`
     background: #fefefe;
     position: fixed;
     top: 0;
-    left: 0;
+    left: ${({ $isVisible }) => ($isVisible ? 0 : -toolbar.width)}px;
     z-index: 1001;
 `;

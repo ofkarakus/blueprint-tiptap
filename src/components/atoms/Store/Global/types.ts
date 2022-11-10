@@ -10,6 +10,7 @@ export type InitialState = {
     blockIdCounter: number;
     selectedBlockId: number;
     focusedBlockId: number;
+    areToolbarsVisible: boolean;
 };
 
 export type Points = {
@@ -34,4 +35,6 @@ export type Action =
     | { type: 'BRING_FORWARDS'; payload: number }
     | { type: 'SEND_BACKWARDS'; payload: number }
     | { type: 'BRING_TO_FRONT'; payload: number }
-    | { type: 'SEND_TO_BACK'; payload: number };
+    | { type: 'SEND_TO_BACK'; payload: number }
+    | { type: 'SHOW_TOOLBARS' }
+    | { type: 'HIDE_TOOLBARS' };
