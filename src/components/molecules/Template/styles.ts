@@ -1,5 +1,6 @@
 import styled from 'styled-components';
-import { template, toolbar } from 'utils/constants';
+import { template, toolbar, subtoolbar } from 'utils/constants';
+import * as types from './types';
 
 export const Template = styled.div`
     height: ${template.height}px;
@@ -10,17 +11,26 @@ export const Template = styled.div`
     position: relative;
 `;
 
-export const Background = styled.div<{ $areToolbarsVisible: boolean }>`
+export const Background = styled.div<types.BackgroundProps>`
     height: 100vh;
-    width: ${({ $areToolbarsVisible }) =>
-        $areToolbarsVisible ? `calc(100vw - ${toolbar.width}px)` : '100vw'};
+    width: ${({ $areToolbarsVisible, $focusedBlockId }) =>
+        $areToolbarsVisible
+            ? $focusedBlockId
+                ? `calc(100vw - ${toolbar.width + subtoolbar.width}px)`
+                : `calc(100vw - ${toolbar.width}px)`
+            : '100vw'};
     background-color: #f0f0f0;
     display: flex;
     align-items: center;
     justify-content: center;
     position: fixed;
     top: 0;
-    left: ${({ $areToolbarsVisible }) => ($areToolbarsVisible ? toolbar.width : 0)}px;
+    left: ${({ $areToolbarsVisible, $focusedBlockId }) =>
+        $areToolbarsVisible
+            ? $focusedBlockId
+                ? toolbar.width + subtoolbar.width
+                : toolbar.width
+            : 0}px;
     z-index: 0;
     transition: all 0.75s;
 `;

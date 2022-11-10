@@ -5,14 +5,14 @@ import StaticImage from './components/StaticImage';
 import TextBlock from './components/TextBlock';
 import * as e from './styles';
 import { useStore } from 'utils/hooks';
-import * as types from './types';
+import { SubToolbarProps } from './types';
 
-const SubToolbar = ({ focusedBlockId }: types.Props) => {
+const SubToolbar = ({ focusedBlockId }: SubToolbarProps) => {
     const { areToolbarsVisible, blocks } = useStore();
     const blockType = blocks.find((el) => el.id === focusedBlockId)?.type!;
 
     return (
-        <e.Wrapper $isVisible={areToolbarsVisible}>
+        <e.Wrapper $isVisible={areToolbarsVisible} $focusedBlockId={focusedBlockId}>
             {(() => {
                 switch (blockType) {
                     case 'text':

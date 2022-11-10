@@ -1,7 +1,8 @@
 import styled from 'styled-components';
 import { toolbar, subtoolbar } from 'utils/constants';
+import { WrapperProps } from './types';
 
-export const Wrapper = styled.div<{ $isVisible: boolean }>`
+export const Wrapper = styled.div<WrapperProps>`
     position: fixed;
     top: 0;
     left: ${({ $isVisible }) => ($isVisible ? toolbar.width + 1 : -subtoolbar.width)}px;
