@@ -1,11 +1,13 @@
 import { useState } from 'react';
 import * as e from './styles';
+import { useStore } from 'utils/hooks';
 
 const AdditionalToolbar = () => {
     const [isOnline, setOnline] = useState(false);
+    const { areToolbarsVisible } = useStore();
 
     return (
-        <e.Wrapper>
+        <e.Wrapper $isVisible={areToolbarsVisible}>
             <div>
                 <span>
                     <e.Select>

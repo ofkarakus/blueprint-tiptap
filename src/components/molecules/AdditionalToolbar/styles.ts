@@ -2,14 +2,14 @@ import styled, { css } from 'styled-components';
 import arrow from 'assets/images/arrow.png';
 import { toolbar, addtoolbar } from 'utils/constants';
 
-export const Wrapper = styled.div`
+export const Wrapper = styled.div<{ $isVisible: boolean }>`
     position: fixed;
     top: 0;
-    left: ${toolbar.width + 1}px;
+    left: ${({ $isVisible }) => ($isVisible ? toolbar.width + 1 : -addtoolbar.width)}px;
     width: ${addtoolbar.width}px;
     z-index: 999;
-    box-shadow: 0 0 40px rgba(0, 0, 0, 0.25);
-    transition: top 0.55s, left 0.75s, box-shadow 0.25s;
+    box-shadow: ${({ $isVisible }) => ($isVisible ? '0 0 40px rgba(0, 0, 0, 0.25)' : 'none')};
+    transition: top 0.55s, left 0.75s, box-shadow 2s;
 `;
 
 export const Select = styled.select`

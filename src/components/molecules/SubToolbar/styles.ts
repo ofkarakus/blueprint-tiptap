@@ -4,14 +4,15 @@ import { toolbar, subtoolbar } from 'utils/constants';
 export const Wrapper = styled.div<{ $isVisible: boolean }>`
     position: fixed;
     top: 0;
-    left: ${({ $isVisible }) => ($isVisible ? toolbar.width + 1 : -subtoolbar.width - 10)}px;
+    left: ${({ $isVisible }) => ($isVisible ? toolbar.width + 1 : -subtoolbar.width)}px;
     width: ${subtoolbar.width}px;
     height: 100vh;
     font-family: Lato, Arial, Helvetica, sans-serif;
     z-index: 1000;
     background: #fefefe;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
+    box-shadow: ${({ $isVisible }) => ($isVisible ? '0 0 5px rgba(0, 0, 0, 0.15)' : 'none')};
     text-align: left;
+    transition: top 0.55s, left 0.75s, box-shadow 2s;
 `;
 
 export const Table = styled.table`

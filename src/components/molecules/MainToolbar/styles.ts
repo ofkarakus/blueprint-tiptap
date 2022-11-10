@@ -11,6 +11,7 @@ export const Wrapper = styled.div<{ $isVisible: boolean }>`
     background: #fefefe;
     position: fixed;
     top: 0;
-    left: ${({ $isVisible }) => ($isVisible ? 0 : -toolbar.width - 10)}px;
+    left: ${({ $isVisible }) => ($isVisible ? 0 : -toolbar.width)}px;
     z-index: 1001;
+    transition: top 0.55s, left 0.75s, box-shadow 0.25s;
 `;
