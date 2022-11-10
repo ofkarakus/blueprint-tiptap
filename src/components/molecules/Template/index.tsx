@@ -4,13 +4,13 @@ import * as e from './styles';
 import React from 'react';
 
 const Template = () => {
-    const { contextMenu, blocks, areToolbarsVisible, focusedBlockId } = useStore();
+    const { contextMenu, blocks, isMTbarVisible, focusedBlockId } = useStore();
     const { setFocusedBlockId } = useActions();
 
     return (
         <e.Background
             onClick={() => setFocusedBlockId(0)}
-            $isMTbarVisible={areToolbarsVisible}
+            $isMTbarVisible={isMTbarVisible}
             $focusedBlockId={focusedBlockId}
         >
             <e.Template onClick={() => setFocusedBlockId(0)} id="editor-template">

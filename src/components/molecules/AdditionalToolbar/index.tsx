@@ -4,10 +4,10 @@ import { useStore } from 'utils/hooks';
 
 const AdditionalToolbar = () => {
     const [isOnline, setOnline] = useState(false);
-    const { areToolbarsVisible } = useStore();
+    const { isMTbarVisible } = useStore();
 
     return (
-        <e.Wrapper $isVisible={areToolbarsVisible}>
+        <e.Wrapper $isVisible={isMTbarVisible}>
             <div>
                 <span>
                     <e.Select>

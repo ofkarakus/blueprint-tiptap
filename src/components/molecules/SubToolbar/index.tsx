@@ -8,11 +8,11 @@ import { useStore } from 'utils/hooks';
 import { SubToolbarProps } from './types';
 
 const SubToolbar = ({ focusedBlockId }: SubToolbarProps) => {
-    const { areToolbarsVisible, blocks } = useStore();
+    const { isMTbarVisible, blocks } = useStore();
     const blockType = blocks.find((el) => el.id === focusedBlockId)?.type!;
 
     return (
-        <e.Wrapper $isVisible={areToolbarsVisible} $focusedBlockId={focusedBlockId}>
+        <e.Wrapper $isVisible={isMTbarVisible} $focusedBlockId={focusedBlockId}>
             {(() => {
                 switch (blockType) {
                     case 'text':

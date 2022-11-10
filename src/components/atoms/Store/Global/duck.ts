@@ -16,7 +16,7 @@ export const initialState: types.InitialState = {
     blockIdCounter: 1,
     selectedBlockId: 0,
     focusedBlockId: 0,
-    areToolbarsVisible: true,
+    isMTbarVisible: true,
 };
 
 export const actions = (dispatch: React.Dispatch<types.Action>) => ({
@@ -136,12 +136,12 @@ export function reducer(state: types.InitialState, action: types.Action): types.
         case 'SHOW_TOOLBARS':
             return {
                 ...state,
-                areToolbarsVisible: true,
+                isMTbarVisible: true,
             };
         case 'HIDE_TOOLBARS':
             return {
                 ...state,
-                areToolbarsVisible: false,
+                isMTbarVisible: false,
             };
         default:
             return state;

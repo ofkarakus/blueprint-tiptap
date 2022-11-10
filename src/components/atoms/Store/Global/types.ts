@@ -11,7 +11,7 @@ export type InitialState = {
     blockIdCounter: number;
     selectedBlockId: number;
     focusedBlockId: number;
-    areToolbarsVisible: boolean;
+    isMTbarVisible: boolean;
 };
 
 export type Points = {

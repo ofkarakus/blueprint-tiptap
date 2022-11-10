@@ -9,15 +9,15 @@ import { useHotkeys } from 'react-hotkeys-hook';
 
 const Body = () => {
     const { closeContextMenu, showToolbars, hideToolbars } = useActions();
-    const { areToolbarsVisible, focusedBlockId } = useStore();
+    const { isMTbarVisible, focusedBlockId } = useStore();
 
     useEffect(() => {
         window.addEventListener('click', closeContextMenu);
         return () => window.removeEventListener('click', closeContextMenu);
     }, [closeContextMenu]);
 
-    useHotkeys('q', hideToolbars, [areToolbarsVisible], { keydown: true });
-    useHotkeys('q', showToolbars, [areToolbarsVisible], { keyup: true });
+    useHotkeys('q', hideToolbars, [isMTbarVisible], { keydown: true });
+    useHotkeys('q', showToolbars, [isMTbarVisible], { keyup: true });
 
     return (
         <e.Wrapper>

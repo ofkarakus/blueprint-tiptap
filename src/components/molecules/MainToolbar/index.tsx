@@ -13,7 +13,7 @@ import { toolbar } from 'utils/constants';
 
 const MainToolbar = () => {
     const { addBlock, openContextMenu, setFocusedBlockId, closeContextMenu } = useActions();
-    const { blockIdCounter, areToolbarsVisible } = useStore();
+    const { blockIdCounter, isMTbarVisible } = useStore();
 
     const focusOnBlock = () => setFocusedBlockId(blockIdCounter);
 
@@ -56,7 +56,7 @@ const MainToolbar = () => {
     };
 
     return (
-        <e.Wrapper $isVisible={areToolbarsVisible}>
+        <e.Wrapper $isVisible={isMTbarVisible}>
             {(() =>
                 toolbarArr.map((tool, index) => {
                     switch (tool.name) {
