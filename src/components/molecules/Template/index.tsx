@@ -4,11 +4,11 @@ import * as e from './styles';
 import React from 'react';
 
 const Template = () => {
-    const { contextMenu, blocks } = useStore();
+    const { contextMenu, blocks, areToolbarsVisible } = useStore();
     const { setFocusedBlockId } = useActions();
 
     return (
-        <e.Background>
+        <e.Background $areToolbarsVisible={areToolbarsVisible}>
             <e.Template onClick={() => setFocusedBlockId(0)} id="editor-template">
                 {blocks.map((el) => React.cloneElement(el.block, { id: el.id }))}
             </e.Template>

@@ -9,7 +9,7 @@ export const Wrapper = styled.div<{ $isVisible: boolean }>`
     width: ${addtoolbar.width}px;
     z-index: 999;
     box-shadow: ${({ $isVisible }) => ($isVisible ? '0 0 40px rgba(0, 0, 0, 0.25)' : 'none')};
-    transition: top 0.55s, left 0.75s, box-shadow 2s;
+    transition: left 0.75s, box-shadow 2s;
 `;
 
 export const Select = styled.select`

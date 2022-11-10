@@ -12,7 +12,7 @@ export const Wrapper = styled.div<{ $isVisible: boolean }>`
     background: #fefefe;
     box-shadow: ${({ $isVisible }) => ($isVisible ? '0 0 5px rgba(0, 0, 0, 0.15)' : 'none')};
     text-align: left;
-    transition: top 0.55s, left 0.75s, box-shadow 2s;
+    transition: left 0.75s, box-shadow 2s;
 `;
 
 export const Table = styled.table`

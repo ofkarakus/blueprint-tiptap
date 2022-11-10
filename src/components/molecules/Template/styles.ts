@@ -10,15 +10,17 @@ export const Template = styled.div`
     position: relative;
 `;
 
-export const Background = styled.div`
+export const Background = styled.div<{ $areToolbarsVisible: boolean }>`
     height: 100vh;
-    width: calc(100vw - ${toolbar.width}px);
+    width: ${({ $areToolbarsVisible }) =>
+        $areToolbarsVisible ? `calc(100vw - ${toolbar.width}px)` : '100vw'};
     background-color: #f0f0f0;
     display: flex;
     align-items: center;
     justify-content: center;
     position: fixed;
     top: 0;
-    left: ${toolbar.width}px;
+    left: ${({ $areToolbarsVisible }) => ($areToolbarsVisible ? toolbar.width : 0)}px;
     z-index: 0;
+    transition: all 0.75s;
 `;
