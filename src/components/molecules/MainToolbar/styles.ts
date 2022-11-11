@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { toolbar } from 'utils/constants';
 
-export const Wrapper = styled.div<{ $isVisible: boolean }>`
+export const Wrapper = styled.div<{ $isMTbarVisible: boolean }>`
     height: 100vh;
     width: ${toolbar.width}px;
     min-width: ${toolbar.width}px;
@@ -11,8 +11,8 @@ export const Wrapper = styled.div<{ $isVisible: boolean }>`
     background: #fefefe;
     position: fixed;
     top: 0;
-    left: ${({ $isVisible }) => ($isVisible ? 0 : -toolbar.width)}px;
+    left: ${({ $isMTbarVisible }) => ($isMTbarVisible ? 0 : -toolbar.width)}px;
     z-index: 1001;
-    box-shadow: ${({ $isVisible }) => ($isVisible ? '0 0 10px rgba(0, 0, 0, 0.1)' : 'none')};
+    box-shadow: ${({ $isMTbarVisible }) => ($isMTbarVisible ? '0 0 10px rgba(0, 0, 0, 0.1)' : 'none')};
     transition: all 0.75s;
 `;

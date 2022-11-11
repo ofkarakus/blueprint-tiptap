@@ -12,7 +12,7 @@ const SubToolbar = ({ focusedBlockId }: SubToolbarProps) => {
     const blockType = blocks.find((el) => el.id === focusedBlockId)?.type!;
 
     return (
-        <e.Wrapper $isVisible={isMTbarVisible} $focusedBlockId={focusedBlockId}>
+        <e.Wrapper $isMTbarVisible={isMTbarVisible} $isSTbarVisible={focusedBlockId}>
             {(() => {
                 switch (blockType) {
                     case 'text':

@@ -3,6 +3,6 @@ export interface SubToolbarProps {
 }
 
 export interface WrapperProps {
-    $isVisible: boolean;
-    $focusedBlockId: number;
+    $isMTbarVisible: boolean;
+    $isSTbarVisible: number;
 }

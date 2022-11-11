@@ -2,13 +2,13 @@ import styled, { css } from 'styled-components';
 import arrow from 'assets/images/arrow.png';
 import { toolbar, addtoolbar } from 'utils/constants';
 
-export const Wrapper = styled.div<{ $isVisible: boolean }>`
+export const Wrapper = styled.div<{ $isMTbarVisible: boolean }>`
     position: fixed;
     top: 0;
-    left: ${({ $isVisible }) => ($isVisible ? toolbar.width + 1 : -addtoolbar.width)}px;
+    left: ${({ $isMTbarVisible }) => ($isMTbarVisible ? toolbar.width + 1 : -addtoolbar.width)}px;
     width: ${addtoolbar.width}px;
     z-index: 999;
-    box-shadow: ${({ $isVisible }) => ($isVisible ? '0 0 40px rgba(0, 0, 0, 0.25)' : 'none')};
+    box-shadow: ${({ $isMTbarVisible }) => ($isMTbarVisible ? '0 0 40px rgba(0, 0, 0, 0.25)' : 'none')};
     transition: left 0.75s, box-shadow 2s;
 `;
 

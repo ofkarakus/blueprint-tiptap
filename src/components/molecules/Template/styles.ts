@@ -13,9 +13,9 @@ export const Template = styled.div`
 
 export const Background = styled.div<types.BackgroundProps>`
     height: 100vh;
-    width: ${({ $isMTbarVisible, $focusedBlockId }) =>
+    width: ${({ $isMTbarVisible, $isSTbarVisible }) =>
         $isMTbarVisible
-            ? $focusedBlockId
+            ? $isSTbarVisible
                 ? `calc(100vw - ${toolbar.width + subtoolbar.width}px)`
                 : `calc(100vw - ${toolbar.width}px)`
             : '100vw'};
@@ -25,9 +25,9 @@ export const Background = styled.div<types.BackgroundProps>`
     justify-content: center;
     position: fixed;
     top: 0;
-    left: ${({ $isMTbarVisible, $focusedBlockId }) =>
+    left: ${({ $isMTbarVisible, $isSTbarVisible }) =>
         $isMTbarVisible
-            ? $focusedBlockId
+            ? $isSTbarVisible
                 ? toolbar.width + subtoolbar.width
                 : toolbar.width
             : 0}px;

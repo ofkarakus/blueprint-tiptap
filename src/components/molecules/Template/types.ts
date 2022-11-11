@@ -1,1 +1,1 @@
-export type BackgroundProps = { $isMTbarVisible: boolean; $focusedBlockId: number };
+export type BackgroundProps = { $isMTbarVisible: boolean; $isSTbarVisible: number };

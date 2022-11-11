@@ -56,7 +56,7 @@ const MainToolbar = () => {
     };
 
     return (
-        <e.Wrapper $isVisible={isMTbarVisible}>
+        <e.Wrapper $isMTbarVisible={isMTbarVisible}>
             {(() =>
                 toolbarArr.map((tool, index) => {
                     switch (tool.name) {

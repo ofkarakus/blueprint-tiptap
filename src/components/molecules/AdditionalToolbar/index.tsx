@@ -7,7 +7,7 @@ const AdditionalToolbar = () => {
     const { isMTbarVisible } = useStore();
 
     return (
-        <e.Wrapper $isVisible={isMTbarVisible}>
+        <e.Wrapper $isMTbarVisible={isMTbarVisible}>
             <div>
                 <span>
                     <e.Select>

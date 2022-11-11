@@ -5,13 +5,13 @@ import { WrapperProps } from './types';
 export const Wrapper = styled.div<WrapperProps>`
     position: fixed;
     top: 0;
-    left: ${({ $isVisible }) => ($isVisible ? toolbar.width + 1 : -subtoolbar.width)}px;
+    left: ${({ $isMTbarVisible }) => ($isMTbarVisible ? toolbar.width + 1 : -subtoolbar.width)}px;
     width: ${subtoolbar.width}px;
     height: 100vh;
     font-family: Lato, Arial, Helvetica, sans-serif;
     z-index: 1000;
     background: #fefefe;
-    box-shadow: ${({ $isVisible }) => ($isVisible ? '0 0 5px rgba(0, 0, 0, 0.15)' : 'none')};
+    box-shadow: ${({ $isMTbarVisible }) => ($isMTbarVisible ? '0 0 5px rgba(0, 0, 0, 0.15)' : 'none')};
     text-align: left;
     transition: left 0.75s, box-shadow 2s;
 `;

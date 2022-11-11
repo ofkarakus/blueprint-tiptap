@@ -11,7 +11,7 @@ const Template = () => {
         <e.Background
             onClick={() => setFocusedBlockId(0)}
             $isMTbarVisible={isMTbarVisible}
-            $focusedBlockId={focusedBlockId}
+            $isSTbarVisible={focusedBlockId}
         >
             <e.Template onClick={() => setFocusedBlockId(0)} id="editor-template">
                 {blocks.map((el) => React.cloneElement(el.block, { id: el.id }))}
