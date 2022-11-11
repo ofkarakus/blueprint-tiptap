@@ -10,8 +10,9 @@ import { BlockType } from './types';
 import StaticImage from 'components/atoms/StaticImage';
 import { Rnd } from 'react-rnd';
 import { subtoolbar, toolbar } from 'utils/constants';
+import UseReactToPrintHookReturn from 'react-to-print';
 
-const MainToolbar = () => {
+const MainToolbar = ({ handlePrint }: { handlePrint: UseReactToPrintHookReturn }) => {
     const { addBlock, openContextMenu, setFocusedBlockId, closeContextMenu } = useActions();
     const { blockIdCounter, isMTbarVisible } = useStore();
 
@@ -85,9 +86,7 @@ const MainToolbar = () => {
                                 />
                             );
                         case 'print':
-                            return (
-                                <Button key={index} onClick={() => window.print()} tool={tool} />
-                            );
+                            return <Button key={index} onClick={handlePrint as any} tool={tool} />;
                         default:
                             return <Button key={index} tool={tool} />;
                     }

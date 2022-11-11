@@ -3,7 +3,7 @@ import ContextMenu from 'components/atoms/ContextMenu';
 import * as e from './styles';
 import React from 'react';
 
-const Template = () => {
+const Template = ({ templateRef }: { templateRef: React.RefObject<HTMLDivElement> }) => {
     const { contextMenu, blocks, isMTbarVisible, focusedBlockId } = useStore();
     const { setFocusedBlockId } = useActions();
 
@@ -13,7 +13,7 @@ const Template = () => {
             $isMTbarVisible={isMTbarVisible}
             $isSTbarVisible={focusedBlockId}
         >
-            <e.Template onClick={() => setFocusedBlockId(0)} id="editor-template">
+            <e.Template onClick={() => setFocusedBlockId(0)} ref={templateRef}>
                 {blocks.map((el) => React.cloneElement(el.block, { id: el.id }))}
             </e.Template>
             {contextMenu.isVisible && (
