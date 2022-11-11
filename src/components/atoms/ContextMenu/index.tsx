@@ -5,7 +5,14 @@ import { template } from 'utils/constants';
 
 const ContextMenu = ({ top, left }: ContextMenuProps) => {
     const { selectedBlockId, blocks } = useStore();
-    const { removeBlock, bringForwards, sendBackwards, bringToFront, sendToBack } = useActions();
+    const {
+        removeBlock,
+        bringForwards,
+        sendBackwards,
+        bringToFront,
+        sendToBack,
+        closeContextMenu,
+    } = useActions();
 
     const centre = (position: 'horizontally' | 'vertically') => {
         const selectedBlock = blocks.find((el) => el.id === selectedBlockId);
@@ -32,17 +39,31 @@ const ContextMenu = ({ top, left }: ContextMenuProps) => {
         selectedBlock?.ref.current?.updateSize({ width: normal, height: normal });
     };
 
+    const onClick = (e: React.MouseEvent<HTMLLIElement, MouseEvent>, func: () => void) => {
+        func();
+        closeContextMenu();
+        e.stopPropagation();
+    };
+
     return (
         <e.Wrapper top={top} left={left}>
             <ul>
                 <li onClick={() => removeBlock(selectedBlockId)}>Remove Item</li>
-                <li onClick={() => bringForwards(selectedBlockId)}>Bring Forwards</li>
-                <li onClick={() => sendBackwards(selectedBlockId)}>Send Backwards</li>
-                <li onClick={() => bringToFront(selectedBlockId)}>Bring To Front</li>
-                <li onClick={() => sendToBack(selectedBlockId)}>Send To Back</li>
-                <li onClick={() => centre('horizontally')}>Centre Horizontally</li>
-                <li onClick={() => centre('vertically')}>Centre Vertically</li>
-                <li onClick={() => normalise()}>Normalise Aspect Ratio</li>
+                <li onClick={(e) => onClick(e, () => bringForwards(selectedBlockId))}>
+                    Bring Forwards
+                </li>
+                <li onClick={(e) => onClick(e, () => sendBackwards(selectedBlockId))}>
+                    Send Backwards
+                </li>
+                <li onClick={(e) => onClick(e, () => bringToFront(selectedBlockId))}>
+                    Bring To Front
+                </li>
+                <li onClick={(e) => onClick(e, () => sendToBack(selectedBlockId))}>Send To Back</li>
+                <li onClick={(e) => onClick(e, () => centre('horizontally'))}>
+                    Centre Horizontally
+                </li>
+                <li onClick={(e) => onClick(e, () => centre('vertically'))}>Centre Vertically</li>
+                <li onClick={(e) => onClick(e, normalise)}>Normalise Aspect Ratio</li>
             </ul>
         </e.Wrapper>
     );
