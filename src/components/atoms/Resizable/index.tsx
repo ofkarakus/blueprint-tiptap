@@ -6,6 +6,7 @@ import {
     dynamicImageBlockStyle,
     backgroundBlockDefault,
     backgroundBlockStyle,
+    listBoundaryDefault,
 } from './utils';
 import * as e from './styles';
 import { useStore } from 'utils/hooks';
@@ -52,6 +53,16 @@ const Resizable = forwardRef((props: ResizableProps, ref: Ref<Rnd>) => {
                 <e.StyledRnd
                     default={imageBlockDefault}
                     style={dynamicImageBlockStyle}
+                    $isFocused={props.id === focusedBlockId}
+                    ref={ref}
+                    {...props}
+                />
+            );
+        case 'list-boundary':
+            return (
+                <e.StyledRnd
+                    default={listBoundaryDefault}
+                    style={textBlockStyle}
                     $isFocused={props.id === focusedBlockId}
                     ref={ref}
                     {...props}

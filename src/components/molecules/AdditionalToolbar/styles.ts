@@ -8,7 +8,8 @@ export const Wrapper = styled.div<{ $isMTbarVisible: boolean }>`
     left: ${({ $isMTbarVisible }) => ($isMTbarVisible ? toolbar.width + 1 : -addtoolbar.width)}px;
     width: ${addtoolbar.width}px;
     z-index: 999;
-    box-shadow: ${({ $isMTbarVisible }) => ($isMTbarVisible ? '0 0 40px rgba(0, 0, 0, 0.25)' : 'none')};
+    box-shadow: ${({ $isMTbarVisible }) =>
+        $isMTbarVisible ? '0 0 40px rgba(0, 0, 0, 0.25)' : 'none'};
     transition: left 0.75s, box-shadow 2s;
 `;
 

@@ -1,4 +1,4 @@
-import { template, textBlock, imageBlock } from 'utils/constants';
+import { template, textBlock, imageBlock, listBoundary } from 'utils/constants';
 
 export const sharedStyle = {
     display: 'flex',
@@ -39,6 +39,13 @@ export const imageBlockDefault = {
     y: template.height / 2 - imageBlock.height / 2,
     width: imageBlock.width,
     height: imageBlock.height,
+};
+
+export const listBoundaryDefault = {
+    x: template.width / 2 - listBoundary.width / 2,
+    y: template.height / 2 - listBoundary.height / 2,
+    width: listBoundary.width,
+    height: listBoundary.height,
 };
 
 export const backgroundBlockDefault = {

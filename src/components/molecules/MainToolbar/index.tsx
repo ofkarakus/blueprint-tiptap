@@ -94,6 +94,16 @@ const MainToolbar = ({ handlePrint }: { handlePrint: UseReactToPrintHookReturn }
                                     tool={tool}
                                 />
                             );
+                        case 'textAlign':
+                            return (
+                                <Button
+                                    key={index}
+                                    onClick={() =>
+                                        onAddBlockBtn('list-boundary', <e.ListBoundaryText />)
+                                    }
+                                    tool={tool}
+                                />
+                            );
                         case 'print':
                             return <Button key={index} onClick={handlePrint as any} tool={tool} />;
                         default:

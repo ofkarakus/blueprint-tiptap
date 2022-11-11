@@ -13,6 +13,15 @@ export const Wrapper = styled.div<{ $isMTbarVisible: boolean }>`
     top: 0;
     left: ${({ $isMTbarVisible }) => ($isMTbarVisible ? 0 : -toolbar.width)}px;
     z-index: 1001;
-    box-shadow: ${({ $isMTbarVisible }) => ($isMTbarVisible ? '0 0 10px rgba(0, 0, 0, 0.1)' : 'none')};
+    box-shadow: ${({ $isMTbarVisible }) =>
+        $isMTbarVisible ? '0 0 10px rgba(0, 0, 0, 0.1)' : 'none'};
     transition: all 0.75s;
+`;
+
+export const ListBoundaryText = styled.span`
+    color: #9f9f9f;
+    font-size: 10px;
+    &:before {
+        content: 'LIST BOUNDARY';
+    }
 `;

@@ -13,6 +13,11 @@ export const imageBlock = {
     height: 270,
 };
 
+export const listBoundary = {
+    width: 500,
+    height: 500,
+};
+
 export const toolbar = {
     width: 132,
 };

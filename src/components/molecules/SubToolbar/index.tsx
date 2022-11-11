@@ -23,8 +23,8 @@ const SubToolbar = ({ focusedBlockId }: SubToolbarProps) => {
                         return <DynamicImage />;
                     case 'background':
                         return <Background />;
-                    // case true:
-                    //     return <ListBoundary />;
+                    case 'list-boundary':
+                        return <ListBoundary />;
                 }
             })()}
         </e.Wrapper>
