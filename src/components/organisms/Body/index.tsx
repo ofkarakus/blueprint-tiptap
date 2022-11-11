@@ -23,7 +23,7 @@ const Body = () => {
         <e.Wrapper>
             <MainToolbar />
             <AdditionalToolbar />
-            {focusedBlockId && <SubToolbar focusedBlockId={focusedBlockId} />}
+            <SubToolbar focusedBlockId={focusedBlockId} />
             <Template />
         </e.Wrapper>
     );
