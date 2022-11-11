@@ -19,7 +19,6 @@ export const staticImageBlockStyle = {
 };
 
 export const dynamicImageBlockStyle = {
-    ...sharedStyle,
     border: 'solid 1px #bcbcbc',
     background: '#d8d8d8',
 };

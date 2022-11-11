@@ -11,6 +11,7 @@ import StaticImage from 'components/atoms/StaticImage';
 import { Rnd } from 'react-rnd';
 import { subtoolbar, toolbar } from 'utils/constants';
 import UseReactToPrintHookReturn from 'react-to-print';
+import DynamicImage from 'components/atoms/DynamicImage';
 
 const MainToolbar = ({ handlePrint }: { handlePrint: UseReactToPrintHookReturn }) => {
     const { addBlock, openContextMenu, setFocusedBlockId, closeContextMenu } = useActions();
@@ -89,7 +90,7 @@ const MainToolbar = ({ handlePrint }: { handlePrint: UseReactToPrintHookReturn }
                             return (
                                 <Button
                                     key={index}
-                                    onClick={() => onAddBlockBtn('dynamic-image')}
+                                    onClick={() => onAddBlockBtn('dynamic-image', <DynamicImage />)}
                                     tool={tool}
                                 />
                             );
