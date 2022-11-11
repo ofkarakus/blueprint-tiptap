@@ -2,7 +2,8 @@ import {
     textBlockStyle,
     textBlockDefault,
     imageBlockDefault,
-    imageBlockStyle,
+    staticImageBlockStyle,
+    dynamicImageBlockStyle,
     backgroundBlockDefault,
     backgroundBlockStyle,
 } from './utils';
@@ -36,11 +37,21 @@ const Resizable = forwardRef((props: ResizableProps, ref: Ref<Rnd>) => {
                     {...props}
                 />
             );
-        case 'image':
+        case 'static-image':
             return (
                 <e.StyledRnd
                     default={imageBlockDefault}
-                    style={imageBlockStyle}
+                    style={staticImageBlockStyle}
+                    $isFocused={props.id === focusedBlockId}
+                    ref={ref}
+                    {...props}
+                />
+            );
+        case 'dynamic-image':
+            return (
+                <e.StyledRnd
+                    default={imageBlockDefault}
+                    style={dynamicImageBlockStyle}
                     $isFocused={props.id === focusedBlockId}
                     ref={ref}
                     {...props}

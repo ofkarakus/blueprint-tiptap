@@ -12,10 +12,16 @@ export const textBlockStyle = {
     background: 'transparent',
 };
 
-export const imageBlockStyle = {
+export const staticImageBlockStyle = {
     ...sharedStyle,
     border: 'dashed 1px gray',
     background: '#ededed',
+};
+
+export const dynamicImageBlockStyle = {
+    ...sharedStyle,
+    border: 'solid 1px #bcbcbc',
+    background: '#d8d8d8',
 };
 
 export const backgroundBlockStyle = {

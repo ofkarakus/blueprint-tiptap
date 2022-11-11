@@ -81,7 +81,15 @@ const MainToolbar = ({ handlePrint }: { handlePrint: UseReactToPrintHookReturn }
                             return (
                                 <Button
                                     key={index}
-                                    onClick={() => onAddBlockBtn('image', <StaticImage />)}
+                                    onClick={() => onAddBlockBtn('static-image', <StaticImage />)}
+                                    tool={tool}
+                                />
+                            );
+                        case 'stickyNote':
+                            return (
+                                <Button
+                                    key={index}
+                                    onClick={() => onAddBlockBtn('dynamic-image')}
                                     tool={tool}
                                 />
                             );

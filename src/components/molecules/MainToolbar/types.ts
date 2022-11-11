@@ -1,1 +1,1 @@
-export type BlockType = 'text' | 'image' | 'background';
+export type BlockType = 'text' | 'static-image' | 'background' | 'dynamic-image';

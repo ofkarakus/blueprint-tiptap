@@ -17,10 +17,10 @@ const SubToolbar = ({ focusedBlockId }: SubToolbarProps) => {
                 switch (blockType) {
                     case 'text':
                         return <TextBlock />;
-                    case 'image':
+                    case 'static-image':
                         return <StaticImage />;
-                    // case true:
-                    //     return <DynamicImage />;
+                    case 'dynamic-image':
+                        return <DynamicImage />;
                     case 'background':
                         return <Background />;
                     // case true:
