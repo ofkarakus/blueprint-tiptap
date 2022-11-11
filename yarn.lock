@@ -8259,6 +8259,13 @@ react-scripts@5.0.1:
   optionalDependencies:
     fsevents "^2.3.2"
 
+react-to-print@^2.14.8:
+  version "2.14.8"
+  resolved "https://registry.yarnpkg.com/react-to-print/-/react-to-print-2.14.8.tgz#15203e4f4b83b18931a490d39899b25d68923a6f"
+  integrity sha512-5MkSF3rLdxF9gmcSA6PdqTq9IFh7XkpYiJGP15OW+7hVr0+bpjLvi+kAIAuVjyV5/pv4GI3GuhVBQ0/hq94EZg==
+  dependencies:
+    prop-types "^15.8.1"
+
 react-tracked@^1.7.10:
   version "1.7.10"
   resolved "https://registry.yarnpkg.com/react-tracked/-/react-tracked-1.7.10.tgz#1a907a0dfa3fcdc29247ba0f5cfad0145b8ef0c8"

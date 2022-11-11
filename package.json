@@ -12,6 +12,7 @@
         "react-hotkeys-hook": "4.0.2",
         "react-rnd": "^10.3.7",
         "react-scripts": "5.0.1",
+        "react-to-print": "^2.14.8",
         "react-tracked": "^1.7.10",
         "sass": "^1.55.0",
         "styled-components": "^5.3.6",
