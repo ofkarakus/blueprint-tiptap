@@ -31,7 +31,7 @@ const Resizable = forwardRef((props: ResizableProps, ref: Ref<Rnd>) => {
                 <e.StyledRnd
                     default={backgroundBlockDefault}
                     style={backgroundBlockStyle}
-                    disableDragging
+                    $isFocused={props.id === focusedBlockId}
                     ref={ref}
                     {...props}
                 />
