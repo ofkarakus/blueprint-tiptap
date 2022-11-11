@@ -20,7 +20,7 @@ export const Wrapper = styled.div<ContextMenuProps>`
     ul li {
         padding: 5px 5px 5px 8px;
         border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-        font-size: 13px;
+        font-size: 12px;
     }
     ul li:last-of-type {
         border-bottom: 0px;
