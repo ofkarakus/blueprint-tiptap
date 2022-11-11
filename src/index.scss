@@ -1,3 +1,10 @@
 body {
     margin: 0;
 }
+
+@media screen and (-webkit-min-device-pixel-ratio: 0) and (min-resolution: 0.001dpcm) {
+    @page {
+        size: A4;
+        margin: 0 -9px -9px 0;
+    }
+}
