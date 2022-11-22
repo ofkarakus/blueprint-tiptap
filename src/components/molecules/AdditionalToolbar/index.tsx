@@ -4,7 +4,7 @@ import { useStore } from 'utils/hooks';
 
 const AdditionalToolbar = () => {
     const [isOnline, setOnline] = useState(false);
-    const { isMTbarVisible } = useStore();
+    const { isMTbarVisible, blocks } = useStore();
 
     return (
         <e.Wrapper $isMTbarVisible={isMTbarVisible}>
@@ -12,7 +12,7 @@ const AdditionalToolbar = () => {
                 <span>
                     <e.Select>
                         <option disabled selected>
-                            Browse Shapes {0}
+                            Browse Shapes ({blocks.length})
                         </option>
                     </e.Select>
                 </span>
