@@ -1,5 +1,5 @@
 import React, { RefObject } from 'react';
-import { move } from 'utils/helpers';
+import { move, capitalize } from 'utils/helpers';
 import * as types from './types';
 import { Rnd } from 'react-rnd';
 import { BlockType } from 'components/molecules/MainToolbar/types';
@@ -65,6 +65,9 @@ export function reducer(state: types.InitialState, action: types.Action): types.
                                   block: action.payload.block,
                                   ref: action.payload.ref,
                                   type: action.payload.type,
+                                  label: `Shape ${state.blockIdCounter}: ${capitalize(
+                                      action.payload.type,
+                                  )}`,
                               },
                               ...state.blocks,
                           ]
@@ -75,6 +78,9 @@ export function reducer(state: types.InitialState, action: types.Action): types.
                                   block: action.payload.block,
                                   ref: action.payload.ref,
                                   type: action.payload.type,
+                                  label: `Shape ${state.blockIdCounter}: ${capitalize(
+                                      action.payload.type,
+                                  )}`,
                               },
                           ],
                 blockIdCounter: state.blockIdCounter + 1,

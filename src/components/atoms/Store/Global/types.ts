@@ -19,7 +19,13 @@ export type Points = {
     y: number;
 };
 
-export type Block = { id: number; block: ReactElement; ref: RefObject<Rnd>; type: BlockType };
+export type Block = {
+    id: number;
+    block: ReactElement;
+    ref: RefObject<Rnd>;
+    type: BlockType;
+    label: string;
+};
 
 export type Action =
     | {

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useMemo } from 'react';
 import * as e from './styles';
 import { useStore } from 'utils/hooks';
 
@@ -6,14 +6,17 @@ const AdditionalToolbar = () => {
     const [isOnline, setOnline] = useState(false);
     const { isMTbarVisible, blocks } = useStore();
 
+    const sortedBlockArr = useMemo(() => [...blocks].sort((a, b) => a.id - b.id), [blocks]);
+
     return (
         <e.Wrapper $isMTbarVisible={isMTbarVisible}>
             <div>
                 <span>
                     <e.Select>
-                        <option disabled selected>
-                            Browse Shapes ({blocks.length})
-                        </option>
+                        <option disabled selected label={`Browse Shapes (${blocks.length})`} />
+                        {sortedBlockArr.map((el) => (
+                            <option label={el.label} value={el.id} />
+                        ))}
                     </e.Select>
                 </span>
             </div>
