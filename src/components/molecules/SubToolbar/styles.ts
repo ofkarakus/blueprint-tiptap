@@ -20,6 +20,13 @@ export const Wrapper = styled.div<WrapperProps>`
         $isMTbarVisible ? ($isSTbarVisible ? '0 0 5px rgba(0, 0, 0, 0.15)' : 'none') : 'none'};
     text-align: left;
     transition: left 0.5s, box-shadow 1.5s;
+    & * {
+        font-size: 10px;
+        font-weight: bold;
+    }
+    & svg {
+        margin-right: 5px;
+    }
 `;
 
 export const Table = styled.table`
