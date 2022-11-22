@@ -11,7 +11,9 @@ const AdditionalToolbar = () => {
             <div>
                 <span>
                     <e.Select>
-                        <option value="">Browse Shapes (0)</option>
+                        <option disabled selected>
+                            Browse Shapes {0}
+                        </option>
                     </e.Select>
                 </span>
             </div>
