@@ -1,10 +1,11 @@
 import { useState, useMemo } from 'react';
 import * as e from './styles';
-import { useStore } from 'utils/hooks';
+import { useStore, useActions } from 'utils/hooks';
 
 const AdditionalToolbar = () => {
     const [isOnline, setOnline] = useState(false);
     const { isMTbarVisible, blocks } = useStore();
+    const { setFocusedBlockId } = useActions();
 
     const sortedBlockArr = useMemo(() => [...blocks].sort((a, b) => a.id - b.id), [blocks]);
 
@@ -12,10 +13,10 @@ const AdditionalToolbar = () => {
         <e.Wrapper $isMTbarVisible={isMTbarVisible}>
             <div>
                 <span>
-                    <e.Select>
+                    <e.Select onChange={(e) => setFocusedBlockId(Number(e.target.value))}>
                         <option disabled selected label={`Browse Shapes (${blocks.length})`} />
                         {sortedBlockArr.map((el) => (
-                            <option label={el.label} value={el.id} />
+                            <option label={el.label} value={el.id} key={el.id} />
                         ))}
                     </e.Select>
                 </span>
