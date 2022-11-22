@@ -32,5 +32,5 @@ export const Background = styled.div<types.BackgroundProps>`
                 : toolbar.width
             : 0}px;
     z-index: 0;
-    transition: all 0.75s;
+    transition: all 0.5s;
 `;

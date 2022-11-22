@@ -19,7 +19,7 @@ export const Wrapper = styled.div<WrapperProps>`
     box-shadow: ${({ $isMTbarVisible, $isSTbarVisible }) =>
         $isMTbarVisible ? ($isSTbarVisible ? '0 0 5px rgba(0, 0, 0, 0.15)' : 'none') : 'none'};
     text-align: left;
-    transition: left 0.75s, box-shadow 2s;
+    transition: left 0.5s, box-shadow 1.5s;
 `;
 
 export const Table = styled.table`

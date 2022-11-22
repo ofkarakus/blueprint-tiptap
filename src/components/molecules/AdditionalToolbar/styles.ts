@@ -10,7 +10,7 @@ export const Wrapper = styled.div<{ $isMTbarVisible: boolean }>`
     z-index: 999;
     box-shadow: ${({ $isMTbarVisible }) =>
         $isMTbarVisible ? '0 0 40px rgba(0, 0, 0, 0.25)' : 'none'};
-    transition: left 0.75s, box-shadow 2s;
+    transition: left 0.5s, box-shadow 1.5s;
 `;
 
 export const Select = styled.select`

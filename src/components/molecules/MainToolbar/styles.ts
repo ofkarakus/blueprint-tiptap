@@ -15,7 +15,7 @@ export const Wrapper = styled.div<{ $isMTbarVisible: boolean }>`
     z-index: 1001;
     box-shadow: ${({ $isMTbarVisible }) =>
         $isMTbarVisible ? '0 0 10px rgba(0, 0, 0, 0.1)' : 'none'};
-    transition: all 0.75s;
+    transition: all 0.5s;
 `;
 
 export const ListBoundaryText = styled.span`
