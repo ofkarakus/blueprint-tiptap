@@ -1,14 +1,23 @@
 import * as e from '../../styles';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSquare as faSquareSolid } from '@fortawesome/free-solid-svg-icons';
+import { faSquare } from '@fortawesome/free-regular-svg-icons';
 
 const Stroke = () => {
     return (
         <>
             <tr>
-                <td>1</td>
+                <td>
+                    <FontAwesomeIcon icon={faSquare} />
+                    Stroke:
+                </td>
                 <td colSpan={2}>2</td>
             </tr>
             <e.SpecificRow1>
-                <td>1</td>
+                <td>
+                    <FontAwesomeIcon icon={faSquareSolid} />
+                    Stroke Colour
+                </td>
                 <td>2</td>
             </e.SpecificRow1>
         </>

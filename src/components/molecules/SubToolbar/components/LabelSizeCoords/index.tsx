@@ -7,14 +7,14 @@ const LabelSizeCoords = () => {
             <tr>
                 <td>
                     <FontAwesomeIcon icon={faTag} />
-                    LABEL:
+                    Label:
                 </td>
                 <td colSpan={2}>2</td>
             </tr>
             <tr>
                 <td>
                     <FontAwesomeIcon icon={faCompress} />
-                    SIZE:
+                    Size:
                 </td>
                 <td>2</td>
                 <td>3</td>
@@ -22,7 +22,7 @@ const LabelSizeCoords = () => {
             <tr>
                 <td>
                     <FontAwesomeIcon icon={faArrowsAlt} />
-                    COORDS:
+                    Coords:
                 </td>
                 <td>2</td>
                 <td>3</td>
