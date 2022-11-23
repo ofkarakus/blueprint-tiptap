@@ -18,9 +18,9 @@ const Stroke = () => {
                     <FontAwesomeIcon icon={faSquareSolid} />
                     Stroke Colour
                 </td>
-                <e.ColorTd>
+                <e.ColorBlockWrapper>
                     <e.ColorBlock />
-                </e.ColorTd>
+                </e.ColorBlockWrapper>
             </e.SpecificRow1>
         </>
     );

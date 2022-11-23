@@ -29,21 +29,21 @@ const TextBlock = () => {
                     <FontAwesomeIcon icon={faAdjust} />
                     Font Colour
                 </td>
-                <e.ColorTd>
+                <e.ColorBlockWrapper>
                     <e.ColorBlock />
-                </e.ColorTd>
+                </e.ColorBlockWrapper>
             </e.SpecificRow1>
             <e.SpecificRow1>
                 <td>
                     <FontAwesomeIcon icon={faEyeDropper} />
                     Background Fill
                 </td>
-                <e.ColorTd>
+                <e.ColorBlockWrapper>
                     <e.ColorBlock />
                     <XMarkDiv>
                         <e.ZeroMarginFAIcon icon={faXmark} size={'2x'} />
                     </XMarkDiv>
-                </e.ColorTd>
+                </e.ColorBlockWrapper>
             </e.SpecificRow1>
             <Stroke />
             <tr>

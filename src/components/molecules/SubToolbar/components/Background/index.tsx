@@ -3,7 +3,7 @@ import LabelSizeCoords from '../LabelSizeCoords';
 import UploadImage from '../UploadImage';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEyeDropper, faXmark } from '@fortawesome/free-solid-svg-icons';
-import { XMarkTd } from './styles';
+import { ColorTd, XMarkTd } from './styles';
 
 const Background = () => {
     return (
@@ -16,7 +16,7 @@ const Background = () => {
                 </td>
             </tr>
             <e.SpecificRow2>
-                <td></td>
+                <ColorTd />
                 <XMarkTd>
                     <e.ZeroMarginFAIcon icon={faXmark} size={'2x'} />
                 </XMarkTd>

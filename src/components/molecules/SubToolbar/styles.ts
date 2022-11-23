@@ -81,7 +81,7 @@ export const SpecificRow3 = styled.tr`
     }
 `;
 
-export const ColorTd = styled.td`
+export const ColorBlockWrapper = styled.td`
     display: flex;
     flexdirection: row;
     alignitems: center;

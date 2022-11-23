@@ -7,3 +7,8 @@ export const XMarkTd = styled.td`
     margin: 0;
     padding: 6px 10px 6px !important;
 `;
+
+export const ColorTd = styled.td`
+    background-color: red;
+    border-right-color: red;
+`;
