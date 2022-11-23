@@ -4,7 +4,7 @@ import { ContextMenuProps } from './types';
 import { template } from 'utils/constants';
 
 const ContextMenu = ({ top, left }: ContextMenuProps) => {
-    const { selectedBlockId, blocks } = useStore();
+    const { focusedBlockId, blocks } = useStore();
     const {
         removeBlock,
         bringForwards,
@@ -15,7 +15,7 @@ const ContextMenu = ({ top, left }: ContextMenuProps) => {
     } = useActions();
 
     const centre = (position: 'horizontally' | 'vertically') => {
-        const selectedBlock = blocks.find((el) => el.id === selectedBlockId);
+        const selectedBlock = blocks.find((el) => el.id === focusedBlockId);
         const currentPosition = selectedBlock?.ref.current?.getDraggablePosition()!;
         const currentWidth = selectedBlock?.ref.current?.getSelfElement()?.offsetWidth!;
         const currentHeight = selectedBlock?.ref.current?.getSelfElement()?.offsetHeight!;
@@ -32,7 +32,7 @@ const ContextMenu = ({ top, left }: ContextMenuProps) => {
     };
 
     const normalise = () => {
-        const selectedBlock = blocks.find((el) => el.id === selectedBlockId);
+        const selectedBlock = blocks.find((el) => el.id === focusedBlockId);
         const currentWidth = selectedBlock?.ref.current?.getSelfElement()?.offsetWidth!;
         const currentHeight = selectedBlock?.ref.current?.getSelfElement()?.offsetHeight!;
         const normal = currentWidth <= currentHeight ? currentWidth : currentHeight;
@@ -48,17 +48,17 @@ const ContextMenu = ({ top, left }: ContextMenuProps) => {
     return (
         <e.Wrapper top={top} left={left}>
             <ul>
-                <li onClick={() => removeBlock(selectedBlockId)}>Remove Item</li>
-                <li onClick={(e) => onClick(e, () => bringForwards(selectedBlockId))}>
+                <li onClick={() => removeBlock(focusedBlockId)}>Remove Item</li>
+                <li onClick={(e) => onClick(e, () => bringForwards(focusedBlockId))}>
                     Bring Forwards
                 </li>
-                <li onClick={(e) => onClick(e, () => sendBackwards(selectedBlockId))}>
+                <li onClick={(e) => onClick(e, () => sendBackwards(focusedBlockId))}>
                     Send Backwards
                 </li>
-                <li onClick={(e) => onClick(e, () => bringToFront(selectedBlockId))}>
+                <li onClick={(e) => onClick(e, () => bringToFront(focusedBlockId))}>
                     Bring To Front
                 </li>
-                <li onClick={(e) => onClick(e, () => sendToBack(selectedBlockId))}>Send To Back</li>
+                <li onClick={(e) => onClick(e, () => sendToBack(focusedBlockId))}>Send To Back</li>
                 <li onClick={(e) => onClick(e, () => centre('horizontally'))}>
                     Centre Horizontally
                 </li>

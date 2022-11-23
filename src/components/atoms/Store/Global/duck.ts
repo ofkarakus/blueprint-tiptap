@@ -14,7 +14,6 @@ export const initialState: types.InitialState = {
         },
     },
     blockIdCounter: 1,
-    selectedBlockId: 0,
     focusedBlockId: 0,
     isMTbarVisible: true,
 };
@@ -100,7 +99,7 @@ export function reducer(state: types.InitialState, action: types.Action): types.
                         y: action.payload.points.y,
                     },
                 },
-                selectedBlockId: action.payload.blockId,
+                focusedBlockId: action.payload.blockId,
             };
         case 'CLOSE_CONTEXT_MENU':
             return {
