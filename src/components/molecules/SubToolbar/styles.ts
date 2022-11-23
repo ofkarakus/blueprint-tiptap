@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import { toolbar, subtoolbar } from 'utils/constants';
 import { WrapperProps } from './types';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 export const Wrapper = styled.div<WrapperProps>`
     position: fixed;
@@ -78,4 +79,21 @@ export const SpecificRow3 = styled.tr`
         padding: 0 !important;
         width: 100%;
     }
+`;
+
+export const ColorTd = styled.td`
+    display: flex;
+    flexdirection: row;
+    alignitems: center;
+    padding: 3px !important;
+`;
+
+export const ColorBlock = styled.div`
+    flex: 1;
+    background-color: red;
+    height: 100%;
+`;
+
+export const ZeroMarginFAIcon = styled(FontAwesomeIcon)`
+    margin: 0px !important;
 `;

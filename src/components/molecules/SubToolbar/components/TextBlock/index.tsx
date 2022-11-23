@@ -16,8 +16,9 @@ import {
     faMagic,
     faHeader,
     faFont,
+    faXmark,
 } from '@fortawesome/free-solid-svg-icons';
-import { SpecificFAIcon } from './styles';
+import { SpecificFAIcon, XMarkDiv } from './styles';
 
 const TextBlock = () => {
     return (
@@ -28,14 +29,21 @@ const TextBlock = () => {
                     <FontAwesomeIcon icon={faAdjust} />
                     Font Colour
                 </td>
-                <td></td>
+                <e.ColorTd>
+                    <e.ColorBlock />
+                </e.ColorTd>
             </e.SpecificRow1>
             <e.SpecificRow1>
                 <td>
                     <FontAwesomeIcon icon={faEyeDropper} />
                     Background Fill
                 </td>
-                <td>2</td>
+                <e.ColorTd>
+                    <e.ColorBlock />
+                    <XMarkDiv>
+                        <e.ZeroMarginFAIcon icon={faXmark} size={'2x'} />
+                    </XMarkDiv>
+                </e.ColorTd>
             </e.SpecificRow1>
             <Stroke />
             <tr>

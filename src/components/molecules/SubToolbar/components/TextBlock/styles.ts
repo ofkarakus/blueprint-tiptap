@@ -6,3 +6,11 @@ export const SpecificFAIcon = styled(FontAwesomeIcon)`
     opacity: 0.25;
     margin-right: 12px !important;
 `;
+
+export const XMarkDiv = styled.div`
+    width: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 3px;
+`;
