@@ -17,7 +17,7 @@ import {
     faHeader,
     faFont,
 } from '@fortawesome/free-solid-svg-icons';
-import { SpecificFontAwesome } from './styles';
+import { SpecificFAIcon } from './styles';
 
 const TextBlock = () => {
     return (
@@ -28,7 +28,7 @@ const TextBlock = () => {
                     <FontAwesomeIcon icon={faAdjust} />
                     Font Colour
                 </td>
-                <td>2</td>
+                <td></td>
             </e.SpecificRow1>
             <e.SpecificRow1>
                 <td>
@@ -46,15 +46,15 @@ const TextBlock = () => {
             </tr>
             <e.SpecificRow1>
                 <td>
-                    <SpecificFontAwesome icon={faAlignLeft} />
-                    <SpecificFontAwesome icon={faAlignCenter} />
-                    <SpecificFontAwesome icon={faAlignJustify} />
-                    <SpecificFontAwesome icon={faAlignRight} />
+                    <SpecificFAIcon icon={faAlignLeft} />
+                    <SpecificFAIcon icon={faAlignCenter} />
+                    <SpecificFAIcon icon={faAlignJustify} />
+                    <SpecificFAIcon icon={faAlignRight} />
                 </td>
                 <td>
-                    <SpecificFontAwesome icon={faDedent} rotation={90} />
-                    <SpecificFontAwesome icon={faAlignJustify} rotation={90} />
-                    <SpecificFontAwesome icon={faIndent} rotation={90} />
+                    <SpecificFAIcon icon={faDedent} rotation={90} />
+                    <SpecificFAIcon icon={faAlignJustify} rotation={90} />
+                    <SpecificFAIcon icon={faIndent} rotation={90} />
                 </td>
             </e.SpecificRow1>
             <tr>
