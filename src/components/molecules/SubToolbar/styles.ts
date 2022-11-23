@@ -74,4 +74,8 @@ export const SpecificRow3 = styled.tr`
     display: flex;
     width: inherit;
     height: 65px;
+    & > td {
+        padding: 0 !important;
+        width: 100%;
+    }
 `;
