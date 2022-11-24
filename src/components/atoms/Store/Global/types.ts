@@ -9,6 +9,7 @@ export type InitialState = {
         points: Points;
     };
     blockIdCounter: number;
+    focusedBlock?: Block;
     focusedBlockId: number;
     isMTbarVisible: boolean;
 };

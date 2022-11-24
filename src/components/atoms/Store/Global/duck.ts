@@ -14,6 +14,7 @@ export const initialState: types.InitialState = {
         },
     },
     blockIdCounter: 1,
+    focusedBlock: undefined,
     focusedBlockId: 0,
     isMTbarVisible: true,
 };
@@ -112,6 +113,7 @@ export function reducer(state: types.InitialState, action: types.Action): types.
         case 'SET_FOCUSED_BLOCK_ID':
             return {
                 ...state,
+                focusedBlock: state.blocks.find((el) => el.id === action.payload),
                 focusedBlockId: action.payload,
             };
         case 'BRING_FORWARDS':
