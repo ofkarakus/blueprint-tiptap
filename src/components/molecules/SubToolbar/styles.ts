@@ -21,32 +21,33 @@ export const Wrapper = styled.div<WrapperProps>`
         $isMTbarVisible ? ($isSTbarVisible ? '0 0 5px rgba(0, 0, 0, 0.15)' : 'none') : 'none'};
     text-align: left;
     transition: left 0.5s, box-shadow 1.5s;
-    & td {
-        font-size: 10px;
-        font-weight: bold;
-        text-transform: uppercase;
-    }
-    & svg {
-        margin-right: 5px;
-    }
 `;
 
 export const Table = styled.table`
     table-layout: fixed;
     width: inherit;
     font-size: 12px;
-    & > tr > td {
-        border-right: 1px solid rgba(0, 0, 0, 0.2);
-        padding: 10px;
-    }
-    & > tr > td:last-of-type {
-        border-right: 0;
-    }
-    & > tr {
-        border-bottom: 1px solid rgba(0, 0, 0, 0.2);
-    }
     border-collapse: collapse;
     border-right: 0;
+
+    & > tr {
+        border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+        & > td {
+            border-right: 1px solid rgba(0, 0, 0, 0.2);
+            padding: 10px;
+            &:first-of-type {
+                font-size: 10px;
+                font-weight: bold;
+                text-transform: uppercase;
+                & > svg {
+                    margin-right: 5px;
+                }
+            }
+            &:last-of-type {
+                border-right: 0;
+            }
+        }
+    }
 `;
 
 export const SpecificRow1 = styled.tr`
