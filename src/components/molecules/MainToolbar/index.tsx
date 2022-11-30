@@ -15,7 +15,7 @@ import DynamicImage from 'components/atoms/DynamicImage';
 import { initialSizes, initialCoords } from 'components/atoms/Resizable/utils';
 
 const MainToolbar = ({ handlePrint }: { handlePrint: UseReactToPrintHookReturn }) => {
-    const { addBlock, openContextMenu, setFocusedBlockId, closeContextMenu, setCoords } =
+    const { addBlock, openContextMenu, setFocusedBlockId, closeContextMenu, setCoords, setSize } =
         useActions();
     const { blockIdCounter, isMTbarVisible } = useStore();
 
@@ -52,13 +52,13 @@ const MainToolbar = ({ handlePrint }: { handlePrint: UseReactToPrintHookReturn }
                 bounds={'parent'}
                 ref={ref}
                 onDrag={(e: any, data: DraggableData) => setCoords({ x: data.x, y: data.y })}
-                onResize={(a: any, b: any, c: any, d: any, e: any) => {
-                    console.log(a);
-                    // console.log(b);
-                    // console.log(c);
-                    // console.log(d);
-                    // console.log(e);
-                }}
+                onResize={(
+                    e: MouseEvent | TouchEvent,
+                    dir: string,
+                    refToElement: React.ElementRef<'div'>,
+                ) =>
+                    setSize({ width: refToElement.offsetWidth, height: refToElement.offsetHeight })
+                }
             >
                 {children}
             </Resizable>,
