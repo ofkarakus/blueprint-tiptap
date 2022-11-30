@@ -28,11 +28,11 @@ const LabelSizeCoords = () => {
                 </td>
                 <td>
                     <SizeSpan>h</SizeSpan>
-                    <SizeInput type={'number'} />
+                    <SizeInput type={'number'} value={focusedBlock?.size.height} />
                 </td>
                 <td>
                     <SizeSpan>w</SizeSpan>
-                    <SizeInput type={'number'} />
+                    <SizeInput type={'number'} value={focusedBlock?.size.width} />
                 </td>
             </tr>
             <tr>
@@ -42,11 +42,11 @@ const LabelSizeCoords = () => {
                 </td>
                 <td>
                     <SizeSpan>x</SizeSpan>
-                    <SizeInput type={'number'} />
+                    <SizeInput type={'number'} value={focusedBlock?.coords.x} />
                 </td>
                 <td>
                     <SizeSpan>y</SizeSpan>
-                    <SizeInput type={'number'} />
+                    <SizeInput type={'number'} value={focusedBlock?.coords.y} />
                 </td>
             </tr>
         </>

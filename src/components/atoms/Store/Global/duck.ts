@@ -20,13 +20,19 @@ export const initialState: types.InitialState = {
 };
 
 export const actions = (dispatch: React.Dispatch<types.Action>) => ({
-    addBlock: (block: React.ReactElement, ref: RefObject<Rnd>, type: BlockType) => {
-        dispatch({ type: 'ADD_BLOCK', payload: { block, ref, type } });
+    addBlock: (
+        block: React.ReactElement,
+        ref: RefObject<Rnd>,
+        type: BlockType,
+        size: types.Size,
+        coords: types.Coords,
+    ) => {
+        dispatch({ type: 'ADD_BLOCK', payload: { block, ref, type, size, coords } });
     },
     removeBlock: (blockId: number) => {
         dispatch({ type: 'REMOVE_BLOCK', payload: blockId });
     },
-    openContextMenu: (points: types.Points, blockId: number) => {
+    openContextMenu: (points: types.Coords, blockId: number) => {
         dispatch({ type: 'OPEN_CONTEXT_MENU', payload: { points, blockId } });
     },
     closeContextMenu: () => {
@@ -71,6 +77,8 @@ export function reducer(state: types.InitialState, action: types.Action): types.
                                   label: `Shape ${state.blockIdCounter}: ${capitalize(
                                       action.payload.type,
                                   )}`,
+                                  size: action.payload.size,
+                                  coords: action.payload.coords,
                               },
                               ...state.blocks,
                           ]
@@ -84,6 +92,8 @@ export function reducer(state: types.InitialState, action: types.Action): types.
                                   label: `Shape ${state.blockIdCounter}: ${capitalize(
                                       action.payload.type,
                                   )}`,
+                                  size: action.payload.size,
+                                  coords: action.payload.coords,
                               },
                           ],
                 blockIdCounter: state.blockIdCounter + 1,

@@ -6,7 +6,7 @@ export type InitialState = {
     blocks: Block[];
     contextMenu: {
         isVisible: boolean;
-        points: Points;
+        points: Coords;
     };
     blockIdCounter: number;
     focusedBlock?: Block;
@@ -14,7 +14,12 @@ export type InitialState = {
     isMTbarVisible: boolean;
 };
 
-export type Points = {
+export type Size = {
+    width: number;
+    height: number;
+};
+
+export type Coords = {
     x: number;
     y: number;
 };
@@ -25,17 +30,25 @@ export type Block = {
     ref: RefObject<Rnd>;
     type: BlockType;
     label: string;
+    size: Size;
+    coords: Coords;
 };
 
 export type Action =
     | {
           type: 'ADD_BLOCK';
-          payload: { block: ReactElement; ref: RefObject<Rnd>; type: BlockType };
+          payload: {
+              block: ReactElement;
+              ref: RefObject<Rnd>;
+              type: BlockType;
+              size: Size;
+              coords: Coords;
+          };
       }
     | { type: 'REMOVE_BLOCK'; payload: number }
     | {
           type: 'OPEN_CONTEXT_MENU';
-          payload: { points: Points; blockId: number };
+          payload: { points: Coords; blockId: number };
       }
     | { type: 'CLOSE_CONTEXT_MENU' }
     | { type: 'SET_FOCUSED_BLOCK_ID'; payload: number }

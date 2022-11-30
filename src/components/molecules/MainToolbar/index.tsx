@@ -8,10 +8,11 @@ import { useActions, useStore } from 'utils/hooks';
 import { DivMouseEvent } from 'utils/types';
 import { BlockType } from './types';
 import StaticImage from 'components/atoms/StaticImage';
-import { Rnd } from 'react-rnd';
+import { DraggableData, Rnd } from 'react-rnd';
 import { subtoolbar, toolbar } from 'utils/constants';
 import UseReactToPrintHookReturn from 'react-to-print';
 import DynamicImage from 'components/atoms/DynamicImage';
+import { initialSizes, initialCoords } from 'components/atoms/Resizable/utils';
 
 const MainToolbar = ({ handlePrint }: { handlePrint: UseReactToPrintHookReturn }) => {
     const { addBlock, openContextMenu, setFocusedBlockId, closeContextMenu } = useActions();
@@ -49,11 +50,21 @@ const MainToolbar = ({ handlePrint }: { handlePrint: UseReactToPrintHookReturn }
                 onResizeStart={focusOnBlock}
                 bounds={'parent'}
                 ref={ref}
+                onDrag={(e: any, data: DraggableData) => console.log(data)}
+                onResize={(a: any, b: any, c: any, d: any, e: any) => {
+                    console.log(a);
+                    // console.log(b);
+                    // console.log(c);
+                    // console.log(d);
+                    // console.log(e);
+                }}
             >
                 {children}
             </Resizable>,
             ref,
             type,
+            { width: initialSizes[type].width, height: initialSizes[type].height },
+            { x: initialCoords[type].x, y: initialCoords[type].y },
         );
     };
 

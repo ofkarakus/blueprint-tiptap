@@ -54,3 +54,49 @@ export const backgroundBlockDefault = {
     width: template.width + 1,
     height: template.height + 1,
 };
+
+export const initialSizes = {
+    text: {
+        width: textBlockDefault.width,
+        height: textBlockDefault.height,
+    },
+    'static-image': {
+        width: imageBlockDefault.width,
+        height: imageBlockDefault.height,
+    },
+    'dynamic-image': {
+        width: imageBlockDefault.width,
+        height: imageBlockDefault.height,
+    },
+    background: {
+        width: backgroundBlockDefault.width,
+        height: backgroundBlockDefault.height,
+    },
+    'list-boundary': {
+        width: listBoundaryDefault.width,
+        height: listBoundaryDefault.height,
+    },
+} as const;
+
+export const initialCoords = {
+    text: {
+        x: textBlockDefault.x,
+        y: textBlockDefault.y,
+    },
+    'static-image': {
+        x: imageBlockDefault.x,
+        y: imageBlockDefault.y,
+    },
+    'dynamic-image': {
+        x: imageBlockDefault.x,
+        y: imageBlockDefault.y,
+    },
+    background: {
+        x: backgroundBlockDefault.x,
+        y: backgroundBlockDefault.y,
+    },
+    'list-boundary': {
+        x: listBoundaryDefault.x,
+        y: listBoundaryDefault.y,
+    },
+} as const;
