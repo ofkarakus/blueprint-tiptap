@@ -58,10 +58,19 @@ export const actions = (dispatch: React.Dispatch<types.Action>) => ({
     setLabel: (label: string) => {
         dispatch({ type: 'SET_LABEL', payload: label });
     },
+    setSize: (size: types.Size) => {
+        dispatch({ type: 'SET_SIZE', payload: size });
+    },
+    setCoords: (coords: types.Coords) => {
+        dispatch({ type: 'SET_COORDS', payload: coords });
+    },
 });
 
 export function reducer(state: types.InitialState, action: types.Action): types.InitialState {
     let from: number;
+    const index = state.blocks.findIndex((el) => el.id === state.focusedBlockId);
+    const block = { ...state.focusedBlock! };
+    const blockArr = [...state.blocks];
     switch (action.type) {
         case 'ADD_BLOCK':
             return {
@@ -164,10 +173,29 @@ export function reducer(state: types.InitialState, action: types.Action): types.
                 isMTbarVisible: false,
             };
         case 'SET_LABEL':
-            const index = state.blocks.findIndex((el) => el.id === state.focusedBlockId);
-            const block = { ...state.focusedBlock! };
-            const blockArr = [...state.blocks];
             block.label = action.payload;
+            removeItem<types.Block>(blockArr, index);
+            addItem<types.Block>(blockArr, index, block);
+
+            return {
+                ...state,
+                blocks: blockArr,
+                focusedBlock: block,
+            };
+        case 'SET_SIZE':
+            block.size.width = action.payload.width;
+            block.size.height = action.payload.height;
+            removeItem<types.Block>(blockArr, index);
+            addItem<types.Block>(blockArr, index, block);
+
+            return {
+                ...state,
+                blocks: blockArr,
+                focusedBlock: block,
+            };
+        case 'SET_COORDS':
+            block.coords.x = action.payload.x;
+            block.coords.y = action.payload.y;
             removeItem<types.Block>(blockArr, index);
             addItem<types.Block>(blockArr, index, block);
 

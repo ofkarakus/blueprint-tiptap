@@ -58,4 +58,6 @@ export type Action =
     | { type: 'SEND_TO_BACK'; payload: number }
     | { type: 'SHOW_TOOLBARS' }
     | { type: 'HIDE_TOOLBARS' }
-    | { type: 'SET_LABEL'; payload: string };
+    | { type: 'SET_LABEL'; payload: string }
+    | { type: 'SET_SIZE'; payload: Size }
+    | { type: 'SET_COORDS'; payload: Coords };
