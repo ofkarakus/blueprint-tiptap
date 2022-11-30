@@ -1,7 +1,7 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTag, faCompress, faArrowsAlt } from '@fortawesome/free-solid-svg-icons';
 import { useStore, useActions } from 'utils/hooks';
-import { LabelInput } from './styles';
+import { LabelInput, SizeInput, SizeSpan } from './styles';
 
 const LabelSizeCoords = () => {
     const { focusedBlock } = useStore();
@@ -26,16 +26,28 @@ const LabelSizeCoords = () => {
                     <FontAwesomeIcon icon={faCompress} />
                     Size:
                 </td>
-                <td>2</td>
-                <td>3</td>
+                <td>
+                    <SizeSpan>h</SizeSpan>
+                    <SizeInput type={'number'} />
+                </td>
+                <td>
+                    <SizeSpan>w</SizeSpan>
+                    <SizeInput type={'number'} />
+                </td>
             </tr>
             <tr>
                 <td>
                     <FontAwesomeIcon icon={faArrowsAlt} />
                     Coords:
                 </td>
-                <td>2</td>
-                <td>3</td>
+                <td>
+                    <SizeSpan>x</SizeSpan>
+                    <SizeInput type={'number'} />
+                </td>
+                <td>
+                    <SizeSpan>y</SizeSpan>
+                    <SizeInput type={'number'} />
+                </td>
             </tr>
         </>
     );
