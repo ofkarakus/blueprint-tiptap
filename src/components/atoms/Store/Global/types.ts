@@ -44,4 +44,5 @@ export type Action =
     | { type: 'BRING_TO_FRONT'; payload: number }
     | { type: 'SEND_TO_BACK'; payload: number }
     | { type: 'SHOW_TOOLBARS' }
-    | { type: 'HIDE_TOOLBARS' };
+    | { type: 'HIDE_TOOLBARS' }
+    | { type: 'SET_LABEL'; payload: string };

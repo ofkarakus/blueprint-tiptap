@@ -1,10 +1,11 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTag, faCompress, faArrowsAlt } from '@fortawesome/free-solid-svg-icons';
-import { useStore } from 'utils/hooks';
+import { useStore, useActions } from 'utils/hooks';
 import { LabelInput } from './styles';
 
 const LabelSizeCoords = () => {
     const { focusedBlock } = useStore();
+    const { setLabel } = useActions();
 
     return (
         <>
@@ -14,7 +15,10 @@ const LabelSizeCoords = () => {
                     Label:
                 </td>
                 <td colSpan={2}>
-                    <LabelInput value={focusedBlock?.label} />
+                    <LabelInput
+                        value={focusedBlock?.label}
+                        onChange={(e) => setLabel(e.target.value)}
+                    />
                 </td>
             </tr>
             <tr>

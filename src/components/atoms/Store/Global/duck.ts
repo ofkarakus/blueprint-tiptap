@@ -1,5 +1,5 @@
 import React, { RefObject } from 'react';
-import { move, capitalize } from 'utils/helpers';
+import { move, capitalize, addItem, removeItem } from 'utils/helpers';
 import * as types from './types';
 import { Rnd } from 'react-rnd';
 import { BlockType } from 'components/molecules/MainToolbar/types';
@@ -49,6 +49,9 @@ export const actions = (dispatch: React.Dispatch<types.Action>) => ({
     },
     showToolbars: () => dispatch({ type: 'SHOW_TOOLBARS' }),
     hideToolbars: () => dispatch({ type: 'HIDE_TOOLBARS' }),
+    setLabel: (label: string) => {
+        dispatch({ type: 'SET_LABEL', payload: label });
+    },
 });
 
 export function reducer(state: types.InitialState, action: types.Action): types.InitialState {
@@ -149,6 +152,19 @@ export function reducer(state: types.InitialState, action: types.Action): types.
             return {
                 ...state,
                 isMTbarVisible: false,
+            };
+        case 'SET_LABEL':
+            const index = state.blocks.findIndex((el) => el.id === state.focusedBlockId);
+            const block = { ...state.focusedBlock! };
+            const blockArr = [...state.blocks];
+            block.label = action.payload;
+            removeItem<types.Block>(blockArr, index);
+            addItem<types.Block>(blockArr, index, block);
+
+            return {
+                ...state,
+                blocks: blockArr,
+                focusedBlock: block,
             };
         default:
             return state;
