@@ -8,7 +8,7 @@ import { useActions, useStore } from 'utils/hooks';
 import { DivMouseEvent } from 'utils/types';
 import { BlockType } from './types';
 import StaticImage from 'components/atoms/StaticImage';
-import { DraggableData, Rnd } from 'react-rnd';
+import { DraggableData, Position, ResizableDelta, Rnd } from 'react-rnd';
 import { subtoolbar, toolbar } from 'utils/constants';
 import UseReactToPrintHookReturn from 'react-to-print';
 import DynamicImage from 'components/atoms/DynamicImage';
@@ -56,9 +56,12 @@ const MainToolbar = ({ handlePrint }: { handlePrint: UseReactToPrintHookReturn }
                     e: MouseEvent | TouchEvent,
                     dir: string,
                     refToElement: React.ElementRef<'div'>,
-                ) =>
-                    setSize({ width: refToElement.offsetWidth, height: refToElement.offsetHeight })
-                }
+                    delta: ResizableDelta,
+                    position: Position,
+                ) => {
+                    setSize({ width: refToElement.offsetWidth, height: refToElement.offsetHeight });
+                    setCoords(position);
+                }}
             >
                 {children}
             </Resizable>,
