@@ -30,7 +30,7 @@ const TextBlock = () => {
                     Font Colour
                 </td>
                 <e.ColorBlockWrapper>
-                    <e.ColorBlock />
+                    <e.ColorBlock type={'color'}/>
                 </e.ColorBlockWrapper>
             </e.SpecificRow1>
             <e.SpecificRow1>
@@ -39,7 +39,7 @@ const TextBlock = () => {
                     Background Fill
                 </td>
                 <e.ColorBlockWrapper>
-                    <e.ColorBlock />
+                    <e.ColorBlock type={'color'}/>
                     <XMarkDiv>
                         <e.ZeroMarginFAIcon icon={faXmark} size={'2x'} />
                     </XMarkDiv>

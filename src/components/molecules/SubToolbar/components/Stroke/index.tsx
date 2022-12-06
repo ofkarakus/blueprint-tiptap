@@ -19,7 +19,7 @@ const Stroke = () => {
                     Stroke Colour
                 </td>
                 <e.ColorBlockWrapper>
-                    <e.ColorBlock />
+                    <e.ColorBlock type={'color'} />
                 </e.ColorBlockWrapper>
             </e.SpecificRow1>
         </>

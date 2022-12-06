@@ -89,10 +89,17 @@ export const ColorBlockWrapper = styled.td`
     padding: 3px !important;
 `;
 
-export const ColorBlock = styled.div`
+export const ColorBlock = styled.input`
     flex: 1;
-    background-color: red;
     height: 100%;
+    padding: 0;
+    border: none;
+    &::-webkit-color-swatch-wrapper {
+        padding: 0;
+    }
+    &::-webkit-color-swatch {
+        border: none;
+    }
 `;
 
 export const ZeroMarginFAIcon = styled(FontAwesomeIcon)`
