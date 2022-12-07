@@ -64,6 +64,9 @@ export const actions = (dispatch: React.Dispatch<types.Action>) => ({
     setCoords: (coords: types.Coords) => {
         dispatch({ type: 'SET_COORDS', payload: coords });
     },
+    setFontColor: (color: string) => {
+        dispatch({ type: 'SET_FONT_COLOR', payload: color });
+    },
 });
 
 export function reducer(state: types.InitialState, action: types.Action): types.InitialState {
@@ -71,6 +74,23 @@ export function reducer(state: types.InitialState, action: types.Action): types.
     const index = state.blocks.findIndex((el) => el.id === state.focusedBlockId);
     const block = { ...state.focusedBlock! };
     const blockArr = [...state.blocks];
+
+    const updatedBlock = (
+        state: types.InitialState,
+        blockArr: types.Block[],
+        block: types.Block,
+        index: number,
+    ) => {
+        removeItem<types.Block>(blockArr, index);
+        addItem<types.Block>(blockArr, index, block);
+
+        return {
+            ...state,
+            blocks: blockArr,
+            focusedBlock: block,
+        };
+    };
+
     switch (action.type) {
         case 'ADD_BLOCK':
             return {
@@ -174,36 +194,18 @@ export function reducer(state: types.InitialState, action: types.Action): types.
             };
         case 'SET_LABEL':
             block.label = action.payload;
-            removeItem<types.Block>(blockArr, index);
-            addItem<types.Block>(blockArr, index, block);
-
-            return {
-                ...state,
-                blocks: blockArr,
-                focusedBlock: block,
-            };
+            return updatedBlock(state, blockArr, block, index);
         case 'SET_SIZE':
             block.size.width = action.payload.width;
             block.size.height = action.payload.height;
-            removeItem<types.Block>(blockArr, index);
-            addItem<types.Block>(blockArr, index, block);
-
-            return {
-                ...state,
-                blocks: blockArr,
-                focusedBlock: block,
-            };
+            return updatedBlock(state, blockArr, block, index);
         case 'SET_COORDS':
             block.coords.x = action.payload.x;
             block.coords.y = action.payload.y;
-            removeItem<types.Block>(blockArr, index);
-            addItem<types.Block>(blockArr, index, block);
-
-            return {
-                ...state,
-                blocks: blockArr,
-                focusedBlock: block,
-            };
+            return updatedBlock(state, blockArr, block, index);
+        case 'SET_FONT_COLOR':
+            block.fontColor = action.payload;
+            return updatedBlock(state, blockArr, block, index);
         default:
             return state;
     }
