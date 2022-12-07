@@ -19,8 +19,12 @@ import {
     faXmark,
 } from '@fortawesome/free-solid-svg-icons';
 import { SpecificFAIcon, XMarkDiv } from './styles';
+import { useActions, useStore } from 'utils/hooks';
 
 const TextBlock = () => {
+    const { setFontColor } = useActions();
+    const { focusedBlock } = useStore();
+
     return (
         <e.Table>
             <LabelSizeCoords />
@@ -30,7 +34,11 @@ const TextBlock = () => {
                     Font Colour
                 </td>
                 <e.ColorBlockWrapper>
-                    <e.ColorBlock type={'color'}/>
+                    <e.ColorBlock
+                        type={'color'}
+                        onInput={(e) => setFontColor(e.currentTarget.value)}
+                        value={focusedBlock?.fontColor ? focusedBlock?.fontColor : 'black'}
+                    />
                 </e.ColorBlockWrapper>
             </e.SpecificRow1>
             <e.SpecificRow1>
@@ -39,7 +47,7 @@ const TextBlock = () => {
                     Background Fill
                 </td>
                 <e.ColorBlockWrapper>
-                    <e.ColorBlock type={'color'}/>
+                    <e.ColorBlock type={'color'} />
                     <XMarkDiv>
                         <e.ZeroMarginFAIcon icon={faXmark} size={'2x'} />
                     </XMarkDiv>

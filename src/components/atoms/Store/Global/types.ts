@@ -76,4 +76,5 @@ export type Action =
     | { type: 'HIDE_TOOLBARS' }
     | { type: 'SET_LABEL'; payload: string }
     | { type: 'SET_SIZE'; payload: Size }
-    | { type: 'SET_COORDS'; payload: Coords };
+    | { type: 'SET_COORDS'; payload: Coords }
+    | { type: 'SET_FONT_COLOR'; payload: string };
