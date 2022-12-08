@@ -37,7 +37,7 @@ const TextBlock = () => {
                     <e.ColorBlock
                         type={'color'}
                         onInput={(e) => setFontColor(e.currentTarget.value)}
-                        value={focusedBlock?.fontColor ? focusedBlock?.fontColor : 'black'}
+                        value={focusedBlock?.fontColor ? focusedBlock?.fontColor : '#000000'}
                     />
                 </e.ColorBlockWrapper>
             </e.SpecificRow1>
