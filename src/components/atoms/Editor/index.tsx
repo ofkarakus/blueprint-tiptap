@@ -3,9 +3,12 @@ import StarterKit from '@tiptap/starter-kit';
 import './styles.scss';
 import MenuBar from './components/MenuBar';
 
+import { Color } from '@tiptap/extension-color';
+import TextStyle from '@tiptap/extension-text-style';
+
 const TipTap = () => {
     const editor = useEditor({
-        extensions: [StarterKit],
+        extensions: [StarterKit, TextStyle, Color],
         content: `Text Block`,
     });
 
