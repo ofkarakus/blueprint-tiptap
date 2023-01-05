@@ -5,4 +5,4 @@ export type StyledRndProps = {
     $isFocused: boolean;
 };
 
-export type ResizableProps = Props & { type: BlockType; id?: number };
+export type ResizableProps = Props & { type: BlockType; id: number };

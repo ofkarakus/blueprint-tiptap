@@ -1,5 +1,5 @@
 import { BlockType } from 'components/molecules/MainToolbar/types';
-import { ReactElement, RefObject } from 'react';
+import { RefObject, ReactElement } from 'react';
 import { Rnd } from 'react-rnd';
 
 export type InitialState = {
@@ -32,7 +32,8 @@ export type Alignment = {
 export type Block = {
     id: number;
     block: ReactElement;
-    ref: RefObject<Rnd>;
+
+    ref?: RefObject<Rnd>;
     type: BlockType;
     label: string;
     size: Size;
@@ -55,7 +56,7 @@ export type Action =
           type: 'ADD_BLOCK';
           payload: {
               block: ReactElement;
-              ref: RefObject<Rnd>;
+
               type: BlockType;
               size: Size;
               coords: Coords;
@@ -77,4 +78,5 @@ export type Action =
     | { type: 'SET_LABEL'; payload: string }
     | { type: 'SET_SIZE'; payload: Size }
     | { type: 'SET_COORDS'; payload: Coords }
-    | { type: 'SET_FONT_COLOR'; payload: string };
+    | { type: 'SET_FONT_COLOR'; payload: string }
+    | { type: 'SET_REF'; payload: { ref: RefObject<Rnd>; id: number } };

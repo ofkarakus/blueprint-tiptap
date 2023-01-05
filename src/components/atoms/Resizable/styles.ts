@@ -1,9 +1,9 @@
 import styled, { css } from 'styled-components';
-import { Rnd } from 'react-rnd';
+import { Props, Rnd } from 'react-rnd';
 import handler from 'assets/images/handler.png';
 import { StyledRndProps } from './types';
 
-export const StyledRnd = styled(Rnd)<StyledRndProps>`
+export const StyledRnd = styled(Rnd)<StyledRndProps & Props>`
     ${({ $isFocused }) =>
         $isFocused &&
         css`

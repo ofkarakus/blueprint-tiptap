@@ -10,12 +10,12 @@ const LabelSizeCoords = () => {
 
     const onSizeChange = (size: Size) => {
         setSize(size);
-        focusedBlock?.ref.current?.updateSize(size);
+        focusedBlock?.ref?.current?.updateSize(size);
     };
 
     const onCoordsChange = (coords: Coords) => {
         setCoords(coords);
-        focusedBlock?.ref.current?.updatePosition(coords);
+        focusedBlock?.ref?.current?.updatePosition(coords);
     };
 
     return (

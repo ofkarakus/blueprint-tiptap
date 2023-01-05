@@ -22,12 +22,11 @@ export const initialState: types.InitialState = {
 export const actions = (dispatch: React.Dispatch<types.Action>) => ({
     addBlock: (
         block: React.ReactElement,
-        ref: RefObject<Rnd>,
         type: BlockType,
         size: types.Size,
         coords: types.Coords,
     ) => {
-        dispatch({ type: 'ADD_BLOCK', payload: { block, ref, type, size, coords } });
+        dispatch({ type: 'ADD_BLOCK', payload: { block, type, size, coords } });
     },
     removeBlock: (blockId: number) => {
         dispatch({ type: 'REMOVE_BLOCK', payload: blockId });
@@ -67,6 +66,9 @@ export const actions = (dispatch: React.Dispatch<types.Action>) => ({
     setFontColor: (color: string) => {
         dispatch({ type: 'SET_FONT_COLOR', payload: color });
     },
+    setRef: (ref: RefObject<Rnd>, id: number) => {
+        dispatch({ type: 'SET_REF', payload: { ref, id } });
+    },
 });
 
 export function reducer(state: types.InitialState, action: types.Action): types.InitialState {
@@ -101,7 +103,6 @@ export function reducer(state: types.InitialState, action: types.Action): types.
                               {
                                   id: state.blockIdCounter,
                                   block: action.payload.block,
-                                  ref: action.payload.ref,
                                   type: action.payload.type,
                                   label: `Shape ${state.blockIdCounter}: ${capitalize(
                                       action.payload.type,
@@ -116,7 +117,6 @@ export function reducer(state: types.InitialState, action: types.Action): types.
                               {
                                   id: state.blockIdCounter,
                                   block: action.payload.block,
-                                  ref: action.payload.ref,
                                   type: action.payload.type,
                                   label: `Shape ${state.blockIdCounter}: ${capitalize(
                                       action.payload.type,
@@ -206,6 +206,18 @@ export function reducer(state: types.InitialState, action: types.Action): types.
         case 'SET_FONT_COLOR':
             block.fontColor = action.payload;
             return updatedBlock(state, blockArr, block, index);
+        case 'SET_REF':
+            const indexNew = state.blocks.findIndex((el) => el.id === action.payload.id);
+            const blockNew = { ...state.blocks.find((el) => el.id === action.payload.id)! };
+            const blockArrNew = [...state.blocks];
+            blockNew.ref = action.payload.ref;
+            removeItem<types.Block>(blockArrNew, indexNew);
+            addItem<types.Block>(blockArrNew, indexNew, blockNew);
+
+            return {
+                ...state,
+                blocks: blockArrNew,
+            };
         default:
             return state;
     }
