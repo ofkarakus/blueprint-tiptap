@@ -24,6 +24,7 @@
         "react-tracked": "^1.7.10",
         "sass": "^1.55.0",
         "styled-components": "^5.3.6",
+        "use-debounce": "^9.0.2",
         "web-vitals": "^3.0.2"
     },
     "devDependencies": {
