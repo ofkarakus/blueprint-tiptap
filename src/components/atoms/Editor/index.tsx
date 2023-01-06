@@ -5,12 +5,22 @@ import MenuBar from './components/MenuBar';
 
 import { Color } from '@tiptap/extension-color';
 import TextStyle from '@tiptap/extension-text-style';
+import { useEffect } from 'react';
+import { useStore } from 'utils/hooks';
 
-const TipTap = () => {
+const TipTap = ({ blockId }: { blockId: number }) => {
     const editor = useEditor({
         extensions: [StarterKit, TextStyle, Color],
         content: `Text Block`,
     });
+
+    const { focusedBlock } = useStore();
+
+    useEffect(() => {
+        if (editor && focusedBlock?.fontColor && focusedBlock?.id === blockId) {
+            editor.chain().selectAll().setColor(focusedBlock.fontColor).run();
+        }
+    }, [focusedBlock?.fontColor]);
 
     return (
         <div>

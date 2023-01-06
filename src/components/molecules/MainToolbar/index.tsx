@@ -79,7 +79,9 @@ const MainToolbar = ({ handlePrint }: { handlePrint: UseReactToPrintHookReturn }
                             return (
                                 <Button
                                     key={index}
-                                    onClick={() => onAddBlockBtn('text', <TipTap />)}
+                                    onClick={() =>
+                                        onAddBlockBtn('text', <TipTap blockId={blockIdCounter} />)
+                                    }
                                     tool={tool}
                                 />
                             );
