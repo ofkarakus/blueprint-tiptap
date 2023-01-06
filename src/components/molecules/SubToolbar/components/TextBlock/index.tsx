@@ -20,10 +20,15 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import { SpecificFAIcon, XMarkDiv } from './styles';
 import { useActions, useStore } from 'utils/hooks';
+import { useDebouncedCallback } from 'use-debounce';
 
 const TextBlock = () => {
     const { setFontColor } = useActions();
     const { focusedBlock } = useStore();
+
+    const debouncedColorChange = useDebouncedCallback((value) => {
+        setFontColor(value);
+    }, 100);
 
     return (
         <e.Table>
@@ -36,7 +41,7 @@ const TextBlock = () => {
                 <e.ColorBlockWrapper>
                     <e.ColorBlock
                         type={'color'}
-                        onInput={(e) => setFontColor(e.currentTarget.value)}
+                        onInput={(e) => debouncedColorChange(e.currentTarget.value)}
                         value={focusedBlock?.fontColor ? focusedBlock?.fontColor : '#000000'}
                     />
                 </e.ColorBlockWrapper>
