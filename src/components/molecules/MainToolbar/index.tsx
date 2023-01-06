@@ -1,6 +1,6 @@
 import * as e from './styles';
 import { toolbarArr } from './utils';
-import { createRef, ReactElement } from 'react';
+import { ReactElement } from 'react';
 import Button from './components/Button';
 import Resizable from 'components/atoms/Resizable';
 import TipTap from 'components/atoms/Editor';
@@ -8,7 +8,7 @@ import { useActions, useStore } from 'utils/hooks';
 import { DivMouseEvent } from 'utils/types';
 import { BlockType } from './types';
 import StaticImage from 'components/atoms/StaticImage';
-import { DraggableData, Position, ResizableDelta, Rnd } from 'react-rnd';
+import { DraggableData, Position, ResizableDelta } from 'react-rnd';
 import { subtoolbar, toolbar } from 'utils/constants';
 import UseReactToPrintHookReturn from 'react-to-print';
 import DynamicImage from 'components/atoms/DynamicImage';
@@ -22,9 +22,9 @@ const MainToolbar = ({ handlePrint }: { handlePrint: UseReactToPrintHookReturn }
     const focusOnBlock = () => setFocusedBlockId(blockIdCounter);
 
     const onAddBlockBtn = (type: BlockType, children?: ReactElement) => {
-        const ref = createRef<Rnd>();
         addBlock(
             <Resizable
+                id={blockIdCounter}
                 key={blockIdCounter}
                 type={type}
                 onContextMenu={(e: DivMouseEvent) => {
@@ -50,22 +50,20 @@ const MainToolbar = ({ handlePrint }: { handlePrint: UseReactToPrintHookReturn }
                 onDragStart={focusOnBlock}
                 onResizeStart={focusOnBlock}
                 bounds={'parent'}
-                ref={ref}
                 onDrag={(e: any, data: DraggableData) => setCoords({ x: data.x, y: data.y })}
                 onResize={(
                     e: MouseEvent | TouchEvent,
                     dir: string,
-                    refToElement: React.ElementRef<'div'>,
+                    elementRef: HTMLElement,
                     delta: ResizableDelta,
                     position: Position,
                 ) => {
-                    setSize({ width: refToElement.offsetWidth, height: refToElement.offsetHeight });
+                    setSize({ width: elementRef.offsetWidth, height: elementRef.offsetHeight });
                     setCoords(position);
                 }}
             >
                 {children}
             </Resizable>,
-            ref,
             type,
             { width: initialSizes[type].width, height: initialSizes[type].height },
             { x: initialCoords[type].x, y: initialCoords[type].y },
@@ -81,7 +79,9 @@ const MainToolbar = ({ handlePrint }: { handlePrint: UseReactToPrintHookReturn }
                             return (
                                 <Button
                                     key={index}
-                                    onClick={() => onAddBlockBtn('text', <TipTap />)}
+                                    onClick={() =>
+                                        onAddBlockBtn('text', <TipTap blockId={blockIdCounter} />)
+                                    }
                                     tool={tool}
                                 />
                             );

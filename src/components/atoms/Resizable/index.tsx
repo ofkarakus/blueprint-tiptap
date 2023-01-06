@@ -9,13 +9,19 @@ import {
     listBoundaryDefault,
 } from './utils';
 import * as e from './styles';
-import { useStore } from 'utils/hooks';
+import { useActions, useStore } from 'utils/hooks';
 import { ResizableProps } from './types';
-import { forwardRef, Ref } from 'react';
+import { useEffect, useRef } from 'react';
 import { Rnd } from 'react-rnd';
 
-const Resizable = forwardRef((props: ResizableProps, ref: Ref<Rnd>) => {
+const Resizable = (props: ResizableProps) => {
     const { focusedBlockId } = useStore();
+    const { setRef } = useActions();
+    const ref = useRef<Rnd>(null);
+
+    useEffect(() => {
+        if (ref.current) setRef(ref, props.id);
+    }, []);
 
     switch (props.type) {
         case 'text':
@@ -69,6 +75,6 @@ const Resizable = forwardRef((props: ResizableProps, ref: Ref<Rnd>) => {
                 />
             );
     }
-});
+};
 
 export default Resizable;
