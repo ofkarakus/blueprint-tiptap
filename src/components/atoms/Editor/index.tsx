@@ -30,7 +30,11 @@ const TipTap = ({ blockId }: { blockId: number }) => {
                     <MenuBar editor={editor} />
                 </BubbleMenu>
             )}
-            <EditorContent editor={editor} onMouseDown={(e) => e.stopPropagation()} />
+            <EditorContent
+                editor={editor}
+                onMouseDown={(e) => e.stopPropagation()}
+                onClick={(e) => e.stopPropagation()}
+            />
         </div>
     );
 };
