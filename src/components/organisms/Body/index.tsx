@@ -10,7 +10,7 @@ import { useReactToPrint } from 'react-to-print';
 
 const Body = () => {
     const { closeContextMenu, showToolbars, hideToolbars } = useActions();
-    const { isMTbarVisible, focusedBlockId } = useStore();
+    const { isMTbarVisible } = useStore();
     const templateRef = useRef<HTMLDivElement>(null);
     const handlePrint = useReactToPrint({
         content: () => templateRef.current,
@@ -28,7 +28,7 @@ const Body = () => {
         <e.Wrapper>
             <MainToolbar handlePrint={handlePrint as any} />
             <AdditionalToolbar />
-            <SubToolbar focusedBlockId={focusedBlockId} />
+            <SubToolbar />
             <Template templateRef={templateRef} />
         </e.Wrapper>
     );

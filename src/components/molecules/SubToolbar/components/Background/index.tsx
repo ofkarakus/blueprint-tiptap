@@ -4,8 +4,9 @@ import UploadImage from '../UploadImage';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEyeDropper, faXmark } from '@fortawesome/free-solid-svg-icons';
 import { ColorTd, XMarkTd } from './styles';
+import { SubtoolbarProps } from '../../types';
 
-const Background = () => {
+const Background = ({ selectedRnd }: SubtoolbarProps) => {
     return (
         <e.Table>
             <LabelSizeCoords />

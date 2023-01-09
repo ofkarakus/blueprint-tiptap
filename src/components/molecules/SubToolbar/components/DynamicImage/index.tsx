@@ -5,8 +5,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCompress, faBullseye, faSubscript } from '@fortawesome/free-solid-svg-icons';
 import { faCheckSquare, faSquare } from '@fortawesome/free-regular-svg-icons';
 import { BorderlessTr, ImgTd } from './styles';
+import { SubtoolbarProps } from '../../types';
 
-const DynamicImage = () => {
+const DynamicImage = ({ selectedRnd }: SubtoolbarProps) => {
     return (
         <e.Table>
             <LabelSizeCoords />

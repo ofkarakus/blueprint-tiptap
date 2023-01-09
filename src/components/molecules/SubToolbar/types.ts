@@ -1,8 +1,8 @@
-export interface SubToolbarProps {
-    focusedBlockId: number;
-}
-
 export interface WrapperProps {
     $isMTbarVisible: boolean;
     $isSTbarVisible: number;
 }
+
+export type SubtoolbarProps = {
+    selectedRnd: HTMLElement | null;
+};

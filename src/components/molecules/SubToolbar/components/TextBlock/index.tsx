@@ -21,20 +21,14 @@ import {
 import { SpecificFAIcon, XMarkDiv } from './styles';
 import { useActions, useStore } from 'utils/hooks';
 import { useDebouncedCallback } from 'use-debounce';
-import { useEffect, useState } from 'react';
+import { SubtoolbarProps } from '../../types';
 
-const TextBlock = () => {
+const TextBlock = ({ selectedRnd }: SubtoolbarProps) => {
     const { setFontColor, setBgColor } = useActions();
-    const { focusedBlock, focusedBlockId } = useStore();
-    const [selectedRnd, setSelectedRnd] = useState<HTMLElement | null>(null);
+    const { focusedBlock } = useStore();
 
     const debouncedFontColorChange = useDebouncedCallback((value) => setFontColor(value), 100);
     const debouncedBgColorChange = useDebouncedCallback((value) => setBgColor(value), 100);
-
-    useEffect(() => {
-        const rnd = document.getElementById(String(focusedBlockId));
-        setSelectedRnd(rnd);
-    }, [focusedBlockId]);
 
     return (
         <e.Table>

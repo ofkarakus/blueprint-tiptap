@@ -5,26 +5,32 @@ import StaticImage from './components/StaticImage';
 import TextBlock from './components/TextBlock';
 import * as e from './styles';
 import { useStore } from 'utils/hooks';
-import { SubToolbarProps } from './types';
+import { useEffect, useState } from 'react';
 
-const SubToolbar = ({ focusedBlockId }: SubToolbarProps) => {
-    const { isMTbarVisible, blocks } = useStore();
+const SubToolbar = () => {
+    const { isMTbarVisible, blocks, focusedBlockId } = useStore();
     const blockType = blocks.find((el) => el.id === focusedBlockId)?.type!;
+    const [selectedRnd, setSelectedRnd] = useState<HTMLElement | null>(null);
+
+    useEffect(() => {
+        const rnd = document.getElementById(String(focusedBlockId));
+        setSelectedRnd(rnd);
+    }, [focusedBlockId]);
 
     return (
         <e.Wrapper $isMTbarVisible={isMTbarVisible} $isSTbarVisible={focusedBlockId}>
             {(() => {
                 switch (blockType) {
                     case 'text':
-                        return <TextBlock />;
+                        return <TextBlock selectedRnd={selectedRnd} />;
                     case 'static-image':
-                        return <StaticImage />;
+                        return <StaticImage selectedRnd={selectedRnd} />;
                     case 'dynamic-image':
-                        return <DynamicImage />;
+                        return <DynamicImage selectedRnd={selectedRnd} />;
                     case 'background':
-                        return <Background />;
+                        return <Background selectedRnd={selectedRnd} />;
                     case 'list-boundary':
-                        return <ListBoundary />;
+                        return <ListBoundary selectedRnd={selectedRnd} />;
                 }
             })()}
         </e.Wrapper>

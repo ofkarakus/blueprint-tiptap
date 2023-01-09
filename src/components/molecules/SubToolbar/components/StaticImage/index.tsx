@@ -2,8 +2,9 @@ import * as e from '../../styles';
 import LabelSizeCoords from '../LabelSizeCoords';
 import Stroke from '../Stroke';
 import UploadImage from '../UploadImage';
+import { SubtoolbarProps } from '../../types';
 
-const StaticImage = () => {
+const StaticImage = ({ selectedRnd }: SubtoolbarProps) => {
     return (
         <e.Table>
             <LabelSizeCoords />
