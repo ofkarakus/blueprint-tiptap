@@ -21,14 +21,20 @@ import {
 import { SpecificFAIcon, XMarkDiv } from './styles';
 import { useActions, useStore } from 'utils/hooks';
 import { useDebouncedCallback } from 'use-debounce';
+import { useEffect, useState } from 'react';
 
 const TextBlock = () => {
-    const { setFontColor } = useActions();
-    const { focusedBlock } = useStore();
+    const { setFontColor, setBgColor } = useActions();
+    const { focusedBlock, focusedBlockId } = useStore();
+    const [selectedRnd, setSelectedRnd] = useState<HTMLElement | null>(null);
 
-    const debouncedColorChange = useDebouncedCallback((value) => {
-        setFontColor(value);
-    }, 100);
+    const debouncedFontColorChange = useDebouncedCallback((value) => setFontColor(value), 100);
+    const debouncedBgColorChange = useDebouncedCallback((value) => setBgColor(value), 100);
+
+    useEffect(() => {
+        const rnd = document.getElementById(String(focusedBlockId));
+        setSelectedRnd(rnd);
+    }, [focusedBlockId]);
 
     return (
         <e.Table>
@@ -41,7 +47,7 @@ const TextBlock = () => {
                 <e.ColorBlockWrapper>
                     <e.ColorBlock
                         type={'color'}
-                        onInput={(e) => debouncedColorChange(e.currentTarget.value)}
+                        onInput={(e) => debouncedFontColorChange(e.currentTarget.value)}
                         value={focusedBlock?.fontColor ? focusedBlock?.fontColor : '#000000'}
                     />
                 </e.ColorBlockWrapper>
@@ -52,9 +58,27 @@ const TextBlock = () => {
                     Background Fill
                 </td>
                 <e.ColorBlockWrapper>
-                    <e.ColorBlock type={'color'} />
+                    <e.ColorBlock
+                        type={'color'}
+                        onInput={(e) => {
+                            if (selectedRnd) {
+                                selectedRnd.style.backgroundColor = e.currentTarget.value;
+                                debouncedBgColorChange(e.currentTarget.value);
+                            }
+                        }}
+                        value={focusedBlock?.bgColor ? focusedBlock?.bgColor : '#000000'}
+                    />
                     <XMarkDiv>
-                        <e.ZeroMarginFAIcon icon={faXmark} size={'2x'} />
+                        <e.ZeroMarginFAIcon
+                            icon={faXmark}
+                            size={'2x'}
+                            onClick={() => {
+                                if (selectedRnd) {
+                                    selectedRnd.style.backgroundColor = 'transparent';
+                                    setBgColor('transparent');
+                                }
+                            }}
+                        />
                     </XMarkDiv>
                 </e.ColorBlockWrapper>
             </e.SpecificRow1>

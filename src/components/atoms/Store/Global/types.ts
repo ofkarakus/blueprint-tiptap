@@ -49,6 +49,7 @@ export type Block = {
     shrink?: boolean;
     caps?: boolean;
     fontFamily?: string;
+    bgColor?: string;
 };
 
 export type Action =
@@ -79,4 +80,5 @@ export type Action =
     | { type: 'SET_SIZE'; payload: Size }
     | { type: 'SET_COORDS'; payload: Coords }
     | { type: 'SET_FONT_COLOR'; payload: string }
+    | { type: 'SET_BG_COLOR'; payload: string }
     | { type: 'SET_REF'; payload: { ref: RefObject<Rnd>; id: number } };

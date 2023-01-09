@@ -66,6 +66,9 @@ export const actions = (dispatch: React.Dispatch<types.Action>) => ({
     setFontColor: (color: string) => {
         dispatch({ type: 'SET_FONT_COLOR', payload: color });
     },
+    setBgColor: (color: string) => {
+        dispatch({ type: 'SET_BG_COLOR', payload: color });
+    },
     setRef: (ref: RefObject<Rnd>, id: number) => {
         dispatch({ type: 'SET_REF', payload: { ref, id } });
     },
@@ -205,6 +208,9 @@ export function reducer(state: types.InitialState, action: types.Action): types.
             return updatedBlock(state, blockArr, block, index);
         case 'SET_FONT_COLOR':
             block.fontColor = action.payload;
+            return updatedBlock(state, blockArr, block, index);
+        case 'SET_BG_COLOR':
+            block.bgColor = action.payload;
             return updatedBlock(state, blockArr, block, index);
         case 'SET_REF':
             const indexNew = state.blocks.findIndex((el) => el.id === action.payload.id);

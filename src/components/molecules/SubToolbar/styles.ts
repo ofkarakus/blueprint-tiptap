@@ -100,8 +100,10 @@ export const ColorBlock = styled.input`
     &::-webkit-color-swatch {
         border: none;
     }
+    cursor: pointer;
 `;
 
 export const ZeroMarginFAIcon = styled(FontAwesomeIcon)`
     margin: 0px !important;
+    cursor: pointer;
 `;
