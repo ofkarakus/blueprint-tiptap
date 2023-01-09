@@ -41,7 +41,7 @@ export type Block = {
     // text-block
     fontColor?: string;
     backgroundFill?: string;
-    stroke?: number;
+    strokeWidth?: number;
     strokeColor?: string;
     alignment?: Alignment;
     fontSize?: number;
@@ -81,4 +81,6 @@ export type Action =
     | { type: 'SET_COORDS'; payload: Coords }
     | { type: 'SET_FONT_COLOR'; payload: string }
     | { type: 'SET_BG_COLOR'; payload: string }
+    | { type: 'SET_STROKE_WIDTH'; payload: number }
+    | { type: 'SET_STROKE_COLOR'; payload: string }
     | { type: 'SET_REF'; payload: { ref: RefObject<Rnd>; id: number } };

@@ -69,6 +69,12 @@ export const actions = (dispatch: React.Dispatch<types.Action>) => ({
     setBgColor: (color: string) => {
         dispatch({ type: 'SET_BG_COLOR', payload: color });
     },
+    setStrokeWidth: (width: number) => {
+        dispatch({ type: 'SET_STROKE_WIDTH', payload: width });
+    },
+    setStrokeColor: (color: string) => {
+        dispatch({ type: 'SET_STROKE_COLOR', payload: color });
+    },
     setRef: (ref: RefObject<Rnd>, id: number) => {
         dispatch({ type: 'SET_REF', payload: { ref, id } });
     },
@@ -211,6 +217,12 @@ export function reducer(state: types.InitialState, action: types.Action): types.
             return updatedBlock(state, blockArr, block, index);
         case 'SET_BG_COLOR':
             block.bgColor = action.payload;
+            return updatedBlock(state, blockArr, block, index);
+        case 'SET_STROKE_WIDTH':
+            block.strokeWidth = action.payload;
+            return updatedBlock(state, blockArr, block, index);
+        case 'SET_STROKE_COLOR':
+            block.strokeColor = action.payload;
             return updatedBlock(state, blockArr, block, index);
         case 'SET_REF':
             const indexNew = state.blocks.findIndex((el) => el.id === action.payload.id);
