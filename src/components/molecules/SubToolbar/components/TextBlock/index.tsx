@@ -76,7 +76,7 @@ const TextBlock = ({ selectedRnd }: SubtoolbarProps) => {
                     </XMarkDiv>
                 </e.ColorBlockWrapper>
             </e.SpecificRow1>
-            <Stroke />
+            <Stroke selectedRnd={selectedRnd} />
             <tr>
                 <td colSpan={3}>
                     <FontAwesomeIcon icon={faAlignJustify} />

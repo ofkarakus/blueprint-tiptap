@@ -8,7 +8,7 @@ const StaticImage = ({ selectedRnd }: SubtoolbarProps) => {
     return (
         <e.Table>
             <LabelSizeCoords />
-            <Stroke />
+            <Stroke selectedRnd={selectedRnd} />
             <UploadImage />
         </e.Table>
     );

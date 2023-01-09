@@ -11,7 +11,7 @@ const DynamicImage = ({ selectedRnd }: SubtoolbarProps) => {
     return (
         <e.Table>
             <LabelSizeCoords />
-            <Stroke />
+            <Stroke selectedRnd={selectedRnd} />
             <e.SpecificRow1>
                 <td>
                     <FontAwesomeIcon icon={faCompress} />

@@ -2,8 +2,9 @@ import * as e from '../../styles';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSquare as faSquareSolid } from '@fortawesome/free-solid-svg-icons';
 import { faSquare } from '@fortawesome/free-regular-svg-icons';
+import { SubtoolbarProps } from '../../types';
 
-const Stroke = () => {
+const Stroke = ({ selectedRnd }: SubtoolbarProps) => {
     return (
         <>
             <tr>
