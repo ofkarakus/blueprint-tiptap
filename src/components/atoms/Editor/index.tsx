@@ -5,12 +5,13 @@ import MenuBar from './components/MenuBar';
 
 import { Color } from '@tiptap/extension-color';
 import TextStyle from '@tiptap/extension-text-style';
+import Underline from '@tiptap/extension-underline';
 import { useEffect } from 'react';
 import { useStore } from 'utils/hooks';
 
 const TipTap = ({ blockId }: { blockId: number }) => {
     const editor = useEditor({
-        extensions: [StarterKit, TextStyle, Color],
+        extensions: [StarterKit, TextStyle, Color, Underline],
         content: `Text Block`,
     });
 
