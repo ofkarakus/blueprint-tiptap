@@ -107,3 +107,11 @@ export const ZeroMarginFAIcon = styled(FontAwesomeIcon)`
     margin: 0px !important;
     cursor: pointer;
 `;
+
+export const SizeInput = styled.input`
+    border: 0;
+    padding: 0;
+    &:focus-visible {
+        outline: none;
+    }
+`;

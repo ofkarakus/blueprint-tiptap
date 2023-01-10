@@ -29,6 +29,8 @@ export type Alignment = {
     horizontal: string;
 };
 
+export type StrokeType = 'dashed' | 'solid' | 'none';
+
 export type Block = {
     id: number;
     block: ReactElement;
@@ -39,17 +41,17 @@ export type Block = {
     size: Size;
     coords: Coords;
     // text-block
-    fontColor?: string;
-    backgroundFill?: string;
-    strokeWidth?: number;
-    strokeColor?: string;
+    fontColor: string;
+    bgColor: string;
+    strokeType: StrokeType;
+    strokeWidth: number;
+    strokeColor: string;
     alignment?: Alignment;
     fontSize?: number;
     hide?: boolean;
     shrink?: boolean;
     caps?: boolean;
     fontFamily?: string;
-    bgColor?: string;
 };
 
 export type Action =
@@ -81,6 +83,7 @@ export type Action =
     | { type: 'SET_COORDS'; payload: Coords }
     | { type: 'SET_FONT_COLOR'; payload: string }
     | { type: 'SET_BG_COLOR'; payload: string }
+    | { type: 'SET_STROKE_TYPE'; payload: StrokeType }
     | { type: 'SET_STROKE_WIDTH'; payload: number }
     | { type: 'SET_STROKE_COLOR'; payload: string }
     | { type: 'SET_REF'; payload: { ref: RefObject<Rnd>; id: number } };

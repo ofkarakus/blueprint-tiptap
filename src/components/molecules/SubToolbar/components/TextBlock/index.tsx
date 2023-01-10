@@ -42,7 +42,7 @@ const TextBlock = ({ selectedRnd }: SubtoolbarProps) => {
                     <e.ColorBlock
                         type={'color'}
                         onInput={(e) => debouncedFontColorChange(e.currentTarget.value)}
-                        value={focusedBlock?.fontColor ? focusedBlock?.fontColor : '#000000'}
+                        value={focusedBlock?.fontColor}
                     />
                 </e.ColorBlockWrapper>
             </e.SpecificRow1>
@@ -60,7 +60,7 @@ const TextBlock = ({ selectedRnd }: SubtoolbarProps) => {
                                 debouncedBgColorChange(e.currentTarget.value);
                             }
                         }}
-                        value={focusedBlock?.bgColor ? focusedBlock?.bgColor : '#000000'}
+                        value={focusedBlock?.bgColor}
                     />
                     <XMarkDiv>
                         <e.ZeroMarginFAIcon

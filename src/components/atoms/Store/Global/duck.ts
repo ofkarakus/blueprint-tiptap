@@ -69,6 +69,9 @@ export const actions = (dispatch: React.Dispatch<types.Action>) => ({
     setBgColor: (color: string) => {
         dispatch({ type: 'SET_BG_COLOR', payload: color });
     },
+    setStrokeType: (type: types.StrokeType) => {
+        dispatch({ type: 'SET_STROKE_TYPE', payload: type });
+    },
     setStrokeWidth: (width: number) => {
         dispatch({ type: 'SET_STROKE_WIDTH', payload: width });
     },
@@ -118,6 +121,11 @@ export function reducer(state: types.InitialState, action: types.Action): types.
                                   )}`,
                                   size: action.payload.size,
                                   coords: action.payload.coords,
+                                  fontColor: '#000000',
+                                  bgColor: 'transparent',
+                                  strokeType: 'none',
+                                  strokeWidth: 0,
+                                  strokeColor: '#000000',
                               },
                               ...state.blocks,
                           ]
@@ -132,6 +140,11 @@ export function reducer(state: types.InitialState, action: types.Action): types.
                                   )}`,
                                   size: action.payload.size,
                                   coords: action.payload.coords,
+                                  fontColor: '#000000',
+                                  bgColor: 'transparent',
+                                  strokeType: 'dashed',
+                                  strokeWidth: 1,
+                                  strokeColor: '#000000',
                               },
                           ],
                 blockIdCounter: state.blockIdCounter + 1,
@@ -217,6 +230,9 @@ export function reducer(state: types.InitialState, action: types.Action): types.
             return updatedBlock(state, blockArr, block, index);
         case 'SET_BG_COLOR':
             block.bgColor = action.payload;
+            return updatedBlock(state, blockArr, block, index);
+        case 'SET_STROKE_TYPE':
+            block.strokeType = action.payload;
             return updatedBlock(state, blockArr, block, index);
         case 'SET_STROKE_WIDTH':
             block.strokeWidth = action.payload;

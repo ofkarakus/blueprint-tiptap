@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import * as e from '../../styles';
 
 export const LabelInput = styled.input`
     border: 0;
@@ -9,12 +10,7 @@ export const LabelInput = styled.input`
     width: 100%;
 `;
 
-export const SizeInput = styled.input`
-    border: 0;
-    padding: 0;
-    &:focus-visible {
-        outline: none;
-    }
+export const SizeInput = styled(e.SizeInput)`
     width: 70%;
 `;
 
