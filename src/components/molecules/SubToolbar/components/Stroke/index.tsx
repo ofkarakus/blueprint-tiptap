@@ -6,10 +6,13 @@ import { SubtoolbarProps } from '../../types';
 import { useStore, useActions } from 'utils/hooks';
 import { SizeInput, Select } from './styles';
 import { StrokeType } from 'components/atoms/Store/Global/types';
+import { useDebouncedCallback } from 'use-debounce';
 
 const Stroke = ({ selectedRnd }: SubtoolbarProps) => {
     const { focusedBlock: fb } = useStore();
-    const { setStrokeWidth, setStrokeType } = useActions();
+    const { setStrokeWidth, setStrokeType, setStrokeColor } = useActions();
+
+    const debouncedStrokeColorChange = useDebouncedCallback((value) => setStrokeColor(value), 100);
 
     return (
         <>
@@ -54,7 +57,16 @@ const Stroke = ({ selectedRnd }: SubtoolbarProps) => {
                     Stroke Colour
                 </td>
                 <e.ColorBlockWrapper>
-                    <e.ColorBlock type={'color'} />
+                    <e.ColorBlock
+                        type={'color'}
+                        onInput={(e) => {
+                            if (selectedRnd && fb) {
+                                selectedRnd.style.border = `${fb.strokeWidth}px ${fb.strokeType} ${e.currentTarget.value}`;
+                                debouncedStrokeColorChange(e.currentTarget.value);
+                            }
+                        }}
+                        value={fb?.strokeColor}
+                    />
                 </e.ColorBlockWrapper>
             </e.SpecificRow1>
         </>
