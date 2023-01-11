@@ -4,7 +4,6 @@ import Stroke from '../Stroke';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
     faAdjust,
-    faEyeDropper,
     faAlignJustify,
     faAlignLeft,
     faAlignCenter,
@@ -16,20 +15,19 @@ import {
     faMagic,
     faHeader,
     faFont,
-    faXmark,
 } from '@fortawesome/free-solid-svg-icons';
-import { SpecificFAIcon, XMarkDiv } from './styles';
+import { SpecificFAIcon } from './styles';
 import { useActions, useStore } from 'utils/hooks';
 import { useDebouncedCallback } from 'use-debounce';
 import { SubtoolbarProps } from '../../types';
 import { HorizontalAlignment, VerticalAlignment } from 'components/atoms/Store/Global/types';
+import BgColor from '../BgColor';
 
 const TextBlock = ({ selectedRnd }: SubtoolbarProps) => {
-    const { setFontColor, setBgColor, setVerticalAlignment, setHorizontalAlignment } = useActions();
+    const { setFontColor, setVerticalAlignment, setHorizontalAlignment } = useActions();
     const { focusedBlock } = useStore();
 
     const debouncedFontColorChange = useDebouncedCallback((value) => setFontColor(value), 100);
-    const debouncedBgColorChange = useDebouncedCallback((value) => setBgColor(value), 100);
 
     const onVerAlignChange = (value: VerticalAlignment) => {
         if (selectedRnd) {
@@ -60,36 +58,7 @@ const TextBlock = ({ selectedRnd }: SubtoolbarProps) => {
                     />
                 </e.ColorBlockWrapper>
             </e.SpecificRow1>
-            <e.SpecificRow1>
-                <td>
-                    <FontAwesomeIcon icon={faEyeDropper} />
-                    Background Fill
-                </td>
-                <e.ColorBlockWrapper>
-                    <e.ColorBlock
-                        type={'color'}
-                        onInput={(e) => {
-                            if (selectedRnd) {
-                                selectedRnd.style.backgroundColor = e.currentTarget.value;
-                                debouncedBgColorChange(e.currentTarget.value);
-                            }
-                        }}
-                        value={focusedBlock?.bgColor}
-                    />
-                    <XMarkDiv>
-                        <e.ZeroMarginFAIcon
-                            icon={faXmark}
-                            size={'2x'}
-                            onClick={() => {
-                                if (selectedRnd) {
-                                    selectedRnd.style.backgroundColor = 'transparent';
-                                    setBgColor('transparent');
-                                }
-                            }}
-                        />
-                    </XMarkDiv>
-                </e.ColorBlockWrapper>
-            </e.SpecificRow1>
+            <BgColor selectedRnd={selectedRnd} />
             <Stroke selectedRnd={selectedRnd} />
             <tr>
                 <td colSpan={3}>

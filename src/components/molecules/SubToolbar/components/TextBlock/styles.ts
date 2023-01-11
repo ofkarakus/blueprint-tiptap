@@ -7,11 +7,3 @@ export const SpecificFAIcon = styled(FontAwesomeIcon)<{ $selected: boolean }>`
     margin-right: 12px !important;
     cursor: pointer;
 `;
-
-export const XMarkDiv = styled.div`
-    width: 25px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-left: 3px;
-`;
