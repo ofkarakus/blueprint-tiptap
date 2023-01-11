@@ -24,10 +24,8 @@ export type Coords = {
     y: number;
 };
 
-export type Alignment = {
-    vertical: string;
-    horizontal: string;
-};
+export type VerticalAlignment = 'start' | 'center' | 'end';
+export type HorizontalAlignment = 'start' | 'center' | 'stretch' | 'end';
 
 export type StrokeType = 'dashed' | 'solid' | 'none';
 
@@ -46,7 +44,8 @@ export type Block = {
     strokeType: StrokeType;
     strokeWidth: number;
     strokeColor: string;
-    alignment?: Alignment;
+    verticalAlignment: VerticalAlignment;
+    horizontalAlignment: HorizontalAlignment;
     fontSize?: number;
     hide?: boolean;
     shrink?: boolean;
@@ -86,4 +85,6 @@ export type Action =
     | { type: 'SET_STROKE_TYPE'; payload: StrokeType }
     | { type: 'SET_STROKE_WIDTH'; payload: number }
     | { type: 'SET_STROKE_COLOR'; payload: string }
+    | { type: 'SET_VERTICAL_ALIGNMENT'; payload: VerticalAlignment }
+    | { type: 'SET_HORIZONTAL_ALIGNMENT'; payload: HorizontalAlignment }
     | { type: 'SET_REF'; payload: { ref: RefObject<Rnd>; id: number } };

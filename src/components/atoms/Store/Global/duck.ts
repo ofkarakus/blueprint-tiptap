@@ -78,6 +78,12 @@ export const actions = (dispatch: React.Dispatch<types.Action>) => ({
     setStrokeColor: (color: string) => {
         dispatch({ type: 'SET_STROKE_COLOR', payload: color });
     },
+    setVerticalAlignment: (alignment: types.VerticalAlignment) => {
+        dispatch({ type: 'SET_VERTICAL_ALIGNMENT', payload: alignment });
+    },
+    setHorizontalAlignment: (alignment: types.HorizontalAlignment) => {
+        dispatch({ type: 'SET_HORIZONTAL_ALIGNMENT', payload: alignment });
+    },
     setRef: (ref: RefObject<Rnd>, id: number) => {
         dispatch({ type: 'SET_REF', payload: { ref, id } });
     },
@@ -126,6 +132,8 @@ export function reducer(state: types.InitialState, action: types.Action): types.
                                   strokeType: 'none',
                                   strokeWidth: 0,
                                   strokeColor: '#000000',
+                                  verticalAlignment: 'center',
+                                  horizontalAlignment: 'center',
                               },
                               ...state.blocks,
                           ]
@@ -145,6 +153,8 @@ export function reducer(state: types.InitialState, action: types.Action): types.
                                   strokeType: 'dashed',
                                   strokeWidth: 1,
                                   strokeColor: '#000000',
+                                  verticalAlignment: 'center',
+                                  horizontalAlignment: 'center',
                               },
                           ],
                 blockIdCounter: state.blockIdCounter + 1,
@@ -239,6 +249,12 @@ export function reducer(state: types.InitialState, action: types.Action): types.
             return updatedBlock(state, blockArr, block, index);
         case 'SET_STROKE_COLOR':
             block.strokeColor = action.payload;
+            return updatedBlock(state, blockArr, block, index);
+        case 'SET_VERTICAL_ALIGNMENT':
+            block.verticalAlignment = action.payload;
+            return updatedBlock(state, blockArr, block, index);
+        case 'SET_HORIZONTAL_ALIGNMENT':
+            block.horizontalAlignment = action.payload;
             return updatedBlock(state, blockArr, block, index);
         case 'SET_REF':
             const indexNew = state.blocks.findIndex((el) => el.id === action.payload.id);

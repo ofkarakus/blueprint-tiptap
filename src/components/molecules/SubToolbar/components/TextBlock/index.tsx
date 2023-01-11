@@ -22,13 +22,27 @@ import { SpecificFAIcon, XMarkDiv } from './styles';
 import { useActions, useStore } from 'utils/hooks';
 import { useDebouncedCallback } from 'use-debounce';
 import { SubtoolbarProps } from '../../types';
+import { HorizontalAlignment, VerticalAlignment } from 'components/atoms/Store/Global/types';
 
 const TextBlock = ({ selectedRnd }: SubtoolbarProps) => {
-    const { setFontColor, setBgColor } = useActions();
+    const { setFontColor, setBgColor, setVerticalAlignment, setHorizontalAlignment } = useActions();
     const { focusedBlock } = useStore();
 
     const debouncedFontColorChange = useDebouncedCallback((value) => setFontColor(value), 100);
     const debouncedBgColorChange = useDebouncedCallback((value) => setBgColor(value), 100);
+
+    const onVerAlignChange = (value: VerticalAlignment) => {
+        if (selectedRnd) {
+            selectedRnd.style.alignItems = value;
+            setVerticalAlignment(value);
+        }
+    };
+    const onHorAlignChange = (value: HorizontalAlignment) => {
+        if (selectedRnd) {
+            selectedRnd.style.justifyContent = value;
+            setHorizontalAlignment(value);
+        }
+    };
 
     return (
         <e.Table>
@@ -85,15 +99,46 @@ const TextBlock = ({ selectedRnd }: SubtoolbarProps) => {
             </tr>
             <e.SpecificRow1>
                 <td>
-                    <SpecificFAIcon icon={faAlignLeft} />
-                    <SpecificFAIcon icon={faAlignCenter} />
-                    <SpecificFAIcon icon={faAlignJustify} />
-                    <SpecificFAIcon icon={faAlignRight} />
+                    <SpecificFAIcon
+                        icon={faAlignLeft}
+                        $selected={focusedBlock?.horizontalAlignment === 'start'}
+                        onClick={() => onHorAlignChange('start')}
+                    />
+                    <SpecificFAIcon
+                        icon={faAlignCenter}
+                        $selected={focusedBlock?.horizontalAlignment === 'center'}
+                        onClick={() => onHorAlignChange('center')}
+                    />
+                    <SpecificFAIcon
+                        icon={faAlignJustify}
+                        $selected={focusedBlock?.horizontalAlignment === 'stretch'}
+                        onClick={() => onHorAlignChange('stretch')}
+                    />
+                    <SpecificFAIcon
+                        icon={faAlignRight}
+                        $selected={focusedBlock?.horizontalAlignment === 'end'}
+                        onClick={() => onHorAlignChange('end')}
+                    />
                 </td>
                 <td>
-                    <SpecificFAIcon icon={faDedent} rotation={90} />
-                    <SpecificFAIcon icon={faAlignJustify} rotation={90} />
-                    <SpecificFAIcon icon={faIndent} rotation={90} />
+                    <SpecificFAIcon
+                        icon={faDedent}
+                        rotation={90}
+                        $selected={focusedBlock?.verticalAlignment === 'start'}
+                        onClick={() => onVerAlignChange('start')}
+                    />
+                    <SpecificFAIcon
+                        icon={faAlignJustify}
+                        rotation={90}
+                        $selected={focusedBlock?.verticalAlignment === 'center'}
+                        onClick={() => onVerAlignChange('center')}
+                    />
+                    <SpecificFAIcon
+                        icon={faIndent}
+                        rotation={90}
+                        $selected={focusedBlock?.verticalAlignment === 'end'}
+                        onClick={() => onVerAlignChange('end')}
+                    />
                 </td>
             </e.SpecificRow1>
             <tr>
